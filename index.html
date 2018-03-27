@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,64 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-3122576" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/3122576/" class="article-date">
+  <time datetime="2018-03-27T09:32:43.500Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/3122576/">Judge Swing Thread</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Judge-Swing-Thread"><a href="#Judge-Swing-Thread" class="headerlink" title="Judge Swing Thread"></a>Judge Swing Thread</h1><ol>
+<li>private  void  clear(){ </li>
+<li>} </li>
+<li><ol start="4">
+<li>if  (SwingUtilities.isEventDispatchThread()) { </li>
+</ol>
+</li>
+<li>clear();  //判断当前线程是否是EDT，是的话，就直接调用clear </li>
+<li>}  else  {  //否则的话，将它放入EDT队列中 </li>
+<li>SwingUtilities.invokeLater(  new  Runnable() { </li>
+<li>public  void  run() { </li>
+<li>clear(); </li>
+<li>} </li>
+<li>}); </li>
+<li>} </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/3122576/" data-id="cjf9grez40000bg9fy39wimlv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swing-thread/">swing thread</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-3122575" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -107,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/10/22/3122575/" data-id="cjf9gifot0000h89fyl819crw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2008/10/22/3122575/" data-id="cjf9gifot0000h89fyl819crw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swing-thread/">swing; thread</a></li></ul>
@@ -127,7 +185,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li></ul>
     </div>
@@ -139,7 +197,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/swing-thread/">swing; thread</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/swing-thread/">swing thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swing-thread/">swing; thread</a></li></ul>
     </div>
   </div>
 
@@ -149,16 +207,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/swing-thread/" style="font-size: 10px;">swing; thread</a>
+      <a href="/tags/swing-thread/" style="font-size: 10px;">swing thread</a> <a href="/tags/swing-thread/" style="font-size: 10px;">swing; thread</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
     </div>
   </div>
 
@@ -166,9 +224,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/27/3122576/">Judge Swing Thread</a>
+          </li>
         
           <li>
             <a href="/2008/10/22/3122575/">Judge Swing Thread</a>
