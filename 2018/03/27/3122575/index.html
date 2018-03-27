@@ -5,14 +5,19 @@
   
 
   
-  <title>Archives | Hexo</title>
+  <title>Judge Swing Thread | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Judge Swing Thread private  void  clear(){  }   if  (SwingUtilities.isEventDispatchThread()) {    clear();  //判断当前线程是否是EDT，是的话，就直接调用clear  }  else  {  //否则的话，将它放入EDT队列中  SwingUtilities.invokeLater(  n">
+<meta name="keywords" content="swing thread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Judge Swing Thread">
+<meta property="og:url" content="http://yoursite.com/2018/03/27/3122575/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Judge Swing Thread private  void  clear(){  }   if  (SwingUtilities.isEventDispatchThread()) {    clear();  //判断当前线程是否是EDT，是的话，就直接调用clear  }  else  {  //否则的话，将它放入EDT队列中  SwingUtilities.invokeLater(  n">
+<meta property="og:updated_time" content="2018-03-27T09:25:23.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Judge Swing Thread">
+<meta name="twitter:description" content="Judge Swing Thread private  void  clear(){  }   if  (SwingUtilities.isEventDispatchThread()) {    clear();  //判断当前线程是否是EDT，是的话，就直接调用clear  }  else  {  //否则的话，将它放入EDT队列中  SwingUtilities.invokeLater(  n">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,53 +64,73 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/27/3122575/" class="archive-article-date">
-  <time datetime="2018-03-27T09:26:00.637Z" itemprop="datePublished">Mar 27</time>
+        <section id="main"><article id="post-3122575" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/3122575/" class="article-date">
+  <time datetime="2018-03-27T09:26:00.637Z" itemprop="datePublished">2018-03-27</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/27/3122575/">Judge Swing Thread</a>
+    <h1 class="article-title" itemprop="name">
+      Judge Swing Thread
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/26/hello-world/" class="archive-article-date">
-  <time datetime="2018-03-26T10:04:42.435Z" itemprop="datePublished">Mar 26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        <h1 id="Judge-Swing-Thread"><a href="#Judge-Swing-Thread" class="headerlink" title="Judge Swing Thread"></a>Judge Swing Thread</h1><ol>
+<li>private  void  clear(){ </li>
+<li>} </li>
+<li><ol start="4">
+<li>if  (SwingUtilities.isEventDispatchThread()) { </li>
+</ol>
+</li>
+<li>clear();  //判断当前线程是否是EDT，是的话，就直接调用clear </li>
+<li>}  else  {  //否则的话，将它放入EDT队列中 </li>
+<li>SwingUtilities.invokeLater(  new  Runnable() { </li>
+<li>public  void  run() { </li>
+<li>clear(); </li>
+<li>} </li>
+<li>}); </li>
+<li>} </li>
+</ol>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/3122575/" data-id="cjf9gifot0000h89fyl819crw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swing-thread/">swing thread</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
