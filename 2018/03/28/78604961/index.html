@@ -5,20 +5,19 @@
   
 
   
-  <title>Judge Swing Thread | 贾亮的博客</title>
+  <title>怎样获得你的系统中使用的C++标准库的版本 | 贾亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Judge Swing Thread private  void  clear(){  }   if  (SwingUtilities.isEventDispatchThread()) {    clear();  //判断当前线程是否是EDT，是的话，就直接调用clear  }  else  {  //否则的话，将它放入EDT队列中  SwingUtilities.invokeLater(  n">
-<meta name="keywords" content="swing; thread">
+  <meta name="description" content="怎样获得你的系统中使用的C++标准库的版本使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。例如我的系统的locate输出为: $ locate libstdc++.so /xx/libstdc++.so.6 /xx/libstdc++.so.6.0.13 /sometool/linux-x86-64/shlib/libstdc++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Judge Swing Thread">
-<meta property="og:url" content="http://yoursite.com/2008/10/22/3122575/index.html">
+<meta property="og:title" content="怎样获得你的系统中使用的C++标准库的版本">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/78604961/index.html">
 <meta property="og:site_name" content="贾亮的博客">
-<meta property="og:description" content="Judge Swing Thread private  void  clear(){  }   if  (SwingUtilities.isEventDispatchThread()) {    clear();  //判断当前线程是否是EDT，是的话，就直接调用clear  }  else  {  //否则的话，将它放入EDT队列中  SwingUtilities.invokeLater(  n">
+<meta property="og:description" content="怎样获得你的系统中使用的C++标准库的版本使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。例如我的系统的locate输出为: $ locate libstdc++.so /xx/libstdc++.so.6 /xx/libstdc++.so.6.0.13 /sometool/linux-x86-64/shlib/libstdc++">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-03-27T09:31:05.190Z">
+<meta property="og:updated_time" content="2018-03-28T06:52:29.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Judge Swing Thread">
-<meta name="twitter:description" content="Judge Swing Thread private  void  clear(){  }   if  (SwingUtilities.isEventDispatchThread()) {    clear();  //判断当前线程是否是EDT，是的话，就直接调用clear  }  else  {  //否则的话，将它放入EDT队列中  SwingUtilities.invokeLater(  n">
+<meta name="twitter:title" content="怎样获得你的系统中使用的C++标准库的版本">
+<meta name="twitter:description" content="怎样获得你的系统中使用的C++标准库的版本使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。例如我的系统的locate输出为: $ locate libstdc++.so /xx/libstdc++.so.6 /xx/libstdc++.so.6.0.13 /sometool/linux-x86-64/shlib/libstdc++">
   
     <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
   
@@ -69,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-3122575" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-78604961" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2008/10/22/3122575/" class="article-date">
-  <time datetime="2008-10-22T01:50:00.000Z" itemprop="datePublished">2008-10-22</time>
+    <a href="/2018/03/28/78604961/" class="article-date">
+  <time datetime="2018-03-28T06:56:58.957Z" itemprop="datePublished">2018-03-28</time>
 </a>
     
   <div class="article-category">
@@ -87,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Judge Swing Thread
+      怎样获得你的系统中使用的C++标准库的版本
     </h1>
   
 
@@ -95,46 +94,58 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Judge-Swing-Thread"><a href="#Judge-Swing-Thread" class="headerlink" title="Judge Swing Thread"></a>Judge Swing Thread</h1><ol>
-<li>private  void  clear(){ </li>
-<li>} </li>
-<li><ol start="4">
-<li>if  (SwingUtilities.isEventDispatchThread()) { </li>
-</ol>
-</li>
-<li>clear();  //判断当前线程是否是EDT，是的话，就直接调用clear </li>
-<li>}  else  {  //否则的话，将它放入EDT队列中 </li>
-<li>SwingUtilities.invokeLater(  new  Runnable() { </li>
-<li>public  void  run() { </li>
-<li>clear(); </li>
-<li>} </li>
-<li>}); </li>
-<li>} </li>
-</ol>
+        <h1 id="怎样获得你的系统中使用的C-标准库的版本"><a href="#怎样获得你的系统中使用的C-标准库的版本" class="headerlink" title="怎样获得你的系统中使用的C++标准库的版本"></a>怎样获得你的系统中使用的C++标准库的版本</h1><p>使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。<br>例如我的系统的locate输出为:</p>
+<pre><code>$ locate libstdc++.so
+/xx/libstdc++.so.6
+/xx/libstdc++.so.6.0.13
+/sometool/linux-x86-64/shlib/libstdc++.so.5
+/usr/lib/libstdc++.so.6
+/usr/lib/libstdc++.so.6.0.19
+/usr/lib/coverity-analysis/bin/libstdc++.so
+/usr/lib/coverity-analysis/bin/libstdc++.so.6
+/usr/lib/coverity-analysis/bin/libstdc++.so.6.0.20
+/usr/lib/debug/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so.debug
+/usr/lib/debug/usr/lib64/libstdc++.so.6.0.19.debug
+/usr/lib/debug/usr/lib64/libstdc++.so.6.debug
+/usr/lib/debug/usr/lib64/libstdc++.so.debug
+/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so
+/usr/lib/gcc/x86_64-redhat-linux/4.8.2/32/libstdc++.so
+/usr/lib64/libstdc++.so.6
+/usr/lib64/libstdc++.so.6.0.19
+</code></pre><p>从上面可以看出，我的系统上安装了以下版本的g++：</p>
+<pre><code>libstdc++.so.5
+4.8.2
+6.0.13
+6.0.19
+6.0.20
+</code></pre><p>第一个需要使用strings命令来查找：</p>
+<pre><code>strings /xxx/libstdc++.so.5|grep LIB  
+GLIBCPP_3.2
+GLIBCPP_3.2.1
+GLIBCPP_3.2.2
+GLIBCPP_3.2.3
+</code></pre><p>所以它对应的C++版本时GCC 3.3.3；<br>第二个一看就是4.8.2</p>
+<p>后面三个，只要更具版本号就可以在下面的网址查询到，分别是：GCC 4.4.2， GCC 4.8.3， GCC 4.9.0</p>
+<p>Note：有时候你用命令找出来的版本可以在这个网址上找不到，原因可能是你的系统是发行商自己基于某个snapshot，自己编译的。<br><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning" target="_blank" rel="noopener"> https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning
+</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/10/22/3122575/" data-id="cjf9gifot0000h89fyl819crw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/28/78604961/" data-id="cjfaqmbsf0000z89fuc0tsw6n" class="article-share-link">Teilen</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swing-thread/">swing; thread</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/03/27/3122576/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Judge Swing Thread
-        
-      </div>
-    </a>
   
+    <a href="/2018/03/27/3122576/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Judge Swing Thread</div>
+    </a>
   
 </nav>
 
