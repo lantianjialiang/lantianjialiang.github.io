@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-78604961" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/22/78604961/" class="article-date">
+  <time datetime="2017-11-22T08:14:35.000Z" itemprop="datePublished">2017-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/78604961/">怎样获得你的系统中使用的C++标准库的版本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。<br>例如我的系统的locate输出为:</p>
+<pre><code>$ locate libstdc++.so
+/xx/libstdc++.so.6
+/xx/libstdc++.so.6.0.13
+/sometool/linux-x86-64/shlib/libstdc++.so.5
+/usr/lib/libstdc++.so.6
+/usr/lib/libstdc++.so.6.0.19
+/usr/lib/coverity-analysis/bin/libstdc++.so
+/usr/lib/coverity-analysis/bin/libstdc++.so.6
+/usr/lib/coverity-analysis/bin/libstdc++.so.6.0.20
+/usr/lib/debug/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so.debug
+/usr/lib/debug/usr/lib64/libstdc++.so.6.0.19.debug
+/usr/lib/debug/usr/lib64/libstdc++.so.6.debug
+/usr/lib/debug/usr/lib64/libstdc++.so.debug
+/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so
+/usr/lib/gcc/x86_64-redhat-linux/4.8.2/32/libstdc++.so
+/usr/lib64/libstdc++.so.6
+/usr/lib64/libstdc++.so.6.0.19
+</code></pre><p>从上面可以看出，我的系统上安装了以下版本的g++：</p>
+<pre><code>libstdc++.so.5
+4.8.2
+6.0.13
+6.0.19
+6.0.20
+</code></pre><p>第一个需要使用strings命令来查找：</p>
+<pre><code>strings /xxx/libstdc++.so.5|grep LIB  
+GLIBCPP_3.2
+GLIBCPP_3.2.1
+GLIBCPP_3.2.2
+GLIBCPP_3.2.3
+</code></pre><p>所以它对应的C++版本时GCC 3.3.3；<br>第二个一看就是4.8.2</p>
+<p>后面三个，只要更具版本号就可以在下面的网址查询到，分别是：GCC 4.4.2， GCC 4.8.3， GCC 4.9.0</p>
+<p>Note：有时候你用命令找出来的版本可以在这个网址上找不到，原因可能是你的系统是发行商自己基于某个snapshot，自己编译的。<br><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning" target="_blank" rel="noopener"> https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/22/78604961/" data-id="cjfarpi2s0000h89fr1k0o5x3" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/22/78604961/">怎样获得你的系统中使用的C++标准库的版本</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
