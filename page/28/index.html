@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/28/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-11224719" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/06/11224719/" class="article-date">
+  <time datetime="2013-09-06T07:28:57.000Z" itemprop="datePublished">2013-09-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/06/11224719/">如何debug ruby</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>how to debug ruby:  </p>
+<p>1. 第一种方法，直接使用ruby内建的debug在命令行调试，这个个gdb或者pdb的命令差不多。  </p>
+<p><strong>ruby -r debug yourubyfile.rb</strong></p>
+<p>2. 在eclipse中debug ruby</p>
+<p><img src="https://img-
+blog.csdn.net/20130906151146000?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">  </p>
+<p>2.1 使用内建的ruby debugger，在上图中选择”Ruby Build-In Debugger”</p>
+<p>2.2 使用Fast Ruby Debugger(ruby-debug),但是一般的ruby都没有ruby-debug包，所有需要自己安装。</p>
+<p>但是1.8，1.9和2.0的安装都不一样。  </p>
+<p>如果你使用的是1.8<br><strong>gem install ruby-debug-base<br>gem install ruby-debug<br>gem install ruby-debug-ide </strong><br>如果你使用的是1.9<br><strong>gem install ruby-debug-base19<br>gem install ruby-debug19  
+</strong></p>
+<p><strong>gem install ruby-debug-ide19</strong></p>
+<p>2.3 使用ActiveState,我没有使用过。  </p>
+<p>NOTE:</p>
+<p>1. 现在ruby-debug还不支持 ruby 2.0<br>2. 有时，远程安装不上或者很长时间没有反映，你可以自己将它们下载到本地，使用–local安装<br>例如: ruby 1.8<br>ruby-debug-base-0.10.4.gem<br>linecache-0.46.gem #这里是依赖关系<br>bx-require-relative-0.0.9.gem  </p>
+<p>ruby-debug-0.10.4.gem<br>columnize-0.3.6.gem  </p>
+<p>ruby-debug-ide-0.4.18.gem<br>rake-10.1.0.gem<br>minitest-5.0.7.gem  </p>
+<p>从rubygems.org将上面的八个gem包下载下来，放到同一个目录，然后使用下面的命令安装<br><strong>gem install –local ruby-debug-base-0.10.4.gem<br>gem install –local ruby-debug-0.10.4.gem<br>gem install –local ruby-debug-ide-0.4.18.gem </strong><br>3. ruby 1.8里面没有保护gem，所有需要我们自己安装<br>download it from rubygems.org, extract it,  </p>
+<p><strong>ruby setup.rb</strong></p>
+<p>4. 如果使用gem时，提示说找不到ruby.h文件，说明你安装的ruby没有安装对于的头文件，</p>
+<p>你可以自己从 <a href="https://ftp.ruby-
+lang.org/pub/rub" target="_blank" rel="noopener"> https://ftp.ruby-lang.org/pub/rub </a> 下载source包，自己编译和安装。</p>
+<p>安装步骤为：</p>
+<p><strong>./configure<br>make<br>make check<br>make install </strong></p>
+<p>如果你想删除安装的文件，可以在ruby的source目录下：</p>
+<p><strong>cat .installed.list | xargs rm -rf</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/09/06/11224719/" data-id="cjfawkq0d000rpk9f0tp151wg" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-11027789" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/04/11027789/" class="article-date">
+  <time datetime="2013-09-04T01:51:46.000Z" itemprop="datePublished">2013-09-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/04/11027789/">C++中内存访问越界出现的奇怪问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>程序的主要逻辑如下：</p>
+<pre><code>int fd;
+int size = 0;
+int bytes = 0;
+
+if (openFile(filename, fd, size)) {
+    char* buffer = new char[size];
+    if ((bytes = ::read(fd, buffer, size))) { ...}
+
+    for (int i=0; i&lt;bytes; i++) {
+        if (i==(bytes-1))  {
+1)           buffer[i+1] = &apos;\0&apos;; //这里数组越界
+        }
+        ...
+2)        string fileStr(linePointer);
+    }
+    ...
+3)    delete[] buffer;
+
+}
+</code></pre><p>因为是公司内部的代码，所以不能贴出详细的代码。  </p>
+<p>上面的代码运行时，会在1)处访问超出数组buffer的边界，因为在C++中数组下标时从0开始的，所有array[array.length]会越界。  </p>
+<p>但是在具体的运行时，会出现奇怪的问题。</p>
+<p>有时会在2)处抛出：<br><strong><em> glibc detected </em></strong> program: malloc(): memory corruption (fast):<br>0x00002aaabd0c3650 ***<br>======= Backtrace: =========<br>/lib64/libc.so.6[0x3e99a73b1c]<br>/lib64/libc.so.6(__libc_malloc+0x6e)[0x3e99a74e4e]<br>/usr/lib64/libstdc++.so.6(_Znwm+0x1d)[0x3e9eabd1dd]<br>/usr/lib64/libstdc++.so.6(_ZNSs4_Rep9_S_createEmmRKSaIcE+0x21)[0x3e9ea9b861]<br>/usr/lib64/libstdc++.so.6[0x3e9ea9c365]<br>/usr/lib64/libstdc++.so.6(_ZNSsC1EPKcRKSaIcE+0x42)[0x3e9ea9c512]<br>…  </p>
+<p>有时会在3)处抛出：<br><strong><em> glibc detected </em></strong> program: double free or corruption (!prev):<br>0x0000000018553af0 ***<br>======= Backtrace: =========<br>/lib64/libc.so.6[0x3e99a7247f]<br>/lib64/libc.so.6(cfree+0x4b)[0x3e99a728db]<br>…  </p>
+<p>刚开始的时候，像这种同一个代码段，在运行多次时，会在不同的地方出错，我以为时多线程问题，  </p>
+<p>后来一看代码，根本就没有多线程，所有否定。</p>
+<p>再仔细看代码下，发现错误，内存访问越界。</p>
+<p>所有我猜测，当C++中出现内存访问越界时，有可能会立即报错，也有可能在下一次/下下一次（在它的附近）<br>的内存访问(new or delete)时会报错，但是这时报出来的错误已经面目全非了。<br>所有像这种问题，还是需要仔细看代码的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/09/04/11027789/" data-id="cjfawkq0e000upk9fr7llrwlh" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10582185" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/30/10582185/" class="article-date">
+  <time datetime="2013-08-30T02:57:16.000Z" itemprop="datePublished">2013-08-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/30/10582185/">使用vi编辑binary文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原理：使用xxd将当前文件转成hex格式，编辑，然后再转回去</p>
+<p>/usr/bin/xxd</p>
+<p>xxd - make a hexdump or do the reverse</p>
+<p>例子：</p>
+<p>用binary模式启动vi  </p>
+<p><strong>vi -b test.txt</strong></p>
+<p><img src="https://img-
+blog.csdn.net/20130830104917765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>将所有内容转成hex</p>
+<p><strong>:%!xxd</strong></p>
+<p><img src="https://img-
+blog.csdn.net/20130830105006921?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">  </p>
+<p>修改你想改的地方；</p>
+<p>然后将所有内容转成binary  </p>
+<p><strong>:%!xxd -r</strong></p>
+<p><a href="http://vim.wikia.com/wiki/Hex_dump" target="_blank" rel="noopener"> <img src="https://img-
+blog.csdn.net/20130830105057406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+</a></p>
+<p>那么:%!xxd是什么意思呢？</p>
+<p>:表示进入vi的命令mode；</p>
+<p>%表示当前文件的所有内容，和1,$一样</p>
+<p>!表示要执行Linux命令，它后面跟的是需要执行的Linux命令</p>
+<p>所以：:%!xxd 和:1,$ !xxd的效果一样；</p>
+<p>如果想改变xxd的输出groupsize，可以使用-g。</p>
+<p>例如：:%!xxd -g 1的输出效果如下。</p>
+<p><a href="http://vim.wikia.com/wiki/Hex_dump" target="_blank" rel="noopener"> <img src="https://img-
+blog.csdn.net/20130830105658421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+</a></p>
+<p>Note：其实%，$等符合是从ex editor来的。具体可参见 <a href="http://www.amazon.com/Learning-Vim-Editors-Arnold-Robbins/dp/059652983X" target="_blank" rel="noopener"> Learning the vi and Vim Editors.pdf
+</a> 一书。<br><a href="http://vim.wikia.com/wiki/Hex_dump" target="_blank" rel="noopener"> </a></p>
+<p><a href="http://vim.wikia.com/wiki/Hex_dump" target="_blank" rel="noopener"> http://vim.wikia.com/wiki/Hex_dump </a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/30/10582185/" data-id="cjfawkq0c000ppk9fqpx5va9o" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10516753" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/29/10516753/" class="article-date">
+  <time datetime="2013-08-29T06:49:47.000Z" itemprop="datePublished">2013-08-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/29/10516753/">从qire123上抓取bdhd下载地址的firefox extension</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. 从 <a href="https://github.com/lantianjialiang/qire123helper" target="_blank" rel="noopener"> https://github.com/lantianjialiang/qire123helper
+</a> 下载  qire123helper.xpi<br>安装到firefox上；</p>
+<p>2. 然后浏览到播放视频的页面，右键会出现“Copy Bdhds”，点击，链接接会copy到剪贴板上；</p>
+<p>3. 打开百度影音下载，就可以了。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/29/10516753/" data-id="cjfawkq0a000npk9fb6dsy0yj" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10510801" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/29/10510801/" class="article-date">
+  <time datetime="2013-08-29T06:21:32.000Z" itemprop="datePublished">2013-08-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/29/10510801/">javascript中的继承方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从 <a href="http://www.ruanyifeng.com/blog/2010/05/object-
+oriented_javascript_inheritance.html" target="_blank" rel="noopener"> Javascript面向对象编程（二）：构造函数的继承
+</a> 这里，可以看到详细的说明。</p>
+<p>我只是将其中的例子做成html文件，便于调试罢了。</p>
+<p>1. <strong>构造函数绑定</strong></p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function Animal(){
+    this.species = &quot;动物&quot;;
+}
+
+Animal.prototype.species2 = &quot;动物2&quot;
+
+function Cat(name,color){
+    Animal.apply(this, arguments);
+    this.name=name;
+    this.color=color;
+}
+Cat.prototype.type = &quot;猫科动物&quot;;
+Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)}; 
+
+var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+alert(cat1.species); // 大毛
+alert(cat1.species2); // 黄色
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Test
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>但是这种方法只适合本地变量的继承，并且Animal和Cat之间也没有关系。</p>
+<p>看截图，可以看到从cat1并不能访问Animal.prototype.species2。</p>
+<p><img src="https://img-
+blog.csdn.net/20130829135440281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>2。 <strong>prototype模式</strong></p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function Animal(){
+    this.species = &quot;动物&quot;;
+}
+
+function Cat(name,color){
+    this.name=name;
+    this.color=color;
+}
+
+Cat.prototype = new Animal();
+Cat.prototype.constructor = Cat;
+
+Cat.prototype.type = &quot;猫科动物&quot;;
+Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)}; 
+
+var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+alert(cat1.name); // 大毛
+alert(cat1.color); // 黄色
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Test
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>从截图可以看出，prototype还是没有改变javascript内部的继承关系，见直角方框；</p>
+<p>圆角方框中的内容就是通过改变prototype，来实现继承。  </p>
+<p><img src="https://img-
+blog.csdn.net/20130829135851828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>3. <strong>直接继承prototype</strong></p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function Animal(){ }
+Animal.prototype.species = &quot;动物&quot;;
+
+function Cat(name,color){
+    this.name=name;
+    this.color=color;
+}
+
+Cat.prototype = Animal.prototype;
+Cat.prototype.constructor = Cat;
+
+Cat.prototype.type = &quot;猫科动物&quot;;
+Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)}; 
+
+var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+alert(cat1.name); // 大毛
+alert(cat1.color); // 黄色
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Test
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>从下面的截图上可以看出，修改Cat.prototype会同时修改Animal.prototype。</p>
+<p><img src="https://img-
+blog.csdn.net/20130829140547406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>4. <strong>利用空对象作为中介</strong></p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function extend(Child, Parent) {
+　　var F = function(){};
+　　F.prototype = Parent.prototype;
+　　Child.prototype = new F();
+　　Child.prototype.constructor = Child;
+　　Child.uber = Parent.prototype;
+}
+
+function Animal(){ }
+Animal.prototype.species = &quot;动物&quot;;
+Animal.prototype.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];
+
+function Cat(name,color){
+    this.name=name;
+    this.color=color;
+}
+
+extend(Cat,Animal);
+
+Cat.prototype.type = &quot;猫科动物&quot;;
+Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)}; 
+
+
+var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+cat1.birthPlaces.push(&apos;厦门&apos;);
+var cat2 = new Cat(&quot;二毛&quot;,&quot;黑色&quot;);
+alert(cat1.name); // 大毛
+alert(cat1.color); // 黄色
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Test
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>但是这种方法，还是存在子类修改父类的方法。</p>
+<pre><code>cat1.birthPlaces.push(&apos;厦门&apos;);
+</code></pre><p>会直接导致Animal中的birthPlaces变量变化，这时就会牵扯到浅拷贝和深拷贝了。  </p>
+<p><img src="https://img-
+blog.csdn.net/20130829141744156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>一句话，上面的方法，都是在模拟继承，但是都不是正的继承。</p>
+<p>javascript中现在还不支持继承，只能能下一个版本。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/29/10510801/" data-id="cjfawkq08000ipk9f5dhxt78z" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10510329" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/29/10510329/" class="article-date">
+  <time datetime="2013-08-29T05:38:14.000Z" itemprop="datePublished">2013-08-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/29/10510329/">非构造函数的继承的详细解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从 <a href="http://www.ruanyifeng.com/blog/2010/05/object-
+oriented_javascript_inheritance_continued.html" target="_blank" rel="noopener"> Javascript面向对象编程（三）：非构造函数的继承
+</a> 这里，可以看到详细的说明。</p>
+<p>我只是将其中的例子做成html文件，便于调试罢了。</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function extendCopy(p) {
+    var c = {};
+
+    for (var i in p) {
+        c[i] = p[i];
+    }
+    c.uber = p;
+
+    return c;
+}
+
+function deepCopy(p, c) {
+    var c = c || {};
+
+    for (var i in p) {
+        if (typeof p[i] === &apos;object&apos;) {
+            c[i] = (p[i].constructor === Array) ? [] : {};
+            deepCopy(p[i], c[i]);
+        } else {
+            c[i] = p[i];
+        }
+    }
+
+    return c;
+}
+
+function object(o) {
+    function F() {}
+    F.prototype = o;
+
+    return new F();
+}
+
+var Chinese = {
+    nation:&apos;中国&apos;
+};
+var Doctor = object(Chinese);
+Doctor.career = &apos;医生&apos;;
+alert(Doctor.nation);
+
+Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];
+var Doctor2 = extendCopy(Chinese);
+//change child
+Doctor2.birthPlaces.push(&apos;厦门&apos;);
+alert(Doctor2.birthPlaces);
+alert(Chinese.birthPlaces);
+
+var Doctor3 = deepCopy(Chinese);
+//change child
+Doctor3.birthPlaces.push(&apos;厦门2&apos;);
+alert(Doctor3.birthPlaces);
+alert(Chinese.birthPlaces);
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Test
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>下面时从web developer debugger上的截图。</p>
+<p>1.通过继承来获得Chinese的nation和birthPlaces属性。  </p>
+<p><img src="https://img-
+blog.csdn.net/20130829133459750?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>2. 这里时浅copy，所有更改Doctor会同时更改Chinese  </p>
+<p><img src="https://img-
+blog.csdn.net/20130829133618703?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>3. 这里时深copy，所有Doctor和Chinese互不影响。  </p>
+<p><img src="https://img-
+blog.csdn.net/20130829133735859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/29/10510329/" data-id="cjfawkq09000lpk9f9pon1ay2" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10509427" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/29/10509427/" class="article-date">
+  <time datetime="2013-08-29T05:31:05.000Z" itemprop="datePublished">2013-08-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/29/10509427/">javascrip中的继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>“实例对象一旦创建，将自动引用prototype对象的属性和方法。也就是说，实例对象的属性和方法，分成两种，一种是本地的，另一种是引用的。”</p>
+<p>从java的角度来说，</p>
+<p><strong>实例对象的本地属性和方法就是private方法或者变量，只对当前的实例对象可见；</strong></p>
+<p><strong>实例对象从prototype对象继承的属性和方法就是public方法或者变量，不仅对当前的实例对象可见，而且对它的子类可见；</strong></p>
+<p>这被称为 <a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="noopener"> Prototype继承模型
+</a><br>。</p>
+<p>可以通过 <strong>isPrototypeOf()</strong> 方法来检查某个对象是否在实例的prototype chain中；</p>
+<p>可以通过 <strong>hasOwnProperty()</strong> 方法来区分本地属性和从prototype继承来的属性；</p>
+<p>但是我在实验 <strong>isPrototypeOf()</strong> 方法时，发现一个问题：  </p>
+<p>例如下面的例子：  </p>
+<p>function Person(name,color){<br>this.name=name;<br>this.color=color;<br>}  </p>
+<p>var p = new Person(“a”, “b”);<br>console.log(Person.prototype.isPrototypeOf(p))<br>// true<br>console.log(Function.prototype.isPrototypeOf(p))<br>// false<br>console.log(Object.prototype.isPrototypeOf(p))<br>// true</p>
+<p>从web developr debugger上的截图上，可以看出，Function类时在p实例的prototype<br>chain上，但是为什么返回false呢。</p>
+<p><img src="https://img-
+blog.csdn.net/20130829133003218?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">  </p>
+<p><a href="http://blog.vjeux.com/2011/javascript/how-prototypal-inheritance-
+really-works.html" target="_blank" rel="noopener"> http://blog.vjeux.com/2011/javascript/how-prototypal-inheritance-really-<br>works.html </a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="noopener"><br>http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html
+</a></p>
+<p><a href="https://developer.mozilla.org/en-
+US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf?redirectlocale=en-
+US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2FisPrototypeOf" target="_blank" rel="noopener"> https://developer.mozilla.org/en-<br>US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf?redirectlocale=en-<br>US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2FisPrototypeOf
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/29/10509427/" data-id="cjfawkq07000gpk9fm3rrg2hn" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10461707" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/28/10461707/" class="article-date">
+  <time datetime="2013-08-28T09:22:41.000Z" itemprop="datePublished">2013-08-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/28/10461707/">在javascript中获得一个对象的所有方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>Object.getOwnPropertyNames(Object.prototype)
+Object.getOwnPropertyNames(Object)
+</code></pre><p>以下是在firebug上运行的结果：  </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Object.getOwnPropertyNames(Object.prototype)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>[“constructor”,<br>“toSource”,<br>“toString”,<br>“toLocaleString”,<br>“valueOf”,<br>“watch”,<br>“unwatch”,<br>“hasOwnProperty”,<br>“isPrototypeOf”,<br>“propertyIsEnumerable”,<br>“<strong>defineGetter</strong>“,<br>“<strong>defineSetter</strong>“,<br>“<strong>lookupGetter</strong>“,<br>“<strong>lookupSetter</strong>“]  </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Object.getOwnPropertyNames(Object)<br>[“prototype”,<br>“getPrototypeOf”,<br>“getOwnPropertyDescriptor”,<br>“keys”,<br>“is”,<br>“defineProperty”,<br>“defineProperties”,<br>“create”,<br>“getOwnPropertyNames”,<br>“isExtensible”,<br>“preventExtensions”,<br>“freeze”,<br>“isFrozen”,<br>“seal”,<br>“isSealed”,<br>“length”,<br>“name”,<br>“arguments”,<br>“caller”]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/28/10461707/" data-id="cjfawkq05000dpk9fm7oj11e4" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10461299" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/28/10461299/" class="article-date">
+  <time datetime="2013-08-28T09:19:19.000Z" itemprop="datePublished">2013-08-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/28/10461299/">在firefox中使用javascript将text传到clipboard上</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最简单的方法是：</p>
+<pre><code>const gClipboardHelper = Components.classes[&quot;@mozilla.org/widget/clipboardhelper;1&quot;]
+                               .getService(Components.interfaces.nsIClipboardHelper);
+gClipboardHelper.copyString(text);
+</code></pre><p><a href="https://developer.mozilla.org/en-US/docs/Using_the_Clipboard" target="_blank" rel="noopener"> https://developer.mozilla.org/en-US/docs/Using_the_Clipboard
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/28/10461299/" data-id="cjfawkq04000cpk9f0revv023" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10457635" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/28/10457635/" class="article-date">
+  <time datetime="2013-08-28T09:17:17.000Z" itemprop="datePublished">2013-08-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/28/10457635/">how to write extension for firefox -- 如何给firefox编写插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. 准备环境</p>
+<p>1.1 创建一个dev profile</p>
+<pre><code>firefox -P
+</code></pre><p>1.2 安装一些开发插件</p>
+<p>firebug &amp; web developer  </p>
+<p>1.3 创建或者修改一些preference</p>
+<p>javascript.options.showInConsole = true<br>nglayout.debug.disable_xul_cache = true<br>browser.dom.window.dump.enabled = true<br>javascript.options.strict = true<br>devtools.chrome.enabled = true<br>devtools.debugger.remote-enabled = true<br>extensions.logging.enabled = true<br>nglayout.debug.disable_xul_fastload = true<br>dom.report_all_js_exceptions = true<br>devtools.errorconsole.deprecation_warnings = true</p>
+<p>1.4 启动firefox</p>
+<pre><code>firefox -no-remote -P dev
+</code></pre><p>使用-no-remoet可以使你同时用自己平时使用的profile浏览网页，和你开发的profile互补干扰。  </p>
+<p><a href="https://developer.mozilla.org/en/docs/Setting_up_extension_development_environment" target="_blank" rel="noopener"><br>https://developer.mozilla.org/en/docs/Setting_up_extension_development_environment
+</a></p>
+<p>2. 修改别人的extension</p>
+<p><a href="http://kb.mozillazine.org/Getting_started_with_extension_development" target="_blank" rel="noopener"> http://kb.mozillazine.org/Getting_started_with_extension_development
+</a></p>
+<p><a href="http://kb.mozillazine.org/Getting_started_with_extension_development" target="_blank" rel="noopener"> http://mozilla.doslash.org/stuff/helloworld.zip  
+</a></p>
+<p>Note 1:当你修改install.rdf中有关firefox的compatile<br>version时，有时会提示你版本不兼容当前的firefox，不要理会，</p>
+<p>清空你的工作环境从新从头开始就好了。</p>
+<p>Note 2: 不管你时修改了install.rdf还是别的文件，都需要重新启动firefox来重新加载你的extension  </p>
+<p>3. 打包</p>
+<p>只要把chrome.manifest中注册的目录和install.rdf打包成zip文件，然后重命名成xpi文件，就可以在firefox上安装了。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/08/28/10457635/" data-id="cjfawkq010009pk9f6he8w1fs" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/27/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/29/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

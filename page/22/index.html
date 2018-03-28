@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/22/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-19905381" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19905381/" class="article-date">
+  <time datetime="2014-02-25T03:23:48.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19905381/">没有经验三天开发一个Android app（第三天 demo级）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第三天，就是做一些界面布局，Fragment和Activity的跳转，数据传递来实现分组的创建和添加联系人。</p>
+<p>不多说，下面是我完成后的app的截图。</p>
+<p>主界面（已经创建了一个test分组）：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225111924750?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>分组的操作：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225111951062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>给分组追加联系人：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225112047125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>编辑短信：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225112121437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>给分组test发送短信：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225112148640?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>发送成功：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225112228343?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>发送的短信（在短信内容的最前面加上了联系人名字）：  </p>
+<p><img src="https://img-
+blog.csdn.net/20140225112253875?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19905381/" data-id="cjfawkq2g004gpk9fp25xknw6" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19905259" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19905259/" class="article-date">
+  <time datetime="2014-02-25T03:16:42.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19905259/">Android中的layout</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. Linear Layout中的weight和gravity的作用。</p>
+<p>先看看下面的例子：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    android:paddingLeft=&quot;16dp&quot;
+    android:paddingRight=&quot;16dp&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+    &lt;EditText
+        android:layout_width=&quot;100dp&quot;
+        android:gravity=&quot;right&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_weight=&quot;1&quot;
+        android:hint=&quot;@string/to&quot; /&gt;
+    &lt;EditText
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_weight=&quot;1&quot;
+        android:hint=&quot;@string/subject&quot; /&gt;
+    &lt;EditText
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;10&quot;
+        android:gravity=&quot;bottom&quot;
+        android:hint=&quot;@string/message&quot; /&gt;
+    &lt;Button
+        android:layout_width=&quot;100dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;right&quot;
+        android:text=&quot;@string/send&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>效果是：</p>
+<p><img src="https://img-
+blog.csdn.net/20140225152546156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>从上图可以知道，weight的计算方法是：</p>
+<p>1+1+2=4,所有第一个EditText会占总空间（除过最后一个EditText）的25%，第二个也是25%，第三个是50%。</p>
+<p>gravity的作用是View的内容的显示方式是从哪里开始。</p>
+<p>（Specifies how an object should position its content, on both the X and Y<br>axes, within its own bounds. ）</p>
+<p><a href="http://developer.android.com/reference/android/widget/LinearLayout.html" target="_blank" rel="noopener"> http://developer.android.com/reference/android/widget/LinearLayout.html
+</a></p>
+<p>2. Relative layout中的参数</p>
+<h2 id="XML-Attributes"><a href="#XML-Attributes" class="headerlink" title="XML Attributes  "></a>XML Attributes  </h2><p><em>Attribute Name</em> |  <em>Related Method</em> |  <em>Description</em><br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_above" target="_blank" rel="noopener"> android:layout_above
+</a><br>|  |  Positions the bottom edge of this view above the given anchor view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignBaseline" target="_blank" rel="noopener"> android:layout_alignBaseline
+</a><br>|  |  Positions the baseline of this view on the baseline of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignBottom" target="_blank" rel="noopener"> android:layout_alignBottom
+</a><br>|  |  Makes the bottom edge of this view match the bottom edge of the given<br>anchor view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignEnd" target="_blank" rel="noopener"> android:layout_alignEnd
+</a><br>|  |  Makes the end edge of this view match the end edge of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignLeft" target="_blank" rel="noopener"> android:layout_alignLeft
+</a><br>|  |  Makes the left edge of this view match the left edge of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentBottom" target="_blank" rel="noopener"> android:layout_alignParentBottom
+</a><br>|  |  If true, makes the bottom edge of this view match the bottom edge of the<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentEnd" target="_blank" rel="noopener"> android:layout_alignParentEnd
+</a><br>|  |  If true, makes the end edge of this view match the end edge of the<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentLeft" target="_blank" rel="noopener"> android:layout_alignParentLeft
+</a><br>|  |  If true, makes the left edge of this view match the left edge of the<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentRight" target="_blank" rel="noopener"> android:layout_alignParentRight
+</a><br>|  |  If true, makes the right edge of this view match the right edge of the<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentStart" target="_blank" rel="noopener"> android:layout_alignParentStart
+</a><br>|  |  If true, makes the start edge of this view match the start edge of the<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentTop" target="_blank" rel="noopener"> android:layout_alignParentTop
+</a><br>|  |  If true, makes the top edge of this view match the top edge of the<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignRight" target="_blank" rel="noopener"> android:layout_alignRight
+</a><br>|  |  Makes the right edge of this view match the right edge of the given<br>anchor view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignStart" target="_blank" rel="noopener"> android:layout_alignStart
+</a><br>|  |  Makes the start edge of this view match the start edge of the given<br>anchor view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignTop" target="_blank" rel="noopener"> android:layout_alignTop
+</a><br>|  |  Makes the top edge of this view match the top edge of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignWithParentIfMissing" target="_blank" rel="noopener"> android:layout_alignWithParentIfMissing
+</a><br>|  |  If set to true, the parent will be used as the anchor when the anchor<br>cannot be be found for layout_toLeftOf, layout_toRightOf, etc.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_below" target="_blank" rel="noopener"> android:layout_below
+</a><br>|  |  Positions the top edge of this view below the given anchor view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerHorizontal" target="_blank" rel="noopener"> android:layout_centerHorizontal
+</a><br>|  |  If true, centers this child horizontally within its parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerInParent" target="_blank" rel="noopener"> android:layout_centerInParent
+</a><br>|  |  If true, centers this child horizontally and vertically within its<br>parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerVertical" target="_blank" rel="noopener"> android:layout_centerVertical
+</a><br>|  |  If true, centers this child vertically within its parent.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_toEndOf" target="_blank" rel="noopener"> android:layout_toEndOf
+</a><br>|  |  Positions the start edge of this view to the end of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_toLeftOf" target="_blank" rel="noopener"> android:layout_toLeftOf
+</a><br>|  |  Positions the right edge of this view to the left of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_toRightOf" target="_blank" rel="noopener"> android:layout_toRightOf
+</a><br>|  |  Positions the left edge of this view to the right of the given anchor<br>view ID.<br><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_toStartOf" target="_blank" rel="noopener"> android:layout_toStartOf
+</a><br>|  |  Positions the end edge of this view to the start of the given anchor<br>view ID.  </p>
+<p><a href="http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html" target="_blank" rel="noopener"><br>http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html
+</a></p>
+<p><a href="http://developer.android.com/guide/topics/ui/declaring-layout.html" target="_blank" rel="noopener"> http://developer.android.com/guide/topics/ui/declaring-layout.html
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19905259/" data-id="cjfawkq2h004ipk9fhru7jmo2" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19905027" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19905027/" class="article-date">
+  <time datetime="2014-02-25T03:14:43.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19905027/">Android中的support library</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有时你使用Eclipse创建完成Android工程后，会需要更改support，你可以参见这里：</p>
+<ol>
+<li>Make sure you have downloaded the <strong>Android Support Library</strong> using the <a href="https://developer.android.com/tools/support-library/setup.html#download" target="_blank" rel="noopener"> SDK Manager </a> . </li>
+<li>Create a <code>libs/</code> directory in the root of your application project. </li>
+<li>Copy the JAR file from your Android SDK installation directory (e.g., <code>&lt;sdk&gt;/extras/android/support/v4/android-support-v4.jar</code> ) into your application’s project <code>libs/</code> directory. </li>
+<li>Right click the JAR file and select <strong>Build Path &gt; Add to Build Path </strong> . </li>
+</ol>
+<p><a href="https://developer.android.com/tools/support-library/setup.html" target="_blank" rel="noopener">https://developer.android.com/tools/support-library/setup.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19905027/" data-id="cjfawkq2e004cpk9fdu5lefo4" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19904881" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19904881/" class="article-date">
+  <time datetime="2014-02-25T03:11:03.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19904881/">Adnroid中Activity的生命周期</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>没有什么可说的，官网文档说的很详细：</p>
+<p><a href="http://developer.android.com/guide/components/activities.html" target="_blank" rel="noopener"> http://developer.android.com/guide/components/activities.html
+</a></p>
+<p><a href="http://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="noopener"> http://developer.android.com/guide/components/tasks-and-back-stack.html
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19904881/" data-id="cjfawkq2f004epk9flp1aw4p4" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19903901" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19903901/" class="article-date">
+  <time datetime="2014-02-25T03:02:22.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19903901/">在Android中，什么是Fragments</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单的说，Fragment就是Activity中的小“Activity”，它可以使你在一个Activity中实现多个panel的布局。</p>
+<p>以下是Fragment的以下topic：</p>
+<p>Add a Fragment to an Activity using XML<br>Add a Fragment to an Activity at Runtime<br>Replace One Fragment with Another<br>Deliver a Message to a Fragment  </p>
+<p><a href="http://developer.android.com/guide/components/fragments.html" target="_blank" rel="noopener"> http://developer.android.com/guide/components/fragments.html
+</a></p>
+<p>PS：但是我现在对Activity vs Fragment的关系还是不太理解。</p>
+<p>PPS：如果你要替换Fragment的话，你可以参加：</p>
+<p><a href="http://cleancodedevelopment-
+qualityseal.blogspot.de/2013/10/dynamically-fragment-replacement-android.html" target="_blank" rel="noopener"> http://cleancodedevelopment-qualityseal.blogspot.de/2013/10/dynamically-<br>fragment-replacement-android.html </a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19903901/" data-id="cjfawkq2d004apk9f3b4tb0nd" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19903483" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19903483/" class="article-date">
+  <time datetime="2014-02-25T02:50:10.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19903483/">Adnroid中的R.java的作用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一句话来说，R.java就是你的资源的别名，这个别名可以在java中直接使用，你不必理会它是图片，文件。它就是一个int值。</p>
+<p>Once you provide a resource in your application (discussed in Providing<br>Resources),</p>
+<p>you can apply it by referencing its resource ID. All resource IDs are defined<br>in your project’s R class, which the <strong>aapt</strong> tool automatically generates.<br><a href="http://developer.android.com/guide/topics/resources/accessing-
+resources.html" target="_blank" rel="noopener"> http://developer.android.com/guide/topics/resources/accessing-resources.html
+</a><br><a href="http://www.satyakomatineni.com/akc/display?url=displaynoteimpurl&amp;ownerUserId=satya&amp;reportId=2883" target="_blank" rel="noopener"><br>http://www.satyakomatineni.com/akc/display?url=displaynoteimpurl&amp;ownerUserId=satya&amp;reportId=2883
+</a><br><a href="http://www.yugandroid.in/android-tutorials/r-java-file.html" target="_blank" rel="noopener"> http://www.yugandroid.in/android-tutorials/r-java-file.html
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19903483/" data-id="cjfawkq2c0048pk9f33niqgp6" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19902301" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19902301/" class="article-date">
+  <time datetime="2014-02-25T02:46:06.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19902301/">没有经验三天开发一个Android app（第二天 demo级）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第二天就是你要做的app的实现了。</p>
+<p>我想做的app是短信群发，这个app要有功能：</p>
+<p>1. 分组功能，组可以增加，删除，重命名，给组中追加联系人/删除联系人；</p>
+<p>2. 短信可以发给某一个分组或者所有的联系人，在发送短信之前要加上联系人的名字；</p>
+<p>3. 分组信息要持久化</p>
+<p>从需求来看这里比较重要的就是获得联系人信息和发送短信；</p>
+<p>然后google android get all contact 和 android send message就可以找到相应的代码段来实现这两个功能。</p>
+<p>以下是我现在的代码中使用的code：</p>
+<p>获得所有的联系人：</p>
+<pre><code>public static List&lt;Contact&gt; getAllContact(ContentResolver cr) {
+    List&lt;Contact&gt; contacts = new ArrayList&lt;Contact&gt;();
+    Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+    if(cur.getCount() &lt;= 0) {
+        return contacts;
+    } 
+
+    while (cur.moveToNext()) {
+        String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+        String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+
+        Contact contact = new Contact();
+        contact.name = name;
+
+        if (Integer.parseInt(cur.getString(cur
+                        .getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) &gt; 0) {
+            Cursor pCur = cr.query(
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID
+                            + &quot; = ?&quot;, new String[] { id }, null);
+            while (pCur.moveToNext()) {
+                String phoneNo = pCur.getString(pCur
+                                .getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                contact.telNumbers.add(phoneNo);
+            }
+            pCur.close();
+        }
+
+        contacts.add(contact);
+    }
+
+    return contacts;
+}
+</code></pre><p>发送短信：</p>
+<pre><code>private void sendMessage(Contact contact, String text) {
+    if (contact.telNumbers.size() &lt;= 0) {
+        return;
+    }
+
+    String sms = &quot;Hi, &quot; + contact.name + &quot;. &quot; + text;
+
+    try {
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(contact.telNumbers.get(0), null, sms, null, null);
+        contact.isSend = true;
+    } catch (Exception e) {
+        contact.isSend = false;
+    }
+}
+</code></pre><p>下面是我第一天完成后的界面：</p>
+<p><img src="https://img-
+blog.csdn.net/20140225104326734?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>发送的结果：</p>
+<p><img src="https://img-
+blog.csdn.net/20140225104448046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19902301/" data-id="cjfawkq2b0046pk9fuul0e35h" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19900083" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/25/19900083/" class="article-date">
+  <time datetime="2014-02-25T02:15:31.000Z" itemprop="datePublished">2014-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/25/19900083/">没有经验三天开发一个Android app（第一天 demo级）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上次朋友推荐我去西安华为终端，然后HR打电话和我聊，问我有没有Android的开发经验，我说没有，然后就没有给我面试机会。</p>
+<p>这里我很是不忿，为什么没有相关的经验，就不能做相关的事情呢？当然我承认没有经验的别有经验的人在刚开始干活的时候，</p>
+<p>会有差别，但是难道经验是万能的，难道跨界这么难？</p>
+<p>我在这里说三天开发一个app，不是想说明Android开发很简单，也没有黑华为的意思。只是想说明相关开发经验有没有都可以，</p>
+<p>只要你这个人的学习能力比较强就好。</p>
+<p>分割线————————————————————————————————————————————————–</p>
+<p>第一天</p>
+<p>从Android的官网下载带ADT的Eclipse，如果你的网络不给力的话，会花费一段时间；</p>
+<p><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="noopener"> http://developer.android.com/sdk/index.html
+</a>  </p>
+<p>然后就是按照官网的教材，熟悉一下什么是模拟器，什么是Android SDK管理器，什么是Android工程，然模拟器运行起来；</p>
+<p>然后根据官网的教材，作出自己的第一个app；</p>
+<p><a href="http://developer.android.com/training/basics/firstapp/index.html" target="_blank" rel="noopener"> http://developer.android.com/training/basics/firstapp/index.html
+</a></p>
+<p>因为我一直使用Eclipse进行开发，所以花费的时间比较短，加上下载ADT的时间4+小时。</p>
+<p>PS：Android用Eclipse做开发已经不错了，为什么官方还在做IntelliJ IDEA？</p>
+<p>PPS：刚开始不要管各种概念，先将第一个app完成后，然后再开一下整体的开发流程就差不多了。</p>
+<p>见下图：  </p>
+<p><img src="http://developer.android.com/images/developing/developing_overview.png" alt="">  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/25/19900083/" data-id="cjfawkq280042pk9fq1h5fd1x" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19544883" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/20/19544883/" class="article-date">
+  <time datetime="2014-02-20T03:06:55.000Z" itemprop="datePublished">2014-02-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/20/19544883/">Android 通讯录已停止运行/Unfortunately, Contacts has stopped</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天不小心将管理短信的进程强制停止后，出现短信界面打不开，一直提示通”讯录已停止运行“。</p>
+<p>在网上搜索了一下，有很多人遇到了同样的问题，但是最后都没有给出明确的答案。</p>
+<p>这里给处我的解决方法（其他的清除通讯录的缓存，重启机器等都不行）： <strong>恢复出厂设置/Reset factory。</strong>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/20/19544883/" data-id="cjfawkq290044pk9f6hkqcfjn" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19476369" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/19/19476369/" class="article-date">
+  <time datetime="2014-02-19T02:11:38.000Z" itemprop="datePublished">2014-02-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/19/19476369/">Java中overriding的规则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Rules-for-method-overriding"><a href="#Rules-for-method-overriding" class="headerlink" title="Rules for method overriding:"></a>Rules for method overriding:</h2><ul>
+<li><p>The argument list should be exactly the same as that of the overridden method. </p>
+</li>
+<li><p>参数列表必须一致   </p>
+</li>
+<li><p>The return type should be the same or a subtype of the return type declared in the original overridden method in the superclass. </p>
+</li>
+<li><p>return的类型可以一样，或者子类returen的类型是父类的子类   </p>
+</li>
+<li><p>The access level cannot be more restrictive than the overridden method’s access level. For example: if the superclass method is declared public then the overridding method in the sub class cannot be either private or protected. </p>
+</li>
+<li><p>访问级别只能比父类的更宽松；Java中的访问级别从高到低依次是：public, package level(具体使用时什么都不写),protected, private   </p>
+</li>
+<li><p>Instance methods can be overridden only if they are inherited by the subclass. </p>
+</li>
+<li><p>实例方法只能覆盖从父类继承的方法   </p>
+</li>
+<li><p>A method declared final cannot be overridden. </p>
+</li>
+<li><p>final方法不能被覆盖   </p>
+</li>
+<li><p>A method declared static cannot be overridden but can be re-declared. </p>
+</li>
+<li><p>static方法不能被覆盖，但是可以被重新声明   </p>
+</li>
+<li><p>If a method cannot be inherited, then it cannot be overridden. </p>
+</li>
+<li><p>如果方法不能继承，方法野不能覆盖   </p>
+</li>
+<li><p>A subclass within the same package as the instance’s superclass can override any superclass method that is not declared private or final. </p>
+</li>
+<li><p>如果子类扶父类在同一个包下，子类可以覆盖父类的所以非private或final的方法   </p>
+</li>
+<li><p>A subclass in a different package can only override the non-final methods declared public or protected. </p>
+</li>
+<li><p>如果子类扶父类在不同的包下，子类可以覆盖父类的所以非final同时public/protected的方法   </p>
+</li>
+<li><p>An overriding method can throw any uncheck exceptions, regardless of whether the overridden method throws exceptions or not. However the overriding method should not throw checked exceptions that are new or broader than the ones declared by the overridden method. The overriding method can throw narrower or fewer exceptions than the overridden method. </p>
+</li>
+<li><p>不管父类有没有抛出异常，子类覆盖的方法可以抛出不检查的异常；如果父类抛出了异常，那么子类覆盖的方法只能抛出比父类范围更小的异常   </p>
+</li>
+<li><p>Constructors cannot be overridden. </p>
+</li>
+<li><p>构造函数不能覆盖 </p>
+</li>
+</ul>
+<p>如果对上面的说明还是不理解，可以参加下面的例子：</p>
+<p>1. 父类</p>
+<pre><code>public class TestA {
+
+    protected void test1(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return;        
+    }
+
+    protected long test2(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return 0;        
+    }
+
+    protected TestB test3(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test4(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test5(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test6(int a, TestA b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test6(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected static TestA test7(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test8(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test9(int a, int b) throws Exception{
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected TestA test10(int a, int b) throws NullPointerException{
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+    protected static TestA test11(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+}
+</code></pre><p>2. 子类</p>
+<pre><code>public class TestB extends TestA{
+
+    @Override
+    public void test1(int a, int b) {
+        System.out.println(&quot;sub&quot;);
+        return;        
+    }
+
+    @Override
+    public long test2(int a, int b) {
+        System.out.println(&quot;sub&quot;);
+        return 0;        
+    }
+
+// fail    
+//    @Override
+//    protected TestA test3(int a, int b) {
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+    @Override
+    protected TestB test3(int a, int b) {
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+    @Override
+    protected TestB test4(int a, int b) {
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+    @Override
+    public TestB test5(int a, int b) {
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+//    fail
+//    @Override
+//    protected TestA test6(int a, TestB b) {
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+    @Override
+    protected TestA test6(int a, TestA b) {
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+    @Override
+    protected TestA test6(int a, int b) {
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+//    fail: This instance method cannot override the static method
+//    protected TestA test7(int a, int b) {
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+//    fail: can not throw checked exception
+//    @Override
+//    protected TestA test8(int a, int b) throws Exception {
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+    @Override
+    protected TestA test8(int a, int b) throws NullPointerException {
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+// fail:Exception Throwable is not compatible with throws 
+//     clause in TestA.test8(int, int)
+//    @Override
+//    protected TestA test8(int a, int b) throws Throwable {
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+
+//    OK
+//    @Override
+//    protected TestA test9(int a, int b) throws Exception{
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+//    OK
+//    @Override
+//    protected TestA test9(int a, int b) throws Error{
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+    @Override
+    protected TestA test9(int a, int b) throws NullPointerException{
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+//    fail
+//    @Override
+//    protected TestA test9(int a, int b) throws Throwable{
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+    @Override
+    protected TestA test10(int a, int b) throws NullPointerException{
+        System.out.println(&quot;sub&quot;);
+        return null;        
+    }
+
+//    fail
+//    @Override
+//    protected TestA test10(int a, int b) throws Exception{
+//        System.out.println(&quot;sub&quot;);
+//        return null;        
+//    }
+
+    protected static TestA test11(int a, int b) {
+        System.out.println(&quot;supper&quot;);
+        return null;        
+    }
+
+
+}
+</code></pre><p><a href="http://www.tutorialspoint.com/java/java_overriding.htm" target="_blank" rel="noopener"> http://www.tutorialspoint.com/java/java_overriding.htm
+</a></p>
+<p><a href="http://docs.oracle.com/javase/tutorial/java/IandI/override.html" target="_blank" rel="noopener"> http://docs.oracle.com/javase/tutorial/java/IandI/override.html
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/02/19/19476369/" data-id="cjfawkq270040pk9fu84urxdh" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/21/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/23/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

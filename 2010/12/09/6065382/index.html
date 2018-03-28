@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>linux 下fdisk的使用 | 贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下是一个实际的例子，请各位参考： nx[root@test]# fdisk –l    (    显示所有的磁盘和分区    )   Disk /dev/sda: 300.0 GB, 300000000000 bytes 255 heads, 63 sectors/track, 36472 cylinders Units = cylinders of 16065 * 512 = 8225280">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 下fdisk的使用">
+<meta property="og:url" content="http://yoursite.com/2010/12/09/6065382/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:description" content="以下是一个实际的例子，请各位参考： nx[root@test]# fdisk –l    (    显示所有的磁盘和分区    )   Disk /dev/sda: 300.0 GB, 300000000000 bytes 255 heads, 63 sectors/track, 36472 cylinders Units = cylinders of 16065 * 512 = 8225280">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2018-03-28T08:57:00.962Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux 下fdisk的使用">
+<meta name="twitter:description" content="以下是一个实际的例子，请各位参考： nx[root@test]# fdisk –l    (    显示所有的磁盘和分区    )   Disk /dev/sda: 300.0 GB, 300000000000 bytes 255 heads, 63 sectors/track, 36472 cylinders Units = cylinders of 16065 * 512 = 8225280">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-6065382" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/12/09/6065382/" class="article-date">
+  <time datetime="2010-12-09T05:58:00.000Z" itemprop="datePublished">2010-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux 下fdisk的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下是一个实际的例子，请各位参考：</p>
+<p>nx[root@test]# <strong>fdisk –l</strong> <strong> </strong> <strong> (  </strong> <strong> 显示所有的磁盘和分区  </strong> <strong> )  </strong></p>
+<p>Disk /dev/sda: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sda1  1  7  56196  12  Compaq diagnostics</p>
+<p>/dev/sda2  *  8  20  104422+  83  Linux</p>
+<p>Disk /dev/sdb: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdb1  *  1  13054  104856223+  83  Linux</p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>[root@test]# <strong>fdisk /dev/sdc</strong> <strong> (  </strong> <strong> 对磁盘  </strong> <strong> /dev/sdc  </strong> <strong> 进行分区等设置
+</strong> <strong> )  </strong></p>
+<p>The number of cylinders for this disk is set to 36472.</p>
+<p>There is nothing wrong with that, but this is larger than 1024,</p>
+<p>and could in certain setups cause problems with:</p>
+<p>1) software that runs at boot time (e.g., old versions of LILO)</p>
+<p>2) booting and partitioning software from other OSs</p>
+<p>(e.g., DOS FDISK, OS/2 FDISK)</p>
+<p>Command (m for help): <strong>p</strong> <strong> (  </strong> <strong> 打印出当前磁盘的分区表  </strong> <strong> )  </strong></p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>Command (m for help): <strong>m</strong> <strong> (  </strong> <strong> 打印帮助  </strong> <strong> )  </strong></p>
+<p>Command action</p>
+<p>a  toggle a bootable flag</p>
+<p>b  edit bsd disklabel</p>
+<p>c  toggle the dos compatibility flag</p>
+<p>d  delete a partition</p>
+<p>l  list known partition types</p>
+<p>m  print this menu</p>
+<p>n  add a new partition</p>
+<p>o  create a new empty DOS partition table</p>
+<p>p  print the partition table</p>
+<p>q  quit without saving changes</p>
+<p>s  create a new empty Sun disklabel</p>
+<p>t  change a partition’s system id</p>
+<p>u  change display/entry units</p>
+<p>v  verify the partition table</p>
+<p>w  write table to disk and exit</p>
+<p>x  extra functionality (experts only)</p>
+<p>Command (m for help): <strong>n</strong> <strong> (  </strong> <strong> 添加一个分区，注意：如果  </strong> <strong> /dev/sdc  </strong> <strong><br>是一个没有分区的磁盘的话，必须先创建一个  </strong> <strong> primary partition  </strong> <strong> 分区  </strong> <strong> )  </strong></p>
+<p>Command action</p>
+<p>e  extended</p>
+<p>p  primary partition (1-4)</p>
+<p><strong> p  </strong> <strong> (  </strong> <strong> 创建主分区  </strong> <strong> )  </strong></p>
+<p>Partition number (1-4):  <strong> (  </strong> <strong> 这里没有输入合法的值  </strong> <strong> )  </strong></p>
+<p>Value out of range.</p>
+<p>Partition number (1-4): <strong>1</strong> <strong> (  </strong> <strong> 分区的编号是  </strong> <strong> 1)  </strong></p>
+<p>First cylinder (1-36472, default 1):  <strong> (  </strong> <strong> 分区的起始位置，默认值是  </strong> <strong> 1)  </strong></p>
+<p>Using default value 1</p>
+<p>Last cylinder or +size or +sizeM or +sizeK (1-36472, default 36472):<br><strong>+51200M</strong> <strong> (  </strong> <strong> 分区的大小是  </strong> <strong> 50G)  </strong></p>
+<p>Command (m for help): <strong>p</strong> <strong> </strong> (  打印分区表，检查刚才创建的分区是否正确  )</p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdc1  1  6226  50010313+  83  Linux</p>
+<p>Command (m for help): <strong>w</strong> <strong> (  </strong> <strong> 将刚才创建的信息写入磁盘，使之生效  </strong> <strong> )  </strong></p>
+<p>The partition table has been altered!</p>
+<p>Calling ioctl() to re-read partition table.</p>
+<p>Syncing disks.</p>
+<p>[root@test]# <strong>fdisk -l</strong></p>
+<p>Disk /dev/sda: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sda1  1  7  56196  12  Compaq diagnostics</p>
+<p>/dev/sda2  *  8  20  104422+  83  Linux</p>
+<p>Disk /dev/sdb: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdb1  *  1  13054  104856223+  83  Linux</p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdc1  1  6226  50010313+  83  Linux</p>
+<p>[root@test]# <strong>mkfs.ext3 -b 4096 /dev/sdc1</strong> <strong> (  </strong> <strong> 在刚才创建好的  </strong> <strong><br>/dev/sdc1  </strong> <strong> 分区上，建立  </strong> <strong> ext3  </strong> <strong> 文件系统  </strong> <strong> )  </strong></p>
+<p>mke2fs 1.39 (29-May-2006)</p>
+<p>Filesystem label=</p>
+<p>OS type: Linux</p>
+<p>Block size=4096 (log=2)</p>
+<p>Fragment size=4096 (log=2)</p>
+<p>6258688 inodes, 12502578 blocks</p>
+<p>625128 blocks (5.00%) reserved for the super user</p>
+<p>First data block=0</p>
+<p>Maximum filesystem blocks=4294967296</p>
+<p>382 block groups</p>
+<p>32768 blocks per group, 32768 fragments per group</p>
+<p>16384 inodes per group</p>
+<p>Superblock backups stored on blocks:</p>
+<p>10.43.118.16532768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632,<br>2654208,</p>
+<p>10.43.118.1654096000, 7962624, 11239424</p>
+<p>Writing inode tables: done</p>
+<p>Creating journal (32768 blocks): done</p>
+<p>Writing superblocks and filesystem accounting information: done</p>
+<p>This filesystem will be automatically checked every 23 mounts or</p>
+<p>180 days, whichever comes first.  Use tune2fs -c or -i to override.</p>
+<p>[root@test]# <strong>df</strong> <strong> (  </strong> <strong> 查看当前文件系统的磁盘使用量  </strong> <strong> )  </strong></p>
+<p>Filesystem  1K-blocks  Used Available Use% Mounted on</p>
+<p>/dev/sdb1  101572540  3943032  92386700  5% /</p>
+<p>/dev/sda2  101105  10452  85432  11% /boot</p>
+<p>tmpfs  8219868  0  8219868  0% /dev/shm</p>
+<p>[root@test]# <strong>mkdir /base</strong></p>
+<p>[root@test]# <strong>mount /dev/sdc1 /base</strong> <strong> (  </strong> <strong> 将  </strong> <strong> /dev/sdc1  </strong> <strong><br>挂到  </strong> <strong> /base  </strong> <strong> 下  </strong> <strong> )  </strong></p>
+<p>[root@test]# <strong>df</strong></p>
+<p>Filesystem  1K-blocks  Used Available Use% Mounted on</p>
+<p>/dev/sdb1  101572540  3943032  92386700  5% /</p>
+<p>/dev/sda2  101105  10452  85432  11% /boot</p>
+<p>tmpfs  8219868  0  8219868  0% /dev/shm</p>
+<p>/dev/sdc1  49224712  184332  46539868  1% /base</p>
+<p>完成以上工作后，就可以使用文件系统了，但是如果想要在系统启动之后，自动  mount  自己的分区，需要修改  /etc/fstab  ，在最后追加一行：</p>
+<p><strong> /dev/sdc1  /base  ext3  defaults  1 2  </strong></p>
+<p>每列的具体含义可参见：</p>
+<p><a href="http://www.ghacks.net/2009/01/03/understanding-linux-etcfstab/" target="_blank" rel="noopener">http://www.ghacks.net/2009/01/03/understanding-linux-etcfstab/</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Fstab" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Fstab</a></p>
+<p>以下方法参见：</p>
+<p><a href="http://www.cyberciti.biz/faq/linux-disk-format/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/linux-disk-format/</a></p>
+<p><a href="http://www.idevelopment.info/data/Unix/Linux/LINUX_PartitioningandFormattingSecondHardDrive_ext3.shtml" target="_blank" rel="noopener">http://www.idevelopment.info/data/Unix/Linux/LINUX_PartitioningandFormattingSecondHardDrive_ext3.shtml</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/12/09/6065382/" data-id="cjfawkqbd00kapk9fg9qhmbfo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/01/31/6170575/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          sony ericsson dbk file 的查看
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/11/25/6034148/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">fedora 9下ftp,telnet的安装和设置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

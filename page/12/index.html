@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/12/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-43987703" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/43987703/" class="article-date">
+  <time datetime="2015-02-28T09:20:44.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/43987703/">Java中的BigDecimal使用注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.BigDecial是immutable的，就像String一样，它的所有操作都会生成一个新的对象，所以  </p>
+<p>amount.add( thisAmount );  </p>
+<p>是错误的；而应该是：  </p>
+<p>amount = amount.add( thisAmount );  </p>
+<p>2. 不要用equals方法来比较BigDecimal对象，因为它的equals方法会比较scale，如果scale不一样，它会返回false；例如：  </p>
+<p>BigDecimal a = new BigDecimal(“2.00”);<br>BigDecimal b = new BigDecimal(“2.0”);<br>print(a.equals(b)); // false  </p>
+<p>所以你应该使用compareTo()和signum()方法  </p>
+<p>a.compareTo(b); // returns (-1 if a &lt; b), (0 if a == b), (1 if a &gt; b)<br>a.signum(); // returns (-1 if a &lt; 0), (0 if a == 0), (1 if a &gt; 0)  </p>
+<p>3. 使用BigDecimal的字符串构造函数，不要使用double参数的构造函数，否则的话会出现你不想要的结果。</p>
+<p>例如下面的代码分别使用double和String的构造函数，然后使用HALF_EVEN的round方法，但是输出结果不一样：</p>
+<pre><code>System.out.println(&quot;==================&quot;);
+for(int i = 0; i &lt; 10;  i ++) {
+    StringBuffer sb = new StringBuffer();
+    sb.append(&quot;0.&quot;);
+    sb.append(i);
+    sb.append(&quot;5&quot;);
+    BigDecimal bdx = new BigDecimal(sb.toString());
+    System.out.println(sb + &quot; &quot; +bdx.setScale(1, RoundingMode.HALF_EVEN));
+}
+
+System.out.println(&quot;==================&quot;);
+for(int i = 0; i &lt; 10;  i ++) {
+    StringBuffer sb = new StringBuffer();
+    sb.append(&quot;0.&quot;);
+    sb.append(i);
+    sb.append(&quot;5&quot;);
+    BigDecimal bdx = new BigDecimal(Double.valueOf(sb.toString()));
+    System.out.println(sb + &quot; &quot; +bdx.setScale(1, RoundingMode.HALF_EVEN));
+}
+</code></pre><p>输出是：</p>
+<p>==================  </p>
+<p>0.05 0.0<br>0.15 0.2<br>0.25 0.2<br>0.35 0.4<br>0.45 0.4<br>0.55 0.6<br>0.65 0.6<br>0.75 0.8<br>0.85 0.8  </p>
+<h1 id="0-95-1-0"><a href="#0-95-1-0" class="headerlink" title="0.95 1.0  "></a>0.95 1.0  </h1><p>0.05 0.1<br>0.15 0.1<br>0.25 0.2<br>0.35 0.3<br>0.45 0.5<br>0.55 0.6<br>0.65 0.7<br>0.75 0.8<br>0.85 0.8<br>0.95 0.9  </p>
+<p><a href="http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial" target="_blank" rel="noopener"><br>http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/28/43987703/" data-id="cjfawkq7e00dfpk9fnn3pntyz" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43986703" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/43986703/" class="article-date">
+  <time datetime="2015-02-28T08:29:55.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/43986703/">Java BigDecimal中的RoundingMode</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BigDecimal有八种RoundingMode，其中最基本的有两种，它们是：</p>
+<p>ROUND_UP：Always increments the digit prior to a nonzero discarded fraction.<br>总是将要丢掉的数字前一位的数字加1.</p>
+<p>例如：</p>
+<p><strong>Rounding mode UP Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>UP</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  3<br>1.6  |  2<br>1.1  |  2<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -2<br>-1.6  |  -2<br>-2.5  |  -3<br>-5.5  |  -6   </p>
+<p>比方说5.5的scale是1，那么需要丢掉的数字的0.5, 将0.5丢掉，然后给5加1，就变成6了；</p>
+<p>需要注意的是-5.5，这里的负号是不参加运算的，将它当成5.5，先进行Round up，然后将负号加上；  </p>
+<p>ROUND_DOWN：Never increments the digit prior to a discarded fraction (i.e.,<br>truncates).将要丢掉的数字直接丢掉。</p>
+<p><strong>Rounding mode DOWN Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>DOWN</code> rounding<br>—|—<br>5.5  |  5<br>2.5  |  2<br>1.6  |  1<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -1<br>-2.5  |  -2<br>-5.5  |  -5   </p>
+<p>比方说5.5的scale是1，那么需要丢掉的数字的0.5, 直接将0.5丢掉就可以了；</p>
+<p>需要注意的是-5.5，这里的负号是不参加运算的，将它当成5.5，先进行Round Down，然后将负号加上；</p>
+<p>然后其它五中都是根据Round Down/Up来推出来的；</p>
+<p>例如：</p>
+<p>ROUND_CEILING：If the result is positive, behaves as for <code>RoundingMode.UP</code> ;<br>if negative, behaves as for <code>RoundingMode.DOWN</code><br>.如果参数是正数，使用UP规则，如果参数是负数，使用DOWN规则；</p>
+<p><strong>Rounding mode CEILING Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>CEILING</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  3<br>1.6  |  2<br>1.1  |  2<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -1<br>-2.5  |  -2<br>-5.5  |  -5   </p>
+<p>ROUND_FLOOR：If the result is positive, behave as for <code>RoundingMode.DOWN</code> ;<br>if negative, behave as for <code>RoundingMode.UP</code><br>.如果参数是正数，使用DOWN规则，如果参数是负数，使用UP规则；</p>
+<p><strong>Rounding mode FLOOR Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>FLOOR</code> rounding<br>—|—<br>5.5  |  5<br>2.5  |  2<br>1.6  |  1<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -2<br>-1.6  |  -2<br>-2.5  |  -3<br>-5.5  |  -6   </p>
+<p>ROUND_HALF_UP: Behaves as for RoundingMode.UP if the discarded fraction is ≥<br>0.5; otherwise, behaves as for RoundingMode.DOWN.<br>如果要丢掉的数字大于等于0.5，使用UP规则；否则使用DOWN规则；</p>
+<p><strong>Rounding mode HALF_UP Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>HALF_UP</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  3<br>1.6  |  2<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -2<br>-2.5  |  -3<br>-5.5  |  -6   </p>
+<p>ROUND_HALF_DOWN: Behaves as for RoundingMode.UP if the discarded fraction is</p>
+<blockquote>
+<p>0.5; otherwise, behaves as for RoundingMode.DOWN.<br>如果要丢掉的数字大于0.5，使用UP规则；否则使用DOWN规则；</p>
+</blockquote>
+<p><strong>Rounding mode HALF_DOWN Examples</strong> Input Number  |  Input rounded to one<br>digit<br>with <code>HALF_DOWN</code> rounding<br>—|—<br>5.5  |  5<br>2.5  |  2<br>1.6  |  2<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -2<br>-2.5  |  -2<br>-5.5  |  -5   </p>
+<p>ROUND_HALF_EVEN：Rounding mode to round towards the “nearest neighbor” unless<br>both neighbors are equidistant, in which case, round towards the even<br>neighbor. Behaves as for <code>RoundingMode.HALF_UP</code> if the digit to the left of<br>the discarded fraction is odd; behaves as for <code>RoundingMode.HALF_DOWN</code> if<br>it’s even.<br>如果要丢掉的数字不是5的话，需要看这个数字前面的数字的奇偶性，如果是奇数，使用HALF_UP规则；如果是偶数使用HALF_DOWN规则；如果要丢掉的数字是5的话，round到它的偶数邻居上；</p>
+<p><strong>Rounding mode HALF_EVEN Examples</strong> Input Number  |  Input rounded to one<br>digit<br>with <code>HALF_EVEN</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  2<br>1.6  |  2<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -2<br>-2.5  |  -2<br>-5.5  |  -6   </p>
+<p>ROUND_UNNECESSARY：不需要ROUND  </p>
+<p>最后来一张总表，</p>
+<p><strong>Summary of Rounding Operations Under Different Rounding Modes</strong> |  Result of<br>rounding input to one digit with the given rounding mode<br>—|—<br>Input Number  |  <code>UP</code> |  <code>DOWN</code> |  <code>CEILING</code> |  <code>FLOOR</code> |  <code>HALF_UP</code><br>|  <code>HALF_DOWN</code> |  <code>HALF_EVEN</code> |  <code>UNNECESSARY</code><br>5.5  |  6  |  5  |  6  |  5  |  6  |  5  |  6  |  throw <code>ArithmeticException</code><br>2.5  |  3  |  2  |  3  |  2  |  3  |  2  |  2  |  throw <code>ArithmeticException</code><br>1.6  |  2  |  1  |  2  |  1  |  2  |  2  |  2  |  throw <code>ArithmeticException</code><br>1.1  |  2  |  1  |  2  |  1  |  1  |  1  |  1  |  throw <code>ArithmeticException</code><br>1.0  |  1  |  1  |  1  |  1  |  1  |  1  |  1  |  1<br>-1.0  |  -1  |  -1  |  -1  |  -1  |  -1  |  -1  |  -1  |  -1<br>-1.1  |  -2  |  -1  |  -1  |  -2  |  -1  |  -1  |  -1  |  throw <code>ArithmeticException</code><br>-1.6  |  -2  |  -1  |  -1  |  -2  |  -2  |  -2  |  -2  |  throw <code>ArithmeticException</code><br>-2.5  |  -3  |  -2  |  -2  |  -3  |  -3  |  -2  |  -2  |  throw <code>ArithmeticException</code><br>-5.5  |  -6  |  -5  |  -5  |  -6  |  -6  |  -5  |  -6  |  throw <code>ArithmeticException</code>  </p>
+<p>refs：</p>
+<p><a href="http://stackoverflow.com/questions/792237/why-and-how-does-round-half-even-
+minimize-cumulative-error-when-applied-repeated" target="_blank" rel="noopener"> http://stackoverflow.com/questions/792237/why-and-how-does-round-half-even-<br>minimize-cumulative-error-when-applied-repeated
+</a></p>
+<p>jdk document</p>
+<p><a href="http://en.wikipedia.org/wiki/Floor_and_ceiling_functions" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Floor_and_ceiling_functions
+</a></p>
+<p><a href="http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial" target="_blank" rel="noopener"><br>http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/28/43986703/" data-id="cjfawkq7d00ddpk9ft161h999" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43986129" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/43986129/" class="article-date">
+  <time datetime="2015-02-28T07:23:49.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/43986129/">如何实现上舍入到0.05</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个问题是上次去一家公司去面试的时候，把我给难住了的地方。</p>
+<p>只能怪自己没有好好的学习ceil和floor的用法；</p>
+<p>其实google了以下只需要简单的方法一句话就可以了；</p>
+<p>如下：</p>
+<pre><code>private static void roundUpToZeroPZeroFive2(double input) {
+    double output = 0;
+    System.out.println(&quot;before round :&quot; + input);
+
+    output = Math.ceil(input*20)/20;
+    System.out.println(&quot;after round :&quot; + output);
+}
+</code></pre><p>还有一种笨方法：</p>
+<pre><code>public static BigDecimal roundTax(BigDecimal bd){  
+    if(bd == null || BigDecimal.ZERO.compareTo(bd) == 1){  
+        return BigDecimal.ZERO.setScale(2);  
+    }  
+    bd = bd.setScale(2,RoundingMode.HALF_UP);  
+    String strBd = bd.toString();  
+    String strLastBit = strBd.substring(strBd.length()-1,strBd.length());  
+    BigDecimal bdTemp = BigDecimal.ZERO;  
+    bdTemp.setScale(2);  
+    int iLastBit = Integer.valueOf(strLastBit);  
+    if(iLastBit%5 != 0){  
+        bdTemp = BigDecimal.valueOf(iLastBit).divide(BigDecimal.valueOf(100));  
+        bdTemp = bdTemp.multiply(BigDecimal.valueOf(-1));  
+        bdTemp = bdTemp.add(iLastBit&gt;5 ? new BigDecimal(&quot;0.1&quot;) : new BigDecimal(&quot;0.05&quot;));  
+    }  
+    bd = bd.add(bdTemp);  
+    return bd;  
+} 
+</code></pre><p>参见这里：</p>
+<p><a href="http://blog.csdn.net/daxiang12092205/article/details/37989071" target="_blank" rel="noopener"> http://blog.csdn.net/daxiang12092205/article/details/37989071
+</a>  </p>
+<p><a href="http://stackoverflow.com/questions/6330852/round-off-
+decimal-value-up-to-nearest-0-05-value" target="_blank" rel="noopener"> http://stackoverflow.com/questions/6330852/round-off-decimal-value-up-to-<br>nearest-0-05-value </a></p>
+<p>面试题目可以看这里：</p>
+<p><a href="http://blog.csdn.net/daxiang12092205/article/details/37938915" target="_blank" rel="noopener"> http://blog.csdn.net/daxiang12092205/article/details/37938915
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/28/43986129/" data-id="cjfawkq7c00dbpk9fr0dkllib" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43985303" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/43985303/" class="article-date">
+  <time datetime="2015-02-28T06:29:22.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/43985303/">Java Math.ulp方法是什么意思</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果要理解什么是ulp，先要了解在计算机中保存的数和我们在数学上认为的数是不一样的；</p>
+<p>比方说2.0和3.0之间有多少个数，在数学中是无限的，但是在计算机中是有限的，因为计算机需要用一堆字节来表示double或者float，但是因为计算机表示不了无限的数（因为没有无限内存）。</p>
+<p>所以就有了ulp，假设在float<br>2.0和3.0之间有8,388,609个数，那么在2.0和3.0之间的数的ulp就是8,388,609/1.0约等于0.0000001。</p>
+<p>你如果想知道某一个具体的double或float的先一个或者上一个数字是什么可以使用函数</p>
+<pre><code>public static double nextAfter(float start, float direction)
+public static double nextAfter(double start, double direction)
+</code></pre><p><a href="http://www.ibm.com/developerworks/library/j-math2/" target="_blank" rel="noopener"> http://www.ibm.com/developerworks/library/j-math2/
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/28/43985303/" data-id="cjfawkq7b00d9pk9fxcm7ucte" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43985185" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/43985185/" class="article-date">
+  <time datetime="2015-02-28T06:20:54.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/43985185/">Java Math类中的Math.rint(double) and Math.round(double)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. 对于rint()  </p>
+<p>a) 2.50 在2.0和3.0之间. rint() 返回里的最近的偶数. 所有rint(2.50) 返回 2.0<br>b) 1.50 在2.0和1.0之间. rint() 返回里的最近的偶数. 所有rint(1.50) 返回 2.0  </p>
+<p>2. 对于round()  </p>
+<p>a) 2.50 在2.0和3.0之间. round() 返回离他最近的比较大的数. 所以round(2.50) 返回 3<br>b) 1.50 在2.0和1.0之间. round() 返回离他最近的比较大的数. 所以round(1.50) 返回 2  </p>
+<p>注意: rint() 返回的是double值，而round() 返回的是int/long.  </p>
+<p>3. 如果参数已经是整数，这两个方法的返回值都和传的参数一样  </p>
+<p>1. System.out.println(Math.rint(3.0)); // prints 3.0  </p>
+<p>2. System.out.println(Math.round(3.0)); // prints 3.</p>
+<p>其他的请参见：</p>
+<p><a href="http://way2java.com/java-lang/class-math-
+java-lang/difference-of-math-rintdouble-and-math-rounddouble/" target="_blank" rel="noopener"> http://way2java.com/java-lang/class-math-java-lang/difference-of-math-<br>rintdouble-and-math-rounddouble/ </a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/28/43985185/" data-id="cjfawkq7a00d7pk9f2h0frvls" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43764217" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/12/43764217/" class="article-date">
+  <time datetime="2015-02-12T08:34:14.000Z" itemprop="datePublished">2015-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/12/43764217/">如何使用Excel创建Box plot</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>首先在Excel中输入你想话Box plot的数据； </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>West</th>
+<th>East  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>47</td>
+<td>1  </td>
+</tr>
+<tr>
+<td>2</td>
+<td>23</td>
+<td>3  </td>
+</tr>
+<tr>
+<td>3</td>
+<td>25</td>
+<td>6  </td>
+</tr>
+<tr>
+<td>4</td>
+<td>28</td>
+<td>3  </td>
+</tr>
+<tr>
+<td>5</td>
+<td>19</td>
+<td>12  </td>
+</tr>
+<tr>
+<td>5</td>
+<td>24</td>
+<td>10  </td>
+</tr>
+<tr>
+<td>6</td>
+<td>38</td>
+<td>9  </td>
+</tr>
+<tr>
+<td>7</td>
+<td>22</td>
+<td>80  </td>
+</tr>
+</tbody>
+</table>
+<p>2.然后计算需要的值：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Min</td>
+<td>19</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Q1</td>
+<td>22.75</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>Median</td>
+<td>24.5</td>
+<td>7.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>30.5</td>
+<td>10.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Max</td>
+<td>47</td>
+<td>80</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>box1-hidden</td>
+<td>22.75</td>
+<td>3</td>
+<td>Q1  </td>
+</tr>
+<tr>
+<td>box2-lower</td>
+<td>1.75</td>
+<td>4.5</td>
+<td>Median-Q1  </td>
+</tr>
+<tr>
+<td>box3-upper</td>
+<td>6</td>
+<td>3</td>
+<td>Q3-Median  </td>
+</tr>
+<tr>
+<td>whisker top</td>
+<td>16.5</td>
+<td>69.5</td>
+<td>Max-Q3  </td>
+</tr>
+<tr>
+<td>whisker bottom</td>
+<td>3.75</td>
+<td>2</td>
+<td>Q1-Min  </td>
+</tr>
+</tbody>
+</table>
+<p>3. 选择B2：C2和A19：C21，然后Insert–&gt;Column(In Charts group)–&gt;Stacked<br>Column,插入一个stacked的chart，如果x轴和y轴不对的话，可以通过Design–&gt;Switch Row/Column交换xy轴；<br>4. 选中stacked column中的最下面的一个series，将它的背景色去掉，也可以将gridline去掉；<br>5. 关键的一步是用ErrorBar生成Box plot的upper whisker和lower<br>whisker；选择最下面的一个series，在Layout–&gt;Analysis–&gt;Error Bar–&gt;More Error Bars<br>Options–&gt;Custom–&gt;选择whiker bottom一行的两个数据。就可以了。</p>
+<p><img src="https://img-blog.csdn.net/20150212163327306" alt="最后的结果"><br><a href="http://blog.contextures.com/archives/2013/06/11/create-a-simple-box-
+plot-in-excel/" target="_blank" rel="noopener"> http://blog.contextures.com/archives/2013/06/11/create-a-simple-box-plot-in-<br>excel/ </a><br><a href="http://peltiertech.com/excel-box-and-whisker-diagrams-box-plots/" target="_blank" rel="noopener"> http://peltiertech.com/excel-box-and-whisker-diagrams-box-plots/
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/12/43764217/" data-id="cjfawkq7900d5pk9fs4dk086m" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43763223" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/12/43763223/" class="article-date">
+  <time datetime="2015-02-12T07:47:22.000Z" itemprop="datePublished">2015-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/12/43763223/">什么是Box plot</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Box plot是通过四分位数来描述数据分布的统计学图标。<br>Box plot的作用：<br>识别数据异常值，就是Box plot中的outlier；<br>比较几批数据的形状，可以快速发现异常值和不同形状的Box；</p>
+<p><a href="http://baike.baidu.com/view/1376547.htm" target="_blank" rel="noopener"> http://baike.baidu.com/view/1376547.htm
+</a><br><a href="http://en.wikipedia.org/wiki/Box_plot" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Box_plot
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/12/43763223/" data-id="cjfawkq7800d3pk9feewgah7w" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43763151" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/12/43763151/" class="article-date">
+  <time datetime="2015-02-12T07:41:38.000Z" itemprop="datePublished">2015-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/12/43763151/">如何在excel中计算percentile和quartile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="如何在excel中计算percentile和quartile"><a href="#如何在excel中计算percentile和quartile" class="headerlink" title="如何在excel中计算percentile和quartile"></a>如何在excel中计算percentile和quartile</h1><p>Excel中有现成的函数，它们是PERCENTILE 和QUARTILE。<br>使用方法是：<br>=PERCENTILE （array, k）;<br>例如：<br>=PERCENTILE （a1：a10, 0.25） 就是计算a1到a10的25th percentile。</p>
+<p>=QUARTILE(array, quart)<br>例如：<br>=QUARTILE(a1:a10, 2) 就是计算a1到a10的25th percentile，也就是Q1</p>
+<p><a href="http://www.excel-easy.com/examples/percentiles-
+quartiles.html" target="_blank" rel="noopener"> Percentiles and Quartiles </a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/12/43763151/" data-id="cjfawkq7700d1pk9fz2vk983h" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43762467" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/12/43762467/" class="article-date">
+  <time datetime="2015-02-12T07:27:49.000Z" itemprop="datePublished">2015-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/12/43762467/">Percentile和Quartile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>要介绍这两个概念，需要先介绍一个简单的概念；中值（median）。</p>
+<p>中值简单的说，就是一堆给定的数字，最中间的值；</p>
+<p>例如：1，2，3，4，5的中值就是3；</p>
+<p>1，2，3，4的中值就是2.5；</p>
+<p>引入数学公式就是：</p>
+<p>If <strong>_n_ is odd </strong> then Median ( _M_ ) = value of (( _n_ + 1)/2)th item term.</p>
+<p>If <strong>_n_ is even </strong> then Median ( _M_ ) = value of [(( _n_ )/2)th item term +<br>(( _n_ )/2 + 1)th item term ]/2</p>
+<p><a href="http://en.wikipedia.org/wiki/Median" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Median </a>  </p>
+<p>什么是quartile呢？quartile的意思是四分位数，second quartile就是中值；</p>
+<p>四分位数，从字面上看是四个数字将一堆数分割开来，对，就是分割；</p>
+<p>第一个四分位数(Q1)，也叫做25th percentile或者lower quartile；  </p>
+<p>第二个四分位数(Q2)，也叫做中值或者50th percentile；</p>
+<p>第三个四分位数(Q3)，也叫做75th percentile或者upper quartile；</p>
+<p>interquartile range(IQR)，IQR=Q3-Q1;</p>
+<p>四分位数的计算方法有很多，下面是从wikipedia复制过来的。</p>
+<h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><ol>
+<li><p>Use the <a href="http://en.wikipedia.org/wiki/Median" title="Median" target="_blank" rel="noopener"> median </a> to divide the ordered data set into two halves. Do not include the median in either half.使用中值将有序的数据集分成两部分，这两部分不包括中值   </p>
+</li>
+<li><p>The lower quartile value is the median of the lower half of the data. The upper quartile value is the median of the upper half of the data.Q1就是小数据部分的中值，Q3就是大数据的中值 </p>
+</li>
+</ol>
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h3><ol>
+<li>Use the median to divide the ordered data set into two halves. If the median is a datum (as opposed to being the mean of the middle two data), include the median in both halves.使用中值将有序的数据集分成两部分，数据集的个数的奇数的话，将中值加入到分成的两部分的末尾和头 </li>
+<li>The lower quartile value is the median of the lower half of the data. The upper quartile value is the median of the upper half of the data.和方法1一样 </li>
+</ol>
+<h3 id="Method-3"><a href="#Method-3" class="headerlink" title="Method 3"></a>Method 3</h3><ol>
+<li>If there are an even number of data points, then the method is the same as above.如果数据集是偶数的话，同上； </li>
+<li><p>If there are (4 _n_ +1) data points, then the lower quartile is 25% of the _n_ th data value plus 75% of the ( _n_ +1)th data value; the upper quartile is 75% of the (3 _n_ +1)th data point plus 25% of the (3 _n_ +2)th data point.如果数据集是4n+1个的话，Q1=Set[n]<em>25%+Set[n+1]</em>75%;Q3=Set[3n+1]<em>75%+Set[3n+2]</em>25%   </p>
+</li>
+<li><p>If there are (4 _n_ +3) data points, then the lower quartile is 75% of the ( _n_ +1)th data value plus 25% of the ( _n_ +2)th data value; the upper quartile is 25% of the (3 _n_ +2)th data point plus 75% of the (3 _n_ +3)th data point.如果数据集是4n+3个的话，Q1=Set[n+1]<em>75%+Set[n+2]</em>25%; Q3=Set[3n+2]<em>25%+Set[3n+3]</em>75% </p>
+</li>
+</ol>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><p>Ordered Data Set: 6, 7, 15, 36, 39, 40, 41, 42, 43, 47, 49</p>
+<table>
+<thead>
+<tr>
+<th>Method 1</th>
+<th>Method 2</th>
+<th>Method 3  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload.wikimedia.org/math/4/e/8/4e8c3d44f96bd1c11f21e6f218d6e712.png" alt="\\begin{cases}Q_1  = 15 \\\\Q_2  = 40 \\\\Q_3 =
+43\\end{cases}"><br>|  <img src="http://upload.wikimedia.org/math/f/5/1/f51731f962bd41f845d73466767f4433.png" alt="\\begin{cases}Q_1  = 25.5 \\\\Q_2  = 40 \\\\Q_3 =
+42.5\\end{cases}"><br>|  <img src="http://upload.wikimedia.org/math/6/d/8/6d8ca4962ffe73e657f1284b6d2211dc.png" alt="\\begin{cases}Q_1  = 20.25 \\\\Q_2  = 40 \\\\Q_3 =
+42.75\\end{cases}">  </p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p>Ordered Data Set: 7, 15, 36, 39, 40, 41</p>
+<p>As there are an even number of data points, all three methods give the same<br>results.</p>
+<table>
+<thead>
+<tr>
+<th>Method 1</th>
+<th>Method 2</th>
+<th>Method 3  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload.wikimedia.org/math/9/f/8/9f848af904ec413040fe5394730a2fba.png" alt="\\begin{cases}Q_1  = 15 \\\\Q_2  = 37.5 \\\\Q_3 =
+40\\end{cases}"><br>|  <img src="http://upload.wikimedia.org/math/9/f/8/9f848af904ec413040fe5394730a2fba.png" alt="\\begin{cases}Q_1 = 15 \\\\Q_2 = 37.5 \\\\Q_3 =
+40\\end{cases}"><br>|  <img src="http://upload.wikimedia.org/math/4/b/4/4b46e1cbb27be984cdde077690e48932.png" alt="\\begin{cases}Q_1 = 15.0 \\\\Q_2 = 37.5 \\\\Q_3 =
+40.0\\end{cases}">  </p>
+<p>需要一提的是，如果数据比Q1-1.5<em>IQR小，比Q3+1.5</em>IQR大的话，我们称之为outiler（异常值）  </p>
+<p><a href="http://en.wikipedia.org/wiki/Quartile" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Quartile
+</a>  </p>
+<p>什么是percentile呢？percentile的意思是百分位数，50th percentile就是中值；25th percentile就是Q1；</p>
+<p>percentile怎样计算呢？</p>
+<p><img src="http://upload.wikimedia.org/math/8/f/f/8ff531176ba0180cb02c2cc9d1e102ad.png" alt=""></p>
+<p>例如：</p>
+<h3 id="First-worked-example-of-the-Nearest-Rank-method"><a href="#First-worked-example-of-the-Nearest-Rank-method" class="headerlink" title="First worked example of the Nearest Rank method"></a>First worked example of the Nearest Rank method</h3><p>Consider the ordered list {15, 20, 35, 40, 50}, which contains five data<br>values. What are the 30th, 40th, 50th and 100th percentiles of this list using<br>the Nearest Rank method?</p>
+<p>Percentile<br>P  |  Number in list<br>N  |  Ordinal rank<br>n  |  Number from the ordered list<br>that has that rank  |  Percentile<br>value  |  Notes<br>—|—|—|—|—|—<br>30th  |  5  |  <img src="http://upload.wikimedia.org/math/c/3/5/c3570ddf117dd7007881521e4fb4da61.png" alt="n = \\left\\lceil \\frac{30}{100} \\times 5 \\right \\rceil =
+\\lceil 1.5 \\rceil =
+2."><br>|  the second number in the ordered list, which is 20  |  20  |  20 is an<br>element of the list<br>40th  |  5  |  <img src="http://upload.wikimedia.org/math/9/0/9/9099d28295af68530cb6c7eda25c448a.png" alt="n = \\left\\lceil \\frac{40}{100} \\times 5 \\right \\rceil =
+\\lceil 2.0 \\rceil =
+2."><br>|  the second number in the ordered list, which is 20  |  20  |  In this<br>example it is the same as the 30th percentile.<br>50th  |  5  |  <img src="http://upload.wikimedia.org/math/e/9/f/e9f316ee0d8072bebd5e2c721a4cb64e.png" alt="n = \\left\\lceil \\frac{50}{100} \\times 5 \\right \\rceil =
+\\lceil 2.5 \\rceil =
+3."><br>|  the third number in the ordered list, which is 35  |  35  |  35 is an<br>element of the ordered list.<br>100th  |  5  |  Last  |  50, which is the last number in the ordered list  |<br>50  |  The 100th percentile is defined to be the largest value in the list,<br>which is 50.  </p>
+<p><a href="http://en.wikipedia.org/wiki/Percentile" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Percentile
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/12/43762467/" data-id="cjfawkq7600czpk9fw7yusgks" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43736485" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/11/43736485/" class="article-date">
+  <time datetime="2015-02-11T10:03:58.000Z" itemprop="datePublished">2015-02-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/11/43736485/">build工具的基本原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.首先读取一堆配置文件，从中可以知道所有的target，这些target需要什么编译命令和什么输入；</p>
+<p>2.根据上面的信息，构建一个很大的依赖树；</p>
+<p>3.然后build通过从树的叶子向根节点遍历，通过检查文件系统(时间戳，hash等)，来判断对应的target有没有过期，如果过期了的话，会使用第一步中的编译命令和输入来生成新的target。</p>
+<p>make, ant, scons都是这样的。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/11/43736485/" data-id="cjfawkq7400cxpk9fhpad92mg" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/13/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

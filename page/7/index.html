@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-52240019" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52240019/" class="article-date">
+  <time datetime="2016-08-18T05:04:54.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52240019/">Ruby meta programming 4(eval/class_eval/module_eval/instance_eval)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之所以有不同的eval方法，只是因为在不同的上下文中；你也可以使用eval+bind参数完全替换class_eval/module_eval/instance_eval的</p>
+<pre><code># &quot;#{exp}&quot; evaluates it  as a string and not as an expression, whereas eval( exp ) evaluates a string as an expression.
+exp = &quot;2+4&quot;
+puts( eval( exp )) 
+puts( &quot;#{exp}&quot; ) 
+
+
+# eval method can evaluate strings spanning many lines
+eval( &apos;def aMethod( x ) 
+   return( x * 2 ) 
+end 
+
+num = 100  
+puts( &quot;This is the result of the calculation:&quot; ) 
+puts( aMethod( num ))&apos; ) 
+
+# special types of eval
+class MyClass 
+ def initialize 
+   @aVar = &quot;Hello world&quot; 
+ end 
+end 
+
+ob = MyClass.new 
+p( ob.instance_eval { @aVar } )   
+p( ob.instance_eval( &quot;@aVar&quot; ) ) 
+
+# eval can evaluate expressions of arbitrary complexity
+# such ass create method to String class
+String::class_eval{ define_method(:bye){ puts(&quot;goodbye&quot; ) } } 
+&quot;Hello&quot;.bye    #=&gt; “goodbye” 
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52240019/" data-id="cjfawkq9l00hbpk9fzcue50hc" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52239974" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52239974/" class="article-date">
+  <time datetime="2016-08-18T04:55:24.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52239974/">Ruby meta programming 3(closure)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># closure
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;closure&quot;)
+x = &quot;hello world&quot;
+
+ablock = Proc.new { puts( x ) }
+
+def aMethod( aBlockArg )
+    x = &quot;goodbye&quot;
+    aBlockArg.call
+end
+
+puts( x )
+ablock.call
+#this will output &quot;hello world&quot;, because when the ablock is create, the value of x is &quot;hello world&quot;
+aMethod( ablock )
+ablock.call
+puts( x )
+
+def calcTax( taxRate ) 
+   return lambda{ 
+      |subtotal| 
+      subtotal * taxRate 
+      }  
+end 
+
+# create two closure, the taxRate is 0.1, then the returned block accept one argument as subtotal
+salesTax = calcTax( 0.10 ) 
+vat = calcTax( 0.175 ) 
+
+print( &quot;Tax due on book = &quot;) 
+print( salesTax.call( 10 ) )     #&lt;= prints: 1.0 
+
+print( &quot;\nVat due on DVD = &quot;) 
+print( vat.call( 10 ) ) 
+
+# local variable will not effect the block argument x
+x = 3000 
+
+c3 = lambda{  
+   |x| 
+   return x + 100   
+} 
+
+someval=1000 
+someval=c3.call(someval); 
+puts(&quot;\n&quot; + someval.to_s) 
+someval=c3.call(someval); puts(someval)  
+puts( x ) 
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52239974/" data-id="cjfawkq9k00h9pk9f3yt7fngo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52239937" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52239937/" class="article-date">
+  <time datetime="2016-08-18T04:47:56.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52239937/">Ruby meta programming 2(define_method/attr_accessor)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面是使用四种方式来完成同一个类的方法。<br>第一种是直接定义get和set方法；<br>第二种是通过define_method来动态的定义；<br>第三种是通过attr_accessor来动态的定义；<br>第四种也是通过attr_accessor来动态的定义，只是去除了冗余；</p>
+<pre><code>10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;Writing Code That Writes Code&quot;)
+class CarModel
+  def engine_info=(info)
+    @engine_info = info
+  end
+
+  def engine_info
+    @engine_info
+  end
+
+  def engine_price=(price)
+    @engine_price = price
+  end
+
+  def engine_price
+    @engine_price
+  end
+
+  def wheel_info=(info)
+    @wheel_info = info
+  end
+
+  def wheel_info
+    @wheel_info
+  end
+
+  def wheel_price=(price)
+    @wheel_price = price
+  end
+
+  def wheel_price
+    @wheel_price
+  end
+
+  def airbag_info=(info)
+    @airbag_info = info
+  end
+
+  def airbag_info
+    @airbag_info
+  end
+
+  def airbag_price=(price)
+    @airbag_price = price
+  end
+
+  def airbag_price
+    @airbag_price
+  end
+
+  def alarm_info=(info)
+    @alarm_info = info
+  end
+
+  def alarm_info
+    @alarm_info
+  end
+
+  def alarm_price=(price)
+    @alarm_price = price
+  end
+
+  def alarm_price
+    @alarm_price
+  end
+
+  def stereo_info=(info)
+    @stereo_info = info
+  end
+
+  def stereo_info
+    @stereo_info
+  end
+
+  def stereo_price=(price)
+    @stereo_price = price
+  end
+
+  def stereo_price
+    @stereo_price
+  end
+end
+
+class CarModel2
+  FEATURES = [&quot;engine&quot;, &quot;wheel&quot;, &quot;airbag&quot;, &quot;alarm&quot;, &quot;stereo&quot;]
+
+  FEATURES.each do |feature|
+    define_method(&quot;#{feature}_info=&quot;) do |info|
+      instance_variable_set(&quot;@#{feature}_info&quot;, info)
+    end
+
+    define_method(&quot;#{feature}_info&quot;) do
+      instance_variable_get(&quot;@#{feature}_info&quot;)
+    end
+
+    define_method &quot;feature_price=&quot; do |price|
+      instance_variable_set(&quot;@#{feature}_price&quot;, price)
+    end
+
+    define_method(&quot;#{feature}_price&quot;) do
+      instance_variable_get(&quot;@#{feature}_price&quot;)
+    end
+  end
+end
+
+class CarModel3
+  attr_accessor :engine_info, :engine_price, :wheel_info, :wheel_price, :airbag_info, :airbag_price, :alarm_info, :alarm_price, :stereo_info, :stereo_price
+end
+
+class CarModel4
+  # define a class macro for setting features
+  def self.features(*args)
+    args.each do |feature|
+      attr_accessor &quot;#{feature}_price&quot;, &quot;#{feature}_info&quot;
+    end
+  end
+
+  # set _info and _price methods for each of these features
+  features :engine, :wheel, :airbag, :alarm, :stereo
+end
+
+car = CarModel4.new
+car.engine_info = &quot;111&quot;
+puts car.engine_info
+#list all methods 
+car.methods.sort.each do |method|
+  puts &quot;method #{method} belong to &quot; + car.method(:&quot;#{method}&quot;).inspect
+end
+</code></pre><p><a href="http://rubylearning.com/blog/2010/11/23/dont-know-metaprogramming-in-ruby/" target="_blank" rel="noopener"> http://rubylearning.com/blog/2010/11/23/dont-know-metaprogramming-in-ruby/
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52239937/" data-id="cjfawkq9j00h7pk9fpyxqb1zo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52239268" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52239268/" class="article-date">
+  <time datetime="2016-08-18T03:28:16.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52239268/">Ruby的Block</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一般来说，用花括号括起来的代码段，称之为block</p>
+<p>Some codes segmetn in “The Book for Ruby” can’t run successful in Ruby 2.3<br>like below code:<br>a = “hello world”.split(//).each{ |x| newstr &lt;&lt; x.capitalize }<br>will throw undefined variable, so I change the code in below code and let it<br>run</p>
+<pre><code># block example
+p [1, 2, 3, 4, 5].collect { |number| number + 1 }
+p [1, 2, 3, 4, 5].select { |number| number.odd? }
+p [1, 2, 3, 4, 5].detect { |number| number.even? }
+b3 = [1,2,3].collect{|x| x*2}  
+p b3
+b4 = [&quot;hello&quot;,&quot;good day&quot;,&quot;how do you do&quot;].collect{|x| x.capitalize } 
+p b4
+b5 = [&quot;hello&quot;,&quot;good day&quot;,&quot;how do you do&quot;].each{|x| x.capitalize }  
+p b5
+b6 = [&quot;hello&quot;,&quot;good day&quot;,&quot;how do you do&quot;].each{|x| x.capitalize! } 
+p b6
+
+# output: [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;]
+a1 = &quot;hello world&quot;.split(//)
+p a1
+
+=begin
+output:
+H
+HE
+HEL
+HELL
+HELLO
+HELLO
+HELLO W
+HELLO WO
+HELLO WOR
+HELLO WORL
+HELLO WORLD
+=end
+newstr = &quot;&quot;
+a1.collect{ |x| newstr&lt;&lt; x.capitalize; puts newstr; } 
+
+#define diff  proc using diff format
+a = Proc.new{|x| x = x*10; puts(x) } 
+b = lambda{|x| x = x*10; puts(x) } 
+c = proc{|x| x.capitalize! }       
+
+a.call(10);
+b.call(10);
+p c.call(&quot;test&quot;);
+
+#pass argument to block
+def caps( anarg )  
+  yield( anarg ) 
+end 
+
+caps( &quot;a lowercase string&quot; ){ |x| x.capitalize! ; puts( x ) } 
+
+#named proc and yield
+a = lambda{ puts &quot;one&quot; }
+b = lambda{ puts &quot;two&quot; }
+c = proc{ puts &quot;three&quot; } 
+def abc3( a, b, c, &amp;d) 
+  a.call 
+  b.call 
+  c.call 
+  #below two code is same
+  d.call    #&lt;= block &amp;d 
+  yield    #&lt;= also block &amp;d 
+end 
+abc3(a, b, c){puts &quot;four&quot;}
+
+#pass x, y, z to block
+def xyz 
+   x = 1 
+   y = 2 
+   z = 3 
+   yield( x, y, z )
+end 
+xyz{ |a,b,c| puts(a+b+c) } 
+
+# the yield will pass 100 to block instead of &quot;hello world&quot;
+a = &quot;hello world&quot; 
+
+def foo 
+   yield 100 
+end 
+
+puts( a ) 
+foo{ |a| puts( a ) } # 100
+
+puts( a )      # Hello world
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52239268/" data-id="cjfawkq9h00h4pk9fhi7283m7" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52239086" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52239086/" class="article-date">
+  <time datetime="2016-08-18T03:17:35.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52239086/">Ruby中的 class method, instance method, singleton method/class</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>singleton method/class 从效果来说，两者没有什么区别</p>
+<pre><code># class method
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;class/instance method&quot;)
+class MyClass   
+   def MyClass.classMethod 
+      puts( &quot;This is a class method&quot; ) 
+   end 
+
+   def self.classMethod3 
+      puts( &quot;This is a class method3&quot; ) 
+   end 
+
+   def instaceMethod
+      puts(&quot;instance method&quot;)
+   end
+end
+
+def MyClass.classMethod2
+  puts( &quot;This is a class method2&quot; ) 
+end 
+
+MyClass.classMethod
+MyClass.classMethod2
+MyClass.classMethod3
+#MyClass.instaceMethod # undefined method
+
+# singleton method
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;singleton method&quot;)
+aaa = MyClass.new
+def aaa.test
+  puts &quot;singleton method&quot;
+end
+
+class &lt;&lt; aaa 
+   def test2 
+      puts( &quot;singleton class method&quot; ) 
+   end 
+end
+
+aaa.test
+aaa.test2
+aaa.instaceMethod
+# aaa.classMethod # undefined method
+aaa.class.classMethod
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52239086/" data-id="cjfawkq9g00h2pk9fzr7ruasc" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52239018" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52239018/" class="article-date">
+  <time datetime="2016-08-18T03:12:48.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52239018/">Ruby中的Symbol</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A symbol is an identifier whose first character is a colon ( : ), so <strong>:this</strong><br>is a symbol and so is <strong>:that</strong> .<br>symbol是以：开头的。<br>A symbol is not: it is not a string, it is not a constant and it is not a<br>variable. A symbol is, quite simply, an identifier with no intrinsic meaning<br>other than its own name.<br>symbol不是字符串，不是常量，不是变量，它只是一个符号，来表示它自己的名字</p>
+<p>同一个symbol在不同的上下文中是一样的.</p>
+<p>顺便提一句，值相同的Fixnum的哦bject_id也是一样的</p>
+<pre><code> #from Ruby doc
+module One
+  class Fred
+  end
+  $f1 = :Fred
+end
+module Two
+  Fred = 1
+  $f2 = :Fred
+end
+def Fred()
+end
+$f3 = :Fred
+$f1.object_id   #=&gt; 2514190
+$f2.object_id   #=&gt; 2514190
+$f3.object_id   #=&gt; 2514190
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52239018/" data-id="cjfawkq9f00h0pk9fxeikkf31" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52238926" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/52238926/" class="article-date">
+  <time datetime="2016-08-18T03:06:17.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/52238926/">Ruby 中的各种变量(local/instance/class/global variable and assignment method)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从注释中可以看出每段代码中使用的变量类型</p>
+<pre><code># local variable
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;local variable&quot;)
+1.times do
+  a = 1
+  b = &quot;a&quot;
+  puts &quot;local variables in the block: #{local_variables.join &quot;, &quot;}&quot;
+end
+
+puts &quot;no local variables outside the block&quot; if local_variables.empty?
+
+# instance variable
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;instance variable&quot;)
+class C
+  def initialize(value)
+    @instance_variable = value
+  end
+
+  def value
+    @instance_variable
+  end
+end
+
+object1 = C.new &quot;some value&quot;
+object2 = C.new &quot;other value&quot;
+
+p object1.value # prints &quot;some value&quot;
+p object2.value # prints &quot;other value&quot;
+
+#class variable
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;class variable&quot;)
+class A
+  @@class_variable = 0
+
+  def value
+    @@class_variable
+  end
+
+  def update
+    @@class_variable = @@class_variable + 1
+  end
+end
+
+class B &lt; A
+  def update
+    @@class_variable = @@class_variable + 2
+  end
+end
+
+a = A.new
+b = B.new
+
+puts &quot;A value: #{a.value}&quot; #0
+puts &quot;B value: #{b.value}&quot; #0
+
+puts &quot;update A&quot;
+a.update
+
+puts &quot;A value: #{a.value}&quot;
+puts &quot;B value: #{b.value}&quot;
+
+puts &quot;update B&quot;
+b.update
+
+puts &quot;A value: #{a.value}&quot;
+puts &quot;B value: #{b.value}&quot;
+
+puts &quot;update A&quot;
+a.update
+
+puts &quot;A value: #{a.value}&quot;
+puts &quot;B value: #{b.value}&quot;
+
+#global variable
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;global variable&quot;)
+$global = 0
+
+class E
+  puts &quot;in a class: #{$global}&quot;
+
+  def my_method
+    puts &quot;in a method: #{$global}&quot;
+
+    $global = $global + 1
+    $other_global = 3
+  end
+end
+
+E.new.my_method
+
+puts &quot;at top-level, $global: #{$global}, $other_global: #{$other_global}&quot;
+
+# Assignment method
+10.times{ |i| print(&quot;=&quot;)}
+puts(&quot;Assignment method&quot;)
+class F
+  @value
+  attr_accessor :value
+
+  def my_method
+    #self.value = 42
+    @value = 42; 
+    puts &quot;local_variables: #{local_variables.join &quot;, &quot;}&quot;
+    puts &quot;@value: #{@value.inspect}&quot;
+  end
+end
+
+F.new.my_method
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/52238926/" data-id="cjfawkq9d00gvpk9fw17lwejk" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52188329" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/12/52188329/" class="article-date">
+  <time datetime="2016-08-12T00:26:03.000Z" itemprop="datePublished">2016-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/12/52188329/">PHP post combine</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>if you post as below, PHP will parse below post as array[0] == Country,<br>Country has three property</p>
+<pre><code>Country%5Bcode%5D=1&amp;Country%5Bname%5D=2&amp;Country%5Bpopulation%5D=1
+Country[code]:1
+Country[name]:2
+Country[population]:1
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/12/52188329/" data-id="cjfawkq9e00gxpk9fovrggfsy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52188321" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/12/52188321/" class="article-date">
+  <time datetime="2016-08-12T00:23:42.000Z" itemprop="datePublished">2016-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/12/52188321/">553 Requested action not taken: Local user only</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>553 Requested action not taken: Local user only<br>SMTP类型的机器只允许发信人是本站用户；<br>For example:<br>the sender must be <a href="mailto:xxx@126.com" target="_blank" rel="noopener">xxx@126.com</a> if you use 126’s smtp</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/12/52188321/" data-id="cjfawkq9c00gtpk9fwltrd6m5" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52188314" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/12/52188314/" class="article-date">
+  <time datetime="2016-08-12T00:22:05.000Z" itemprop="datePublished">2016-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/12/52188314/">fop&#39;s font</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>what’s fop:<br><a href="http://xmlgraphics.apache.org/fop/" target="_blank" rel="noopener"> http://xmlgraphics.apache.org/fop/ </a><br>1. using TTF reader to generate metric xml file and let fop using it</p>
+<pre><code>cd to fop&apos;s main directory,
+java -cp &quot;build/*;lib/*&quot; org.apache.fop.fonts.apps.TTFReader -ttcname &quot;MS Gothic&quot; c:\Windows\Fonts\msgothic.ttc msgothic.xml
+
+java -cp &quot;build/*;lib/*&quot; org.apache.fop.fonts.apps.TTFReader c:\Windows\Fonts\msgothic.ttc test.xml  --&gt; list all font in ttc collection file
+</code></pre><p>add below line to fop’s config file’s fonts section:</p>
+<pre><code>&lt;font embed-url=&quot;file:///c:Windows/Fonts/msgothic.ttc&quot; sub-font=&quot;MS Gothic&quot;&gt;
+    &lt;font-triplet name=&quot;MSGothic&quot; style=&quot;normal&quot; weight=&quot;normal&quot;/&gt;
+&lt;/font&gt;
+</code></pre><p>start fop with -c configfile.xml argument<br>2. add to fop’s config file’s font section<br>start fop with -c configfile.xml argument.</p>
+<p>but you fo file need specify font for chinese character, fop will displya ##<br>for your chinise character if not set font;<br>if you set the wrong font, it will display a warning message to console to<br>tell you some character not found with instead with default #.<br>For example MS Gothic font not has 贾,so it will display as #<br>if you enable auto-detect, fop will create a font cache file(fop-fonts.cache)<br>for speed up next time</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/12/52188314/" data-id="cjfawkq9a00grpk9fvpmjvjc2" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/8/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

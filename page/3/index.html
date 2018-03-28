@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-76615822" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615822/" class="article-date">
+  <time datetime="2017-08-03T04:18:46.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615822/">run command from Java driver for MongoDB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>run command from Java driver<br>for example:</p>
+<pre><code>eval command:
+{
+  eval: &lt;function&gt;,
+  args: [ &lt;arg1&gt;, &lt;arg2&gt; ... ],
+  nolock: &lt;boolean&gt;
+}
+</code></pre><p>map to java ==&gt;</p>
+<pre><code>Document command = new Document();
+command.put(&quot;eval&quot;, &quot;function () { var result = db.test.findOne( { test_name : \&quot;test_name0\&quot; }); return Object.bsonsize(result); }&quot;);
+command.put(&quot;args&quot;, &quot;&quot;);
+database.runCommand(command);
+</code></pre><p>command list<br><a href="https://docs.mongodb.com/manual/reference/command/" target="_blank" rel="noopener"> https://docs.mongodb.com/manual/reference/command/
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615822/" data-id="cjfawkqfm00qzpk9fet9ojq5a" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615804" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615804/" class="article-date">
+  <time datetime="2017-08-03T04:15:25.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615804/">mongodb 杂记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. insertDocument :: caused by :: 11000 E11000 duplicate key error index:<br>perf_test.test.$_id_ dup key: { : ObjectId(‘597edae0faa2ec5e6859e7a3’) }<br>code is wrong, there have two line to insert the same document, so fail  </p>
+<p>2. 16555: ‘exception: $multiply only supports numeric types, not String<br>in $multiply, you need use number insead of string  </p>
+<p>3. 16810: ‘exception: bad query: BadValue unknown top level operator: $avg’<br>there no $avg field in document, you should remove $, let mongodb know it, to<br>find it from stage output  </p>
+<p>4. Group by null<br>The _id field is mandatory; however, you can specify an _id value of null to<br>calculate accumulated values for all the input documents as a whole.  </p>
+<p>5. group with system variable<br>$$ROOT –&gt; current whole document  </p>
+<p>6. system variable &amp; let variable<br><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/let/#exp._S_let" target="_blank" rel="noopener">https://docs.mongodb.com/manual/reference/operator/aggregation/let/#exp._S_let</a><br><a href="https://docs.mongodb.com/manual/reference/aggregation-variables/#agg-system-" target="_blank" rel="noopener">https://docs.mongodb.com/manual/reference/aggregation-variables/#agg-system-</a><br>variables  </p>
+<p>7. type<br>New in version 3.4.<br><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/type/#exp._S_type" target="_blank" rel="noopener">https://docs.mongodb.com/manual/reference/operator/aggregation/type/#exp._S_type</a>  </p>
+<p>8. limit<br>The maximum BSON document size is 16 megabytes.<br>MongoDB supports no more than 100 levels of nesting for BSON documents.<br>A single collection can have no more than 64 indexes.<br>index key limit?  </p>
+<p><a href="https://docs.mongodb.com/manual/reference/limits/#BSON-Document-Size" target="_blank" rel="noopener">https://docs.mongodb.com/manual/reference/limits/#BSON-Document-Size</a>  </p>
+<p>9. $group &amp; $sort memory limit<br>The $group stage has a limit of 100 megabytes of RAM. By default, if the stage<br>exceeds this limit, $group will produce an error. However, to allow for the<br>handling of large datasets, set the allowDiskUse option to true to enable<br>$group operations to write to temporary files.  </p>
+<p>11. $sort Operator and Performance<br>$sort operator can take advantage of an index when placed at the beginning of<br>the pipeline or placed before the $project, $unwind, and $group aggregation<br>operators. If $project, $unwind, or $group occur prior to the $sort operation,<br>$sort cannot use any indexes.  </p>
+<p>12. run command from Java driver<br>eval command:<br>{<br>eval: <function>,<br>args: [ <arg1>, <arg2> … ],<br>nolock: <boolean><br>}  </boolean></arg2></arg1></function></p>
+<p>map to java ==&gt;<br>Document command = new Document();<br>command.put(“eval”, “function () { var result = db.test.findOne( { test_name :<br>\”test_name0\” }); return Object.bsonsize(result); }”);<br>command.put(“args”, “”);  </p>
+<p>commnd list<br><a href="https://docs.mongodb.com/manual/reference/command/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/reference/command/</a>  </p>
+<p>13. calculate median in mongodb<br>The simplest way to compute the median would be with these two statements<br>(assuming the attribute on which we want to compute the median is called a and<br>we want it over all documents in the collection, coll):  </p>
+<p>count = db.coll.count();<br>db.coll.find().sort( {“a”:1} ).skip(count / 2 - 1).limit(1);  </p>
+<p><a href="https://www.compose.com/articles/mongo-metrics-finding-a-happy-median/" target="_blank" rel="noopener">https://www.compose.com/articles/mongo-metrics-finding-a-happy-median/</a>  </p>
+<p>14. how to define the primary key in self<br>_id field is reserved for primary key in mongodb, and that should be a unique<br>value. If you don’t set anything to _id it will automatically fill it with<br>“MongoDB Id Object”. But you can put any unique info into that field.  </p>
+<p>15. if you put two difference thing as primary key, then group by may not<br>work well  </p>
+<p>16. index and compund index<br>index max limit is 64, compund index max limit is 31.<br>the 64 means the all index count should not exceed 64(normal and compund)  </p>
+<p>17. ??<br>The total size of an index entry, which can include structural overhead<br>depending on the BSON type, must be less than 1024 bytes.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615804/" data-id="cjfawkqfl00qxpk9fv7fc2oql" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615792" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615792/" class="article-date">
+  <time datetime="2017-08-03T04:13:31.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615792/">mongodb shell</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>show command </li>
+</ul>
+<pre><code>show dbs
+use &lt;db name&gt;
+show collections
+db.&lt;collectionName&gt;.find()
+</code></pre><ul>
+<li>list help for collection </li>
+</ul>
+<pre><code>db.&lt;collectionName&gt;.help()
+</code></pre><ul>
+<li>create index </li>
+</ul>
+<pre><code>&gt; db.test.getIndexes()
+[
+        {
+                &quot;v&quot; : 1,
+                &quot;key&quot; : {
+                        &quot;_id&quot; : 1
+                },
+                &quot;name&quot; : &quot;_id_&quot;,
+                &quot;ns&quot; : &quot;perf_test.test&quot;
+        }
+]
+&gt; db.test.createIndex({&quot;test_name&quot;: 1})
+{
+        &quot;createdCollectionAutomatically&quot; : false,
+        &quot;numIndexesBefore&quot; : 1,
+        &quot;numIndexesAfter&quot; : 2,
+        &quot;ok&quot; : 1
+}
+&gt; db.test.getIndexes()
+[
+        {
+                &quot;v&quot; : 1,
+                &quot;key&quot; : {
+                        &quot;_id&quot; : 1
+                },
+                &quot;name&quot; : &quot;_id_&quot;,
+                &quot;ns&quot; : &quot;perf_test.test&quot;
+        },
+        {
+                &quot;v&quot; : 1,
+                &quot;key&quot; : {
+                        &quot;test_name&quot; : 1
+                },
+                &quot;name&quot; : &quot;test_name_1&quot;,
+                &quot;ns&quot; : &quot;perf_test.test&quot;
+        }
+]
+</code></pre><ul>
+<li>drop index </li>
+</ul>
+<pre><code>&gt; db.test.dropIndex(&quot;test_name&quot;)
+{
+        &quot;nIndexesWas&quot; : 2,
+        &quot;ok&quot; : 0,
+        &quot;errmsg&quot; : &quot;index not found with name [test_name]&quot;
+}
+&gt; db.test.getIndexes()
+[
+        {
+                &quot;v&quot; : 1,
+                &quot;key&quot; : {
+                        &quot;_id&quot; : 1
+                },
+                &quot;name&quot; : &quot;_id_&quot;,
+                &quot;ns&quot; : &quot;perf_test.test&quot;
+        },
+        {
+                &quot;v&quot; : 1,
+                &quot;key&quot; : {
+                        &quot;test_name&quot; : 1
+                },
+                &quot;name&quot; : &quot;test_name_1&quot;,
+                &quot;ns&quot; : &quot;perf_test.test&quot;
+        }
+]
+&gt; db.test.dropIndex( {&quot;test_name&quot;: 1} )
+{ &quot;nIndexesWas&quot; : 2, &quot;ok&quot; : 1 }
+&gt; db.test.getIndexes()
+[
+        {
+                &quot;v&quot; : 1,
+                &quot;key&quot; : {
+                        &quot;_id&quot; : 1
+                },
+                &quot;name&quot; : &quot;_id_&quot;,
+                &quot;ns&quot; : &quot;perf_test.test&quot;
+        }
+]
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615792/" data-id="cjfawkqfj00qupk9fov9z1gge" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615776" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615776/" class="article-date">
+  <time datetime="2017-08-03T04:10:29.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615776/">mongodb simple auth</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>start mongod without –auth parameter, disable auth </li>
+<li>connect to this instance with mongo, then create a super user </li>
+<li>restart mongod with –auth </li>
+</ul>
+<pre><code>$ mongo --port 27017 -u siteUserAdmin -p password --authenticationDatabase admin 
+</code></pre><ul>
+<li>re-connect to it with mongo, then create normal db user </li>
+</ul>
+<pre><code>$ mongo
+&gt; user admin
+&gt; db.auth(&quot;user&quot;, &quot;password&quot;)
+&gt; use admin
+&gt; db.createUser(
+    {
+      user: &quot;superuser&quot;,
+      pwd: &quot;12345678&quot;,
+      roles: [ &quot;root&quot; ]
+    }
+  )
+
+&gt; use reporting
+&gt; db.createUser(
+    {
+      user: &quot;reportsUser&quot;,
+      pwd: &quot;12345678&quot;,
+      roles: [
+         { role: &quot;read&quot;, db: &quot;reporting&quot; },
+         { role: &quot;read&quot;, db: &quot;products&quot; },
+         { role: &quot;read&quot;, db: &quot;sales&quot; },
+         { role: &quot;readWrite&quot;, db: &quot;accounts&quot; }
+      ]
+    }
+  )
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615776/" data-id="cjfawkqfh00qspk9fs0m0pvd2" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615750" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615750/" class="article-date">
+  <time datetime="2017-08-03T04:06:11.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615750/">you need edit config ld.so.conf after you installed C driver for MongoDB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>After you installed C driver from source, it print below help message, you<br>should take care.</p>
+<pre><code>Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the &apos;-LLIBDIR&apos;
+flag during linking and do at least one of the following:
+   - add LIBDIR to the &apos;LD_LIBRARY_PATH&apos; environment variable
+     during execution
+   - add LIBDIR to the &apos;LD_RUN_PATH&apos; environment variable
+     during linking
+   - use the &apos;-Wl,-rpath -Wl,LIBDIR&apos; linker flag
+   - have your system administrator add LIBDIR to &apos;/etc/ld.so.conf&apos;
+</code></pre><p>it means that you should append <code>/usr/local/lib</code> to <code>LD_LIBRARY_PATH</code> env,<br>and let your linker can find mongoc lib</p>
+<p>if you have root permision, the easy way is to edit <code>/etc/ld.so.conf</code> ,<br>after you do that, you should run below command, and make sure everything is<br>fine</p>
+<pre><code>$ ldconfig
+$ ldconfig -p | grep mongo
+        libmongoc-1.0.so.0 (libc6,x86-64) =&gt; /usr/local/lib/libmongoc-1.0.so.0
+        libmongoc-1.0.so (libc6,x86-64) =&gt; /usr/local/lib/libmongoc-1.0.so
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615750/" data-id="cjfawkqfg00qppk9f6zkdrt5s" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615698" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615698/" class="article-date">
+  <time datetime="2017-08-03T04:00:12.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615698/">compile/install C++ driver for MongoDB fail</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>C++ 11 driver</p>
+<ul>
+<li>install C driver before your install C++ driver </li>
+<li>download from <a href="https://github.com/mongodb/mongo-cxx-driver/releases" target="_blank" rel="noopener"> here </a> and extract it to your directory </li>
+<li>compile </li>
+</ul>
+<pre><code>$ cd mongo-cxx-driver-r3.1.2/build
+$ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..
+</code></pre><ul>
+<li>fail for need higher version cmake and gcc, gcc in my env is 4.8, this version is same with the gcc version in <a href="https://mongodb.github.io/mongo-cxx-driver/mongocxx-v3/installation/" target="_blank" rel="noopener"> here </a> . but my cmake version is 2.8 </li>
+<li>if you want to move on, please update your gcc and cmake to higher version </li>
+</ul>
+<p>PS:<br>I got below error when you install some package, it means, you gcc version is<br>low</p>
+<pre><code># rpm -ivh cmake-3.9.0-2.fc27.x86_64.rpm
+error: Failed dependencies:
+        cmake-data = 3.9.0-2.fc27 is needed by cmake-3.9.0-2.fc27.x86_64
+        cmake-filesystem = 3.9.0-2.fc27 is needed by cmake-3.9.0-2.fc27.x86_64
+        libform.so.6()(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libjsoncpp.so.11()(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libncurses.so.6()(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        librhash.so.0()(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libstdc++.so.6(CXXABI_1.3.8)(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libstdc++.so.6(CXXABI_1.3.9)(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libstdc++.so.6(GLIBCXX_3.4.20)(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libstdc++.so.6(GLIBCXX_3.4.21)(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libtinfo.so.6()(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+        libuv.so.1()(64bit) is needed by cmake-3.9.0-2.fc27.x86_64
+</code></pre><p>My question is that: does there have any page can explain which gcc version<br>map to CXXABI version</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615698/" data-id="cjfawkqfe00qnpk9fw1jmeff1" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615505" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615505/" class="article-date">
+  <time datetime="2017-08-03T03:44:39.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615505/">how to use MongoDB Java driver in your env</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>config your depends manager(maven etc), <a href="http://mongodb.github.io/mongo-java-driver/" target="_blank" rel="noopener"> like </a> this </li>
+<li>or download jar package from <a href="https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongodb-driver/3.4.2/" target="_blank" rel="noopener"> here </a> , add this jar file to your build path </li>
+<li>write your sample code like <a href="http://mongodb.github.io/mongo-java-driver/3.5/" target="_blank" rel="noopener"> this </a></li>
+<li>run and test it, please make sure your mongod is start </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615505/" data-id="cjfawkqfd00qlpk9f9em3wo9d" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615397" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615397/" class="article-date">
+  <time datetime="2017-08-03T03:36:33.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615397/">how to install/compile MongoDB C driver</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>download source code from <a href="https://github.com/mongodb/mongo-c-driver/releases/" target="_blank" rel="noopener"> here </a></li>
+<li>extract it and compile </li>
+</ul>
+<pre><code>$ ./configure --help ;list all options
+$ ./configure --disable-automatic-init-and-cleanup 
+$ make
+$ sudo make install ; or su to root, then make install
+</code></pre><ul>
+<li>write a sample code and export PKG_CONFIG_PATH for pkg-config, then compile with gcc </li>
+</ul>
+<pre><code>$ gcc -o connect MongoDBTest.c $(pkg-config --cflags --libs libmongoc-1.0)
+</code></pre><p>driver compatibility<br><a href="https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/" target="_blank" rel="noopener"> https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/
+</a><br>example:<br><a href="http://mongoc.org/libmongoc/current/tutorial.html#starting-mongodb" target="_blank" rel="noopener"> http://mongoc.org/libmongoc/current/tutorial.html#starting-mongodb
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615397/" data-id="cjfawkqfb00qipk9fwak6x69v" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615240" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615240/" class="article-date">
+  <time datetime="2017-08-03T03:27:04.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615240/">install MongoDB from tar in Linux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="install-MongoDB-from-tar-in-Linux"><a href="#install-MongoDB-from-tar-in-Linux" class="headerlink" title="install MongoDB from tar in Linux"></a>install MongoDB from tar in Linux</h1><ul>
+<li>download tar file from <a href="https://www.mongodb.com/download-center?_ga=2.223535379.924363470.1501045806-1915011312.1501045805" target="_blank" rel="noopener"> here </a></li>
+<li>extract it to any directory, add install/bin PATH with export </li>
+<li><p>create data directory<br>mkdir -p /data/db</p>
+</li>
+<li><p>start mongod server, when everything is ready, you call use mongo shell to contact with mongodb </p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615240/" data-id="cjfawkqfa00qgpk9fcwk2ybil" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-71082317" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/71082317/" class="article-date">
+  <time datetime="2017-05-02T08:04:56.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LTspice/">LTspice</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/02/71082317/">LTspice introduction - 16 电阻的伏安特性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>Version 4
+SHEET 1 880 680
+WIRE 112 32 -80 32
+WIRE -80 96 -80 32
+WIRE 112 112 112 32
+WIRE 112 192 112 176
+WIRE -80 240 -80 176
+WIRE 112 240 112 192
+WIRE 112 240 -80 240
+WIRE 112 272 112 240
+FLAG 112 272 0
+SYMBOL voltage -80 80 R0
+WINDOW 123 0 0 Left 2
+WINDOW 39 0 0 Left 2
+SYMATTR InstName V1
+SYMATTR Value 5
+SYMBOL res 96 96 R0
+SYMATTR InstName R1
+SYMATTR Value 50
+TEXT 144 232 Left 2 !.dc V1 550mV 750mV 10mV
+</code></pre><p>将以上内容保存成2V-I-Curve_Resistor_DC_sweep.asc文件，用LTspice打开，然后执行Run进行仿真，结果如下：</p>
+<p><img src="https://img-
+blog.csdn.net/20170502160448835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/71082317/" data-id="cjfawkqdz00ohpk9fzvog09xy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

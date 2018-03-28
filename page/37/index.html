@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/37/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-8081774" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/17/8081774/" class="article-date">
+  <time datetime="2012-10-17T07:50:27.000Z" itemprop="datePublished">2012-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Eclipse/">Eclipse</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/17/8081774/">重用eclipse中的preference</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>You can manager preference in two approaches.<br><strong>1. export/import preferences</strong><br>1.1 setting preferences in eclipse<br>1.2 export preferences<br>1.3 import preferences  </p>
+<p><strong>2.using -pluginCustomization arguments</strong></p>
+<p>2.1 Find the \configuration\config.ini file. open it, and find the id for the<br>active product(eclipse.product).<br>For Eclipse the entry will be eclipse.product=org.eclipse.platform.ide. Note<br>that the active product could also<br>be defined using an invocation parameter. (-product productId)<br>2.2 Find the branding plug-in for the product. The product value is the<br>concatenation of a plug-in id and<br>an extension id from that plug-in. Look in the \plugins directory for a plug-<br>in with an id similar to the<br>product id and see if you can find a file named plugin_customization.ini.<br>Feature can alos have a branding plug-in. For Eclipse and many Eclipse-base<br>products the ids are the same,<br>but the feature.xml file for the product’s feature could be identifying an<br>alternate branding plug-in using<br>the plugin=”another.plugin.id.value” attribute for the  <feature> element.<br>2.3 Copy the plugin_customization.ini file to a private location, maybe even<br>your eclipse root directory.<br>2.4 Add or modify the plugin_customization.ini file content to suite your<br>needs.<br>2.5 Invoke Eclipse with the approprocate parameter to have your file used at<br>runtime:  </feature></p>
+<p>eclipse -pluginCustomization file_reference</p>
+<p>from <strong>The Java Developer’s Guide to ECLIPSE</strong>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/10/17/8081774/" data-id="cjfawkqid00uzpk9fpbgrbncm" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8081757" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/17/8081757/" class="article-date">
+  <time datetime="2012-10-17T07:46:59.000Z" itemprop="datePublished">2012-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Eclipse/">Eclipse</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/17/8081757/">eclipse中的feature</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Feature are the management unit for function in Eclipse.<br>The plug-in developer <strong>should not share</strong> plug-in without a feature; as a<br>consumer of plug-ins<br>you should <strong>demand</strong> that they be packaged using features. The Update Manager<br>can only manager<br>features; you <strong>have to</strong> work with unmanaged plug-ins by copying directories.  </p>
+<p>using <strong>about.ini</strong> file in feature you can customize eclipse</p>
+<p>例如：</p>
+<p><img src="http://www.ibm.com/developerworks/opensource/library/os-
+ecfeat/branding.jpg" alt="">  </p>
+<p>from <strong>The Java Developer’s Guide to ECLIPSE</strong><br><a href="http://www.ibm.com/developerworks/opensource/library/os-ecfeat/" target="_blank" rel="noopener"> http://www.ibm.com/developerworks/opensource/library/os-ecfeat/
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/10/17/8081757/" data-id="cjfawkqia00uvpk9fcwgk5a08" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8081723" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/17/8081723/" class="article-date">
+  <time datetime="2012-10-17T07:44:45.000Z" itemprop="datePublished">2012-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Eclipse/">Eclipse</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/17/8081723/">eclipse中的configuration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Be default, Eclipse uses a single configuration for a given installation. The<br>configuration information is saved in the  platform.xml  file found in the<br>\configuration\org.eclipse.update  dirctory. Them primary content in the<br>configuration is a list install sites. An install site is a location on the<br>file<br>system where an eclipse directory tree. with feature and plugins directories,<br>can be found.<br>The configuration identifies what install sites are accessible, lists the<br>features that<br>exist in each site, and determines what features are available and active when<br>Eclipse is started.<br>The platform:/base/ site is a reference to the eclipse directory structure<br>from which the eclipse.exe  </p>
+<p>was started.</p>
+<p><strong>解压后的configuration目录</strong> ：</p>
+<p>D:\eclipse\eclipse-rcp-indigo-SR1-win32\eclipse\configuration &gt;dir<br>Volume in drive D is TOOLS<br>Volume Serial Number is 7899-0DA2  </p>
+<p>Directory of D:\eclipse\eclipse-rcp-indigo-SR1-win32\eclipse\configuration  </p>
+<p>2012-10-17 13:45 <dir> .<br>2012-10-17 13:45 <dir> ..<br>2011-11-02 14:44 <dir> .settings<br>2012-10-12 15:35 873 config.ini<br>2012-10-12 16:52 <dir> org.eclipse.core.runtime<br>2011-11-02 14:43 <dir> org.eclipse.equinox.app<br>2011-11-02 11:41 <dir> org.eclipse.equinox.simpleconfigurator<br>2011-11-02 11:41 <dir> org.eclipse.equinox.source<br>2012-10-12 16:52 <dir> org.eclipse.osgi<br>2011-11-02 14:44 <dir> org.eclipse.ui.intro.universal<br>2012-10-17 13:45 <dir> org.eclipse.update<br>1 File(s) 873 bytes<br>10 Dir(s) 5,241,536,512 bytes free</dir></dir></dir></dir></dir></dir></dir></dir></dir></dir></p>
+<p>The default configuration is used when Eclipse is launched and applies to<br>any workspace that might be accessed. The  -configuration  startup parameter<br>can<br>be used to identify an alternnative configuration.  </p>
+<p>A configuration is a list of install sites and the features found in each of<br>these install sites.<br>An install site is a location that contains features and plug-ins that can be<br>included in the<br>configuration. The Update Manager processes the content of the features and<br>plugins directiries of  </p>
+<p>the install site; if the content is valid, it can be included in<br>configuration.</p>
+<p><strong>platform.xml文件的部分内容</strong> ：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;config date=&quot;1350027346671&quot; transient=&quot;false&quot; version=&quot;3.0&quot;&gt;
+&lt;site enabled=&quot;true&quot; policy=&quot;USER-EXCLUDE&quot; updateable=&quot;true&quot; url=&quot;platform:/base/&quot;&gt;
+&lt;feature id=&quot;org.eclipse.wst.xml_ui.feature&quot; plugin-identifier=&quot;org.eclipse.wst.xml.ui&quot; url=&quot;features/org.eclipse.wst.xml_ui.feature_3.3.1.v201108102009-7H7EFZ3DxumTlaI6nheRdHo2p1KaDIL1Uz-S3PL/&quot; version=&quot;3.3.1.v201108102009-7H7EFZ3DxumTlaI6nheRdHo2p1KaDIL1Uz-S3PL&quot;&gt;
+&lt;/feature&gt;
+&lt;feature id=&quot;org.eclipse.equinox.p2.core.feature&quot; url=&quot;features/org.eclipse.equinox.p2.core.feature_1.0.1.R37x_v20110906-8290FZ3FUqIcLqkVkEaTdn_14C7G/&quot; version=&quot;1.0.1.R37x_v20110906-8290FZ3FUqIcLqkVkEaTdn_14C7G&quot;&gt;
+&lt;/feature&gt;
+
+&lt;/site&gt;
+&lt;/config&gt;
+</code></pre><p>说白了，configuration的目的就是用来指定Eclipse启动时会加载哪些plugins，会使用哪些branding，会使用哪些参数等。</p>
+<p>具体的启动参数可以参见：</p>
+<p><a href="http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fruntime-
+options.html" target="_blank" rel="noopener"><br>http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fruntime-<br>options.html
+</a></p>
+<p><a href="http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Frunning_eclipse.htm" target="_blank" rel="noopener"><br>http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Frunning_eclipse.htm
+</a></p>
+<p>from <strong>The Java Developer’s Guide to ECLIPSE</strong>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/10/17/8081723/" data-id="cjfawkqi900utpk9f9cnvvmt4" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8064420" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/12/8064420/" class="article-date">
+  <time datetime="2012-10-12T06:13:18.000Z" itemprop="datePublished">2012-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/12/8064420/">什么是OSGi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>什么是OSGi<br>The Open Services Gateway Initiative (OSGi), also known as the Dynamic Module<br>System for Java,<br>OSGi也被称为Dynamic Module System for Java<br>defines an architecture for modular application development. OSGi container<br>implementations such as Knopflerfish, Equinox,<br>OSGi对模块化开发定义了一个体系。OSGi容器实现(有Knopflerfish， Equinox， Apache Felix)<br>and Apache Felix allow you to break your application into multiple modules and<br>thus more easily manage cross-dependencies between them.<br>允许将应用程序分割成多个模块，同时使得不同模块之间的依赖易于管理。  </p>
+<p>Similar to the Java Servlet and EJB specifications, the OSGi specification<br>defines two things:<br>和Java Servlet，EJB相似，OSGi标准定义了两件事：<br>a set of services that an OSGi container must implement<br>一堆OSGi容器需要实现的service<br>a contract between the container and your application.<br>容器和你的程序之间的契约  </p>
+<p>Developing on the OSGi platform means first building your application using<br>OSGi APIs, then deploying it in an OSGi container.<br>基于OSGi平台进行开发意味着必须要用OSGi API来构建你的程序，然后将它们部署到OSGi容器中去。<br>From a developer’s perspective, OSGi offers the following advantages:<br>从一个开发者的角度来书，OSGi提供了以下优点：<br>You can install, uninstall, start, and stop different modules of your<br>application dynamically without restarting the container.<br>你可以在不重启容器的情况下，来安装，卸载，启动停止你应用程序中的模块。<br>Your application can have more than one version of a particular module running<br>at the same time.<br>同一时间你的应用程序中的一个模块的不同版本可以一起运行<br>OSGi provides very good infrastructure for developing service-oriented<br>applications, as well as embedded, mobile, and rich internet apps.<br>OSGi为面向服务应用提供了很好的基础框架，例如嵌入式，手机，富internet程序。  </p>
+<p><a href="http://en.wikipedia.org/wiki/OSGi" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/OSGi </a><br><a href="http://www.javaworld.com/javaworld/jw-03-2008/jw-03-osgi1.html?page=1" target="_blank" rel="noopener"> http://www.javaworld.com/javaworld/jw-03-2008/jw-03-osgi1.html?page=1
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/10/12/8064420/" data-id="cjfawkqic00uxpk9f9jw5grod" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8056454" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/10/8056454/" class="article-date">
+  <time datetime="2012-10-10T06:56:59.000Z" itemprop="datePublished">2012-10-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/10/8056454/">java中的classloader</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Because class loaders exist, the Java run time does <strong>not need to know<br>anything about files and file systems</strong> when running Java programs.  </p>
+<p>A class loader starts by being a subclass of java.lang.ClassLoader. The only<br>abstract method that must be implemented is loadClass(). The flow of<br>loadClass() is as follows:  </p>
+<p>Verify class name.<br>Check to see if the class requested has already been loaded.<br>Check to see if the class is a “system” class.<br>Attempt to fetch the class from this class loader’s repository.<br>Define the class for the VM.<br>Resolve the class.<br>Return the class to the caller.  </p>
+<p>In Java, a class is identified by its fully qualified class name. The fully<br>qualified class name consists of the package name and the class name. But <strong>a<br>class is uniquely identified in a JVM using its fully qualified class name<br>along with the instance of the ClassLoader that loaded the class</strong> . Thus, if<br>a class named Cl in the package Pg is loaded by an instance kl1 of the class<br>loader KlassLoader, the class instance of C1, i.e. C1.class is keyed in the<br>JVM as (Cl, Pg, kl1). This means that the two class loader instances (Cl, Pg,<br>kl1) and (Cl, Pg, kl2) are not one and the same, and classes loaded by them<br>are also completely different and not type-compatible to each other.</p>
+<p>例如：图 _Multiple<code>ClassLoader</code> s loading the same <code>Target</code> class in the same<br>JVM _  </p>
+<pre><code>Target target3 = (Target) target2;
+</code></pre><p>在运行时会抛出ClassCastException  </p>
+<p><img src="http://onjava.com/onjava/2005/01/26/graphics/Figure01_MultipleClassLoaders.JPG" alt=""></p>
+<p><a href="http://onjava.com/pub/a/onjava/2005/01/26/classloading.html?page=1" target="_blank" rel="noopener"> http://onjava.com/pub/a/onjava/2005/01/26/classloading.html?page=1
+</a></p>
+<p><a href="http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1" target="_blank" rel="noopener"> http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
+</a></p>
+<p><a href="http://www.ibm.com/developerworks/java/tutorials/j-classloader/" target="_blank" rel="noopener"> http://www.ibm.com/developerworks/java/tutorials/j-classloader/
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/10/10/8056454/" data-id="cjfawkqi800urpk9fwudsuq3u" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8055376" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/10/8055376/" class="article-date">
+  <time datetime="2012-10-10T02:50:38.000Z" itemprop="datePublished">2012-10-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/10/8055376/">java中的volatile是干什么的</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://today.java.net/pub/a/today/2004/09/15/%3Ccs_comment%20CS_NEXT_REF--%3E" target="_blank" rel="noopener">
+</a></p>
+<p>Synchronization represses this caching behavior. According to the Java memory<br>model, a thread’s local memory is reset to the values stored in main memory<br>when the thread acquires a lock. Furthermore, local memory values are written<br>back to main memory when the thread releases that lock.</p>
+<p>Unfortunately, excessive synchronization can cause a program’s performance to<br>suffer. To balance the need to (occasionally) avoid local memory versus not<br>sacrificing performance, Java provides the <code>volatile</code> keyword. For<br>each variable marked with that keyword, Java reads that variable’s value from<br>main memory, and writes that variable’s value to main memory. Local memory is<br>avoided.</p>
+<p>一句话，就是不让JVM将改变了放到CPU的缓存中，来提高性能，而每次的读写都从</p>
+<p>内存中进行。避免不同线程之间访问统一数据时的不一致。</p>
+<p><a href="http://today.java.net/pub/a/today/2004/08/02/sync1.html" target="_blank" rel="noopener"> http://today.java.net/pub/a/today/2004/08/02/sync1.html
+</a></p>
+<p><a href="http://today.java.net/pub/a/today/2004/09/15/sync2.html" target="_blank" rel="noopener"> http://today.java.net/pub/a/today/2004/09/15/sync2.html
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/10/10/8055376/" data-id="cjfawkqi600uppk9fx8e04vsz" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8021751" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/26/8021751/" class="article-date">
+  <time datetime="2012-09-26T09:22:14.000Z" itemprop="datePublished">2012-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/26/8021751/">SAL在OpenOffice中是什么意思</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SAL stands for System Abstraction Layer. SAL provides a C API for standard OS<br>functionality, e.g. as opening files, creating threads etc. C++ wrappers for<br>the C API are available in SAL as well, despite better being placed into<br>SALhelper.  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/09/26/8021751/" data-id="cjfawkqi500unpk9f0qdlq9b6" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8021703" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/26/8021703/" class="article-date">
+  <time datetime="2012-09-26T09:13:04.000Z" itemprop="datePublished">2012-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/26/8021703/">如何识别class文件的版本号</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>javap -verbose youclassfile| grep version  </p>
+<p>file yourclassfile</p>
+<p>运行例：</p>
+<p>[jialiang@localhost test]$ javap -verbose HelloWorld.class | grep version<br>minor version: 0<br>major version: 46<br>[jialiang@localhost test]$ file HelloWorld.class<br>HelloWorld.class: compiled Java class data, version 46.0  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/09/26/8021703/" data-id="cjfawkqi300ulpk9ffrt5tnfs" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8021671" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/26/8021671/" class="article-date">
+  <time datetime="2012-09-26T09:10:25.000Z" itemprop="datePublished">2012-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/26/8021671/">javaldx是干什么的</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>javaldx is necessary to make Java work on some UNIX platforms.It prints a<br>string to std out that consists of directories which have to be included into<br>the LD_LIBRARY_PATH variable.The setting of the variable usually occurs in a<br>shell script that runs javaldx.<br>The directories are from the chosen java installation.<br>Options are:<br>--help or -h<br>[jialiang@localhost ure]$ ./bin/javaldx  </p>
+<p>/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/client:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/native_threads:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64</p>
+<p>一句话，javaldx就是让OO可以正常使用java必须添加到LD_LIBRARY_PATH中的lib  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/09/26/8021671/" data-id="cjfawkqi200ujpk9fqrqaxs5a" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8020174" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/26/8020174/" class="article-date">
+  <time datetime="2012-09-26T03:16:09.000Z" itemprop="datePublished">2012-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/26/8020174/">UNOjava组件的创建流程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UNO-Components"><a href="#UNO-Components" class="headerlink" title="UNO Components"></a>UNO Components</h3><p>This section will explain some very basic things about UNO components. You can<br>skip it if you already know it. First I will explain what a component is and<br>its main parts. Afterwards, I will explain what is needed to create a UNO<br>component to help you to fully understand the different tools and their use<br>during the tutorial.</p>
+<h4 id="Components-anatomy"><a href="#Components-anatomy" class="headerlink" title="Components anatomy"></a>Components anatomy</h4><p><em>“A component is a system element offering a predefined service and able to<br>communicate with other components”</em> explains <a href="http://fr.wikipedia.org/wiki/composant" title="http://fr.wikipedia.org/wiki/composant" target="_blank" rel="noopener"> Wikipedia (Fr)
+</a> (Even thought there is a definition<br>on the English wikipedia article, I prefer the French one because of its<br>completeness). In UNOs case a component will generally be delivered as a<br>package containing a library (share library in C++ or jar in Java). For UNO, a<br>component is made of two distinct parts: specifications and an implementation.</p>
+<ul>
+<li><strong>Specification:</strong> definition in a common language of what the component should do. For UNO, this language is called UNO-IDL and is more or less similar to <a href="http://en.wikipedia.org/wiki/Corba" title="http://en.wikipedia.org/wiki/Corba" target="_blank" rel="noopener"> Corba </a> IDL. The documented part that will be provided as an API to use the component is the specification. Thus, it should be complete and implementation independent. </li>
+<li><strong>Implementation:</strong> is the code that will realize what is described in the component specifications. This programming language can either be C++, Java, Python or others. This is the internal part of the component and will not be accessible from another component. </li>
+</ul>
+<p>In order that UNO knows which implementation corresponds to which<br>specification, the component will use registries. There are two of them: the<br>first one describes all the component specifications ( <code>types.rdb</code> ) and the<br>second translates the implementation into specifications ( <code>services.rdb</code> )<br>and is generated from the implementation.</p>
+<h4 id="Components-creation-process"><a href="#Components-creation-process" class="headerlink" title="Components creation process"></a>Components creation process</h4><p>The following diagram will help you better understand what should be done to<br>get a component from its specification and sources. As shown by the diagram,<br>the specifications are compiled and merged into one <code>types.rdb</code> registry. <code>Class</code> files are generated from that file to translate the specifications<br>into a Java class definition file which is built with the implementation into<br>a class using the <code>java</code> compiler. All the classes are delivered as a <code>jar</code> file with a specific manifest as we will see further in this tutorial. This<br>doesn’t make a usable OpenOffice.org: the <code>types.rdb</code> and <code>jar</code> file will<br>have to be zipped into a <code>.uno.pkg</code> file described with another manifest.</p>
+<p><img src="http://wiki.openoffice.org/w/images/a/af/CompilationChain.png" alt=""></p>
+<p><a href="http://wiki.openoffice.org/wiki/JavaEclipseTuto" target="_blank" rel="noopener"> http://wiki.openoffice.org/wiki/JavaEclipseTuto
+</a></p>
+<p>例子：</p>
+<p>0. prepare environment</p>
+<p>cd /usr/lib64/openoffice.org/basis3.1/sdk</p>
+<p>./setsdkenv_unix  </p>
+<p>1. create interface</p>
+<p>XHelloWorld.idl</p>
+<p>HelloWorld.idl  </p>
+<p>用idl语言来描述你自己需要向外部暴露的接口<br>2. idlc<br>idlc -C -I$OO_SDK_HOME/idl XHelloWorld.idl<br>idlc -C -I$OO_SDK_HOME/idl HelloWorld.idl<br>3. /UCR key (UNO core reflection)<br>regmerge thumbs.rdb /UCR XHelloWorld.urd<br>regmerge thumbs.rdb /UCR HelloWorld.urd  </p>
+<p>#check it<br>regview thumbs.rdb<br>4.<br>javamaker -Gc -BUCR -O./classes $OO_SDK_URE_HOME/share/misc/types.rdb<br>thumbs.rdb<br>5. implements interface and compile<br>javac -classpath<br>./classes:$OO_SDK_URE_HOME/share/java/juh.jar:$OO_SDK_URE_HOME/share/java/jurt.jar:$OO_SDK_URE_HOME/share/java/ridl.jar:$OO_SDK_URE_HOME/share/java/unoloader.jar<br>-d ./classes<br>/home/jialiang/workspace_uno_test/uno_test/src/org/openoffice/test/comp/HelloWorldImpl.java<br>6. deploy<br>jar cfm HelloWorldImpl.jar HelloWorldImpl.mf -C ./classes .  </p>
+<p>regcomp -register -r thumbs.rdb -br $OO_SDK_URE_HOME/share/misc/services.rdb<br>-br $OO_SDK_URE_HOME/share/misc/types.rdb -br thumbs.rdb -l<br>com.sun.star.loader.Java2 -c<br>file:///$OO_SDK_HOME/../program/classes/HelloWorldImpl.jar<br>7. install to OO, and test it  </p>
+<p>cd $OO_SDK_HOME/../program</p>
+<p>su root</p>
+<p>vi fundamentalbasisrc</p>
+<p>append your jar file to URE_MORE_JAVA_TYPES path</p>
+<p>append your rdb file to URE_MORE_SERVICES and URE_MORE_TYPES path</p>
+<pre><code>Sub Main 
+    oTestComp = createUnoService(&quot;org.openoffice.test.HelloWorld&quot;)
+    MsgBox oTestComp.dbg_methods
+    MsgBox oTestComp.dbg_properties
+    print oTestComp.getHelloWorld()
+    oTestComp.DestinationDirectory = &quot;test&quot;
+    print oTestComp.DestinationDirectory    
+end sub 
+</code></pre><p>XHelloWorld.idl:</p>
+<pre><code>#ifndef _org_openoffice_test_XImageShrink_idl_
+#define _org_openoffice_test_XImageShrink_idl_
+
+#include &lt;com/sun/star/uno/XInterface.idl&gt;
+#include &lt;com/sun/star/awt/Size.idl&gt;
+
+module org { module openoffice { module test {
+
+interface XHelloWorld {
+
+  [attribute] string SourceDirectory;
+  [attribute] string DestinationDirectory;
+  string getHelloWorld();
+  void printHelloWorld();
+
+};
+
+}; }; };
+
+#endif
+</code></pre><p>HelloWorld.idl:</p>
+<pre><code>#ifndef __org_openoffice_test_hellworld_idl__
+#define __org_openoffice_test_hellworld_idl__
+
+#include &lt;XHelloWorld.idl&gt;
+module org { module openoffice { module test {     
+
+    service HelloWorld : org::openoffice::test::XHelloWorld {
+
+    };
+
+ }; }; };
+#endif
+</code></pre><p>HelloWorldImpl.java:</p>
+<pre><code>package org.openoffice.test.comp;
+
+import org.openoffice.test.XHelloWorld;
+
+import com.sun.star.lang.XSingleServiceFactory;
+import com.sun.star.lang.XMultiServiceFactory;
+import com.sun.star.registry.XRegistryKey;
+import com.sun.star.comp.loader.FactoryHelper;
+import com.sun.star.lib.uno.helper.WeakBase;
+
+public class HelloWorldImpl extends WeakBase implements
+        com.sun.star.lang.XServiceInfo, org.openoffice.test.XHelloWorld {
+
+    com.sun.star.uno.XComponentContext xComponentContext = null;
+
+    // maintain a static implementation id for all instances of HelloWorld
+    // initialized by the first call to getImplementationId()
+    static byte[] _implementationId;
+
+    // hold the service name in a private static member variable of the class
+    protected static final String __serviceName = &quot;org.openoffice.test.HelloWorld&quot;;
+
+    String destDir = &quot;&quot;;
+    String sourceDir = &quot;&quot;;
+
+    /** Creates a new instance of HelloWorld */
+    public HelloWorldImpl() {
+    }
+
+    // static __getServiceFactory() Implementation
+    public static XSingleServiceFactory __getServiceFactory(String implName,
+            XMultiServiceFactory multiFactory,
+            com.sun.star.registry.XRegistryKey regKey) {
+
+        com.sun.star.lang.XSingleServiceFactory xSingleServiceFactory = null;
+        if (implName.equals(HelloWorldImpl.class.getName()))
+            xSingleServiceFactory = FactoryHelper.getServiceFactory(
+                    HelloWorldImpl.class, HelloWorldImpl.__serviceName, multiFactory,
+                    regKey);
+
+        return xSingleServiceFactory;
+    }
+
+    public static boolean __writeRegistryServiceInfo(XRegistryKey regKey) {
+//        System.out.println(HelloWorldImpl.class.getName());
+        return FactoryHelper.writeRegistryServiceInfo(
+                HelloWorldImpl.class.getName(), __serviceName, regKey);
+    }
+
+    @Override
+    public String getSourceDirectory() {
+        return sourceDir;
+    }
+
+    @Override
+    public void setDestinationDirectory(String str) {
+        destDir = str;
+    }
+
+    @Override
+    public void setSourceDirectory(String str) {
+        sourceDir = str;
+    }
+
+    // XServiceInfo implementation
+    @Override
+    public String getImplementationName() {
+        return getClass().getName();
+    }
+
+    @Override
+    public boolean supportsService(String serviceName) {
+        if (serviceName.equals(__serviceName))
+            return true;
+        return false;
+    }
+
+    @Override
+    public String[] getSupportedServiceNames() {
+        return new String[] { __serviceName };
+    }
+
+    @Override
+    public String getHelloWorld() {
+        return &quot;Hello World&quot;;
+    }
+
+    @Override
+    public void printHelloWorld() {
+        System.out.println(&quot;Hello World&quot;);
+    }
+
+    @Override
+    public String getDestinationDirectory() {
+        return destDir;
+    }
+
+}
+</code></pre><p>HelloWorldImpl.mf:</p>
+<pre><code>Manifest-Version: 1.0
+RegistrationClassName: org.openoffice.test..comp.HelloWorldImpl
+</code></pre><p>注意：我的OO版本是3.1，不同的版本可能不一样。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/09/26/8020174/" data-id="cjfawkqi100uhpk9f6dj81phg" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/36/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/38/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/41/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-7719268" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/05/7719268/" class="article-date">
+  <time datetime="2012-07-05T09:06:30.000Z" itemprop="datePublished">2012-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/05/7719268/">快速傅立叶转换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. 在1807年，傅立叶发现任何一个波形都可以看成是多个正旋波的叠加。</p>
+<p>2. 一个波形，可以从时域和频域来观察，时域到频域的转换就可以通过FFT（反之亦可），快速傅立叶转换</p>
+<p>3. 用频域来表示波形的好处：</p>
+<p>3.1我们用频域可以在大信号中发现一个或多个小的sin波；</p>
+<p>3.2在频域中，因为小的sin波没有被大信号所覆盖（mask），所以它们很容易别区分出来和测量；</p>
+<p>3.3例如，失真就可以通过比较输入信号的频谱和输出信号的频谱来测量。</p>
+<p><a href="http://en.wikipedia.org/wiki/Fast_Fourier_Transform" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Fast_Fourier_Transform
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/05/7719268/" data-id="cjfawkqg200rnpk9fjtcynf2b" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7718557" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/05/7718557/" class="article-date">
+  <time datetime="2012-07-05T08:48:55.000Z" itemprop="datePublished">2012-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/05/7718557/">采样理论（Sampling Theory） 和周期性信号采样 （Coherent sampling）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If a function _x_ ( _t_ ) contains no frequencies higher than _B_ <a href="http://en.wikipedia.org/wiki/Hertz" title="Hertz" target="_blank" rel="noopener"> hertz
+</a> , it is completely determined by<br>giving its ordinates at a series of points spaced 1/(2 _B_ ) seconds apart.</p>
+<p>换句话说就是，采样的频率F1和所传输信号的频率F2的关系如果满足，F1 &gt;=2F2，那么该传输信号可与等同于采样后生成的信号。</p>
+<p>如果F1&lt;F2，这种情况被称为Undersampling，这样会导致测试最后生成的波形的频率比F2小，  </p>
+<p>如果F1&gt;&gt; 2F2，这种情况被称为Oversampling，这样可以提高测试精度。</p>
+<p>所以为了找到一个合适的采样频率和合适的采样次数，引人Coherent sampling（周期信号取样）  </p>
+<p>UTP is a time interval over which unique information is spread（用来确保采样的唯一性）</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/f/a/5/fa570a746e8912763fc57191d89772a6.png" alt=""></p>
+<p>假设：</p>
+<p>被测device是：8-bit 21MHz ADC Test  </p>
+<p>采样频率Fs是： 20MHz<br>被测试信号的频率Fin：5MHz<br>采样次数Msamples是：N ≧ 2的9次方 =512</p>
+<p>带入公式的Ncycles=512/4=128</p>
+<p>因为“This integer number should be chosen carefully. We have three possible<br>types of integers, even, odd, and prime. Even is not a good idea since we<br>would hit the same code every M samples, where M can be much less than N. Odd<br>is a better idea since it takes longer to hit the same code.”，</p>
+<p>所以我们将Ncycles改成129，然后计算出新的Fin=5.03MHz</p>
+<p><a href="http://en.wikipedia.org/wiki/Coherent_sampling" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Coherent_sampling
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/05/7718557/" data-id="cjfawkqg100rlpk9fraijd7ub" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7718491" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/05/7718491/" class="article-date">
+  <time datetime="2012-07-05T06:27:11.000Z" itemprop="datePublished">2012-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/05/7718491/">测试复合信号需要的测试资源</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.Arbitrary Waveform Generator (AWG，任意波形发生器)  </p>
+<p>Source analog signal stimulus to ADCs and buffers.</p>
+<p>可以将生成的模拟信号传输到模数转换器并且可以暂存  </p>
+<p>Essentially D to A converters with built-in waveform generation memory.</p>
+<p>内置数字到模拟转换器</p>
+<p>2.Waveform Digitizers and Samplers(采样器)<br>Capture analog signals.</p>
+<p>扑捉模拟信号  </p>
+<p>Essentially A to D converters with built-in capture memory.  </p>
+<p>内置模拟到数字转换器</p>
+<p>3.Time Interval Analyzers(时间间隔分析器)<br>Measures frequencies, delays and jitter.  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/05/7718491/" data-id="cjfawkqg000rjpk9fcmskgnsl" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7717714" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/05/7717714/" class="article-date">
+  <time datetime="2012-07-05T02:45:12.000Z" itemprop="datePublished">2012-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/05/7717714/">smith chart</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我说可能比较无力，直接看以下的链接。</p>
+<p><a href="http://china.maxim-
+ic.com/app-notes/index.mvp/id/742" target="_blank" rel="noopener"> http://china.maxim-ic.com/app-notes/index.mvp/id/742 </a></p>
+<p><a href="http://en.wikipedia.org/wiki/Smith_chart" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Smith_chart
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/05/7717714/" data-id="cjfawkqfy00rhpk9fxtvkguhv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7717590" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/05/7717590/" class="article-date">
+  <time datetime="2012-07-05T02:31:41.000Z" itemprop="datePublished">2012-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/05/7717590/">阻抗匹配（Impedance Matching ）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In <a href="http://en.wikipedia.org/wiki/Electronics" title="Electronics" target="_blank" rel="noopener"> electronics </a> ,<br><strong>impedance matching</strong> is the practice of designing the <a href="http://en.wikipedia.org/wiki/Input_impedance" title="Input impedance" target="_blank" rel="noopener"> input impedance
+</a> of an <a href="http://en.wikipedia.org/wiki/Electrical_load" title="Electrical
+load" target="_blank" rel="noopener"><br>electrical load </a> (or the <a href="http://en.wikipedia.org/wiki/Output_impedance" title="Output impedance" target="_blank" rel="noopener"> output impedance
+</a> of its<br>corresponding signal source) to <a href="http://en.wikipedia.org/wiki/Maximum_power_transfer_theorem" title="Maximum power
+transfer theorem" target="_blank" rel="noopener"> maximize the power transfer
+</a> or minimize <a href="http://en.wikipedia.org/wiki/Signal_reflection" title="Signal reflection" target="_blank" rel="noopener"> reflections
+</a> from the<br>load.</p>
+<p>在电子工业中，阻抗匹配是用来设计输入阻抗来达到最大化能量传输或者最小化负载的发射的一种方法。</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/8/88/Source_and_load_circuit_Z.png" alt=""></p>
+<p>如上图，当<br><img src="http://upload.wikimedia.org/wikipedia/en/math/d/f/c/dfc815ed50c68baa7ee0f66314e000aa.png" alt=""><br>时，会达到最大化能量传输。</p>
+<p><a href="http://en.wikipedia.org/wiki/Impedance_matching" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Impedance_matching
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/05/7717590/" data-id="cjfawkqfx00rfpk9ffpugvwjj" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7717413" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/05/7717413/" class="article-date">
+  <time datetime="2012-07-05T02:08:43.000Z" itemprop="datePublished">2012-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/05/7717413/">什么是阻抗（Electrical impedance）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>阻抗</strong> （  electrical impedance  ）是 <a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF" title="电路" target="_blank" rel="noopener"> 电路
+</a> 中 <a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E9%98%BB" title="电阻" target="_blank" rel="noopener"> 电阻
+</a> 、 <a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E6%84%9F" title="电感" target="_blank" rel="noopener"> 电感
+</a> 、 <a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E5%AE%B9" title="电容" target="_blank" rel="noopener"> 电容
+</a> 对 <a href="http://zh.wikipedia.org/wiki/%E4%BA%A4%E6%B5%81%E7%94%B5" title="交流电" target="_blank" rel="noopener"> 交流电
+</a><br>的阻碍作用的统称。（定义来自wikipedia）</p>
+<p>阻抗为什么使用复数呢？请看下面的描述：</p>
+<p>It is necessary to introduce the concept of impedance in AC circuits because<br>there are other mechanisms impeding the flow of current besides the normal<br>resistance of DC circuits.  </p>
+<p>我们把阻抗的定义引人到交流电中是必要的，因为当电流流过电线时，不仅存在在直流电中的电阻，同时还存在另外两种电抗。</p>
+<p>There are an additional two impeding mechanisms to be taken into account in AC<br>circuits:  </p>
+<p>这两种电抗是：  </p>
+<p>the induction of voltages in conductors self-induced by the magnetic fields of<br>currents ( <a href="http://en.wikipedia.org/wiki/Inductance" title="Inductance" target="_blank" rel="noopener"> inductance </a> ),</p>
+<p>在导体中，通过电流磁场形成的电感  </p>
+<p>and the electrostatic storage of charge induced by voltages between conductors<br>( <a href="http://en.wikipedia.org/wiki/Capacitance" title="Capacitance" target="_blank" rel="noopener"> capacitance </a> ).</p>
+<p>在导体之间因为电压而存储的电荷  </p>
+<p>The impedance caused by these two effects is collectively referred to as <a href="http://en.wikipedia.org/wiki/Electrical_reactance" title="Electrical
+reactance" target="_blank" rel="noopener"><br>reactance </a> and forms the <a href="http://en.wikipedia.org/wiki/Imaginary_number" title="Imaginary number" target="_blank" rel="noopener"> imaginary
+</a> part of<br>complex impedance</p>
+<p>这两种效应合在一起被称为（电抗），同时也是复数的虚部  </p>
+<p>whereas resistance forms the <a href="http://en.wikipedia.org/wiki/Real_number" title="Real number" target="_blank" rel="noopener"> real </a> part.</p>
+<p>而电阻则是虚数的实部。</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/d/e/f/def3c92a1307b8cccfc3b4b415b48371.png" alt="">  </p>
+<p>Z is the <a href="http://en.wikipedia.org/wiki/Electrical_impedance" title="Electrical impedance" target="_blank" rel="noopener"> impedance </a> , measured in ohms.</p>
+<p>R is the <a href="http://en.wikipedia.org/wiki/Electrical_resistance" title="Electrical resistance" target="_blank" rel="noopener"> resistance </a> 电阻, measured in ohms.  </p>
+<p>X is the reactance 电抗, measured in ohms.</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/1/a/a/1aab3d30bc9d42d209682b647396f0a5.png" alt=""></p>
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/e/3/6/e36eb3b7c9367bd14cfd56f99c173af2.png" alt=""></p>
+<p>Y is the <strong>admittance</strong> , measured in siemens (a.k.a. mho, the inverse of<br>ohm).  </p>
+<p>G is the <a href="http://en.wikipedia.org/wiki/Electrical_conductance" title="Electrical conductance" target="_blank" rel="noopener"> conductance </a> 导纳, measured in siemens.</p>
+<p>B is the <a href="http://en.wikipedia.org/wiki/Susceptance" title="Susceptance" target="_blank" rel="noopener"> susceptance </a> 电纳, measured in siemens.</p>
+<p><a href="http://zh.wikipedia.org/wiki/%E9%98%BB%E6%8A%97" target="_blank" rel="noopener"> http://zh.wikipedia.org/wiki/%E9%98%BB%E6%8A%97
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Electrical_impedance" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Electrical_impedance
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Admittance" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Admittance
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Electrical_reactance" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Electrical_reactance
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/05/7717413/" data-id="cjfawkqfu00rbpk9fey4e59mi" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7715103" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/04/7715103/" class="article-date">
+  <time datetime="2012-07-04T06:33:28.000Z" itemprop="datePublished">2012-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/04/7715103/">什么是反射(Reflect)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>反射是由于传输线瞬时阻抗变化而引起的。</p>
+<p>下图是一个wikipedia给出的直观图：  </p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/3/30/Partial_transmittance.gif" alt="">  </p>
+<p>反射系数（Reflection Coefficient）：</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/8/2/f/82fa7724fe45a6404f801d8bd43aa08b.png" alt="">  </p>
+<p>ZS is the <a href="http://en.wikipedia.org/wiki/Electrical_impedance" title="Electrical impedance" target="_blank" rel="noopener"> impedance </a> toward the source, ZL is the impedance toward the <a href="http://en.wikipedia.org/wiki/External_electric_load" title="External electric
+load" target="_blank" rel="noopener"><br>load </a> ，因为阻抗是复数，所以反射系数也是复数，  </p>
+<p><img src="http://img.my.csdn.net/uploads/201207/04/1341383802_1907.png" alt=""></p>
+<p>驻波比（Voltage standing wave ratio）</p>
+<p><img src="http://img.my.csdn.net/uploads/201207/04/1341383802_7221.png" alt=""></p>
+<p><a href="http://en.wikipedia.org/wiki/Reflections_of_signals_on_conducting_lines" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Reflections_of_signals_on_conducting_lines
+</a></p>
+<p><a href="http://bbs.ednchina.com/BLOG_ARTICLE_437225.HTM" target="_blank" rel="noopener"> http://bbs.ednchina.com/BLOG_ARTICLE_437225.HTM
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Standing_wave_ratio" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Standing_wave_ratio
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/04/7715103/" data-id="cjfawkqfw00rdpk9flg3i7tey" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7715056" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/04/7715056/" class="article-date">
+  <time datetime="2012-07-04T06:18:02.000Z" itemprop="datePublished">2012-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/04/7715056/">什么是特性阻抗（Characteristic impedance）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The characteristic impedance or surge impedance of a uniform transmission<br>line, usually written Z0, is the ratio of the amplitudes of a single pair of<br>voltage and current waves propagating along the line in the absence of<br>reflections。</p>
+<p><img src="http://img.my.csdn.net/uploads/201207/04/1341383019_8760.png" alt="">  </p>
+<p><a href="http://home.educities.edu.tw/oldfriend/SI_PI/cha_impedance.htm" target="_blank" rel="noopener"> http://home.educities.edu.tw/oldfriend/SI_PI/cha_impedance.htm
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Characteristic_impedance" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Characteristic_impedance
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/04/7715056/" data-id="cjfawkqft00r9pk9f0rql55uf" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7714775" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/04/7714775/" class="article-date">
+  <time datetime="2012-07-04T05:01:20.000Z" itemprop="datePublished">2012-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/04/7714775/">电阻，电容，电感（resistor, capacitor, inductor）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>电阻： <img src="http://my.csdn.net/uploads/201207/04/1341378642_6127.png" alt=""><br><img src="http://img.my.csdn.net/uploads/201207/04/1341381247_5788.png" alt=""> 实例：<br><img src="http://img.my.csdn.net/uploads/201207/04/1341378701_8137.jpg" alt="">  </p>
+<p>电容： <img src="http://img.my.csdn.net/uploads/201207/04/1341378883_8925.png" alt=""><br><img src="http://img.my.csdn.net/uploads/201207/04/1341378883_6770.png" alt=""><br><img src="http://img.my.csdn.net/uploads/201207/04/1341381247_1274.png" alt=""> 实例：<br><img src="http://img.my.csdn.net/uploads/201207/04/1341378883_2703.jpg" alt="">  </p>
+<p>电感： <img src="http://img.my.csdn.net/uploads/201207/04/1341379192_3928.png" alt=""><br><img src="http://img.my.csdn.net/uploads/201207/04/1341381247_8920.png" alt=""> 实例：<br><img src="http://img.my.csdn.net/uploads/201207/04/1341379192_2157.jpg" alt=""></p>
+<p><img src="http://img.my.csdn.net/uploads/201207/04/1341381546_5703.png" alt=""> is the<br>angular frequency of the AC current,  </p>
+<p><img src="http://img.my.csdn.net/uploads/201207/04/1341381546_3093.png" alt=""> is the<br>imaginary unit.  </p>
+<p><a href="http://en.wikipedia.org/wiki/Electrical_resistance_and_conductance" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Electrical_resistance_and_conductance
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Resistor" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Resistor
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Capacitor" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Capacitor
+</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Inductor" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Inductor
+</a></p>
+<p><a href="http://www.dz3w.com/info/application/0079156.html" target="_blank" rel="noopener"> http://www.dz3w.com/info/application/0079156.html
+</a></p>
+<p><a href="http://www.facstaff.bucknell.edu/mastascu/elessonshtml/LC/Capac1.htm" target="_blank" rel="noopener"> http://www.facstaff.bucknell.edu/mastascu/elessonshtml/LC/Capac1.htm
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/04/7714775/" data-id="cjfawkqfs00r7pk9fnm32lbj0" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7712634" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/03/7712634/" class="article-date">
+  <time datetime="2012-07-03T09:06:56.000Z" itemprop="datePublished">2012-07-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/03/7712634/">梁山好汉36天罡星的各种死法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很多人看完水浒，只能知道几个好汉是怎么挂的。那么下面，就由本尊统计后，告诉大家这108人当中的36人都是怎么死的。</p>
+<p>天魁星及时雨宋江，得胜后被高俅毒死。<br>天罡星玉麒麟卢俊义，得胜后被奸臣陷害误饮毒酒后，失足落水而死。<br>天机星智多星吴用，在宋江坟前与花荣上吊自杀。<br>天闲星入云龙公孙胜，归隐后老死。（料知招安后没有好果子吃，提前撤退）<br>天勇星大刀关胜，得胜后酒醉坠马得病而亡。（酒后驾车的反面教材）<br>天雄星豹子头林冲，得胜后风瘫与武松留在六合寺，半年后病死。<br>天猛星霹雳火秦明，征清溪洞被杜微、方杰陷害死。<br>天威星双鞭呼延灼，得胜做官，后在河西阵亡，死于金兀术。（后来岳飞打败金兀术，算是报仇了。）<br>天英星小李广花荣，与吴用一起上吊自杀。<br>天贵星小旋风柴进，得胜做官，后辞官回乡，无疾而终。<br>天富星扑天雕李应，得胜后回家当土财主，坐拥良田美妾。<br>天满星美髯公朱仝，得胜做官，官至节度使。<br>天孤星花和尚鲁智深，得胜后在浙江坐化。<br>天伤星行者武松，征乌龙岭时被包天师砍断左臂，后六合寺终老。<br>天立星双枪将董平，在独松关被张韬砍作两半。<br>天捷星没羽箭张清，在独松关被厉天闰刺腹而死。<br>天暗星青面兽杨志，病死于杭州。<br>天佑星金枪手徐宁，征杭州时中药箭，之后身死。<br>天空星急先锋索超，征杭州被石宝的流星锤砸死。<br>天速星神行太保戴宗，得胜做官，后辞官到泰安州岳庙陪堂出家，大笑而终。（平时跑路利索，人老了，居然笑几下，就上气不接下气，结果被气噎死了。）<br>天异星赤发鬼刘唐，征杭州被闸门压死。<br>天杀星黑旋风李逵，在宋江临死时怕李逵造反而将他毒死。<br>天微星九纹龙史进，征昱岭关被庞万春射死。<br>天究星没遮拦穆弘，杭州病死。<br>天退星插翅虎雷横，征德清县被司行方砍死。<br>天寿星混江龙李俊，得胜后出海。（脱离国籍，移民去了。估计也是客死他乡。）<br>天剑星立地太岁阮小二，征乌龙岭水路被方腊军包围，自刎而死。<br>天平星船火儿张横，杭州病死。<br>天罪星短命二郎阮小五，征清溪洞被娄丞相杀死。<br>天损星浪里白条张顺，征杭州死在涌金门被刀箭攒死。<br>天败星活阎罗阮小七，得胜后被污蔑回乡打鱼。（上山当土匪，下山被招安，打完胜仗重操旧业，继续打鱼。）<br>天牢星病关索杨雄，得胜后背疮病死。（这颗疮一定很大，并且流脓恶臭。）<br>天慧星拼命三郎石秀，征昱岭关被庞万春乱箭射死。<br>天暴星两头蛇解珍，征乌龙岭爬悬崖摔死。<br>天哭星双尾蝎解宝，征乌龙岭爬悬崖被石头砸中，被弓箭射死。<br>天巧星浪子燕青，得胜辞去。（估计是和李师师私奔了，给皇帝戴绿帽不跑路都不行。）</p>
+<p>转自： <a href="http://baidublog.org/2012/36tiangang-guafa/" target="_blank" rel="noopener"> 梁山好汉36天罡星的各种死法 </a><br>本文地址： <a href="http://baidublog.org/2012/36tiangang-guafa/" target="_blank" rel="noopener"> http://baidublog.org/2012/36tiangang-guafa/
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/07/03/7712634/" data-id="cjfawkqfq00r5pk9fvb6osnlr" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/40/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/42/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

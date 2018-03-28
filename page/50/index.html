@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/50/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-6187295" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/02/16/6187295/" class="article-date">
+  <time datetime="2011-02-16T02:08:00.000Z" itemprop="datePublished">2011-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/16/6187295/">Linux下使用一些常用的svn命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. 更新svn</p>
+<p>svn up, 运行该命令后的状态有：</p>
+<p>A Added<br>D Deleted<br>U Updated<br>C Conflict<br>G Merged</p>
+<p>如果出现C的话，一定要自己解决冲突，否则的话提交不了；</p>
+<p>手动解决掉冲突后，需要运行svn resolved命令，将冲突的</p>
+<p>版本文件删除掉。</p>
+<p>2. 第一次从svn server上下载source</p>
+<p>svn checkout svn://ipaddress/your_repo</p>
+<p>svn co svn://ipaddress/your_repo</p>
+<p>svn checkout http(s)://ipaddress/your_repo</p>
+<p>svn co http(s)://ipaddress/your_repo</p>
+<p>3. 给svn追加新的文件</p>
+<p>svn add yourfile</p>
+<p>svn commit</p>
+<p>4. 从svn删除文件</p>
+<p>svn delete yourfile</p>
+<p>svn commit</p>
+<p>5. 本地文件的状态</p>
+<p>svn status, 运行该命令后的状态有：  </p>
+<p>‘ ‘ No modifications.<br>‘A’ Item is scheduled for Addition.<br>‘D’ Item is scheduled for Deletion.<br>‘M’ Item has been modified.<br>‘R’ Item has been replaced in your working copy. This means the file was<br>scheduled for deletion, and then a new file with the same name was scheduled<br>for addition in its place.<br>‘C’ The contents (as opposed to the properties) of the item conflict with<br>updates received from the repository.<br>‘X’ Item is related to an externals definition.<br>‘I’ Item is being ignored (e.g. with the svn:ignore property).<br>‘?’ Item is not under version control.<br>‘!’ Item is missing (e.g. you moved or deleted it without using svn). This<br>also indicates that a directory is incomplete (a checkout or update was<br>interrupted).<br>‘~’ Item is versioned as one kind of object (file, directory, link), but has<br>been replaced by different kind of object.</p>
+<p>参见：</p>
+<p><a href="http://www.linuxfromscratch.org/blfs/edguide/chapter03.html" target="_blank" rel="noopener">http://www.linuxfromscratch.org/blfs/edguide/chapter03.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/02/16/6187295/" data-id="cjfawkqbj00kkpk9fmyd1nh9m" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-6187259" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/02/16/6187259/" class="article-date">
+  <time datetime="2011-02-16T01:47:00.000Z" itemprop="datePublished">2011-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/16/6187259/">telnet中的-8E选项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>注意-8E的选项只有在linux机器上有，在windows自带的telnet客户端上没有。</strong></p>
+<p><strong>通过-8E连接的telent，可以grep中文，日文字符  
+</strong></p>
+<p>telnet -8E hostname</p>
+<p>-8E<br>-8 Request 8-bit operation. This causes an attempt to negotiate the<br>TELNET BINARY option for both input and output. By default telnet<br>is not 8-bit clean.  </p>
+<p>-E Disables the escape character functionality; that is, sets the<br>escape character to <code></code>no character’’.</p>
+<p>如果使用了escape character，那么在telnet时输入escape character字符会进入command mode，<br>如下：<br>[jial@nsw-s-hostserver ~]$ telnet 1.1.1.1 -e d<br>Telnet escape character is ‘d’.<br>Trying 1.1.1.1…<br>Connected to 1.1.1.1.<br>Escape character is ‘d’.<br>Red Hat Linux release 9 (Shrike)<br>Kernel 2.4.20-8 on an i686<br>login:<br>telnet &gt; ?<br>Commands may be abbreviated. Commands are:  </p>
+<p>close close current connection<br>logout forcibly logout remote user and close the connection<br>display display operating parameters<br>mode try to enter line or character mode (‘mode ?’ for more)<br>open connect to a site<br>quit exit telnet<br>send transmit special characters (‘send ?’ for more)<br>set set operating parameters (‘set ?’ for more)<br>unset unset operating parameters (‘unset ?’ for more)<br>status print status information<br>toggle toggle operating parameters (‘toggle ?’ for more)<br>slc change state of special charaters (‘slc ?’ for more)<br>auth turn on (off) authentication (‘auth ?’ for more)<br>encrypt turn on (off) encryption (‘encrypt ?’ for more)<br>forward turn on (off) credential forwarding (‘forward ?’ for more)<br>z suspend telnet<br>! invoke a subshell<br>environ change environment variables (‘environ ?’ for more)<br>? print help information<br>telnet&gt;</p>
+<p>参见：</p>
+<p><a href="http://man.he.net/man1/telnet" target="_blank" rel="noopener">http://man.he.net/man1/telnet</a><br><a href="http://linux.about.com/od/commands/l/blcmdl1_telnet.htm" target="_blank" rel="noopener">http://linux.about.com/od/commands/l/blcmdl1_telnet.htm</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/02/16/6187259/" data-id="cjfawkqbg00kgpk9f80qxngzn" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-6170575" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/01/31/6170575/" class="article-date">
+  <time datetime="2011-01-31T01:48:00.000Z" itemprop="datePublished">2011-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/01/31/6170575/">sony ericsson dbk file 的查看</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1. 将.dbk备份<br>2. 将.dbk文件重命名为.zip文件<br>3. 用解压工具将它解压缩<br>4. 在解压的目录中会看到一个名字为contacts.vcf的文件，它就是备份的通讯录文件<br>5. 用简单的shell对它进行处理，就可以得到我们的通讯录<br>5.1 将我们的通讯录放到一台linux上，运行<br>grep -A1 FN contact.txt | awk ‘BEGIN {FS=”:”} {print $2}’<br>5.2 生产的结果例子如下：<br>=E5=BC=A0=E4=B8=89<br>13999999999  </p>
+<p>=E6=9D=8E=E5=9B=9B<br>15802999999<br>5.3 然后将结果copy到notepad++中，将QUOTED-PRINTABLE编码转回来(Plugins –&gt; MIME tools Quoted-<br>printable Decode)；如下：<br>张三<br>13999999999  </p>
+<p>李四<br>15802999999</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/01/31/6170575/" data-id="cjfawkqbf00kepk9fj82olm2i" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-6065382" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/12/09/6065382/" class="article-date">
+  <time datetime="2010-12-09T05:58:00.000Z" itemprop="datePublished">2010-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/12/09/6065382/">linux 下fdisk的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下是一个实际的例子，请各位参考：</p>
+<p>nx[root@test]# <strong>fdisk –l</strong> <strong> </strong> <strong> (  </strong> <strong> 显示所有的磁盘和分区  </strong> <strong> )  </strong></p>
+<p>Disk /dev/sda: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sda1  1  7  56196  12  Compaq diagnostics</p>
+<p>/dev/sda2  *  8  20  104422+  83  Linux</p>
+<p>Disk /dev/sdb: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdb1  *  1  13054  104856223+  83  Linux</p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>[root@test]# <strong>fdisk /dev/sdc</strong> <strong> (  </strong> <strong> 对磁盘  </strong> <strong> /dev/sdc  </strong> <strong> 进行分区等设置
+</strong> <strong> )  </strong></p>
+<p>The number of cylinders for this disk is set to 36472.</p>
+<p>There is nothing wrong with that, but this is larger than 1024,</p>
+<p>and could in certain setups cause problems with:</p>
+<p>1) software that runs at boot time (e.g., old versions of LILO)</p>
+<p>2) booting and partitioning software from other OSs</p>
+<p>(e.g., DOS FDISK, OS/2 FDISK)</p>
+<p>Command (m for help): <strong>p</strong> <strong> (  </strong> <strong> 打印出当前磁盘的分区表  </strong> <strong> )  </strong></p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>Command (m for help): <strong>m</strong> <strong> (  </strong> <strong> 打印帮助  </strong> <strong> )  </strong></p>
+<p>Command action</p>
+<p>a  toggle a bootable flag</p>
+<p>b  edit bsd disklabel</p>
+<p>c  toggle the dos compatibility flag</p>
+<p>d  delete a partition</p>
+<p>l  list known partition types</p>
+<p>m  print this menu</p>
+<p>n  add a new partition</p>
+<p>o  create a new empty DOS partition table</p>
+<p>p  print the partition table</p>
+<p>q  quit without saving changes</p>
+<p>s  create a new empty Sun disklabel</p>
+<p>t  change a partition’s system id</p>
+<p>u  change display/entry units</p>
+<p>v  verify the partition table</p>
+<p>w  write table to disk and exit</p>
+<p>x  extra functionality (experts only)</p>
+<p>Command (m for help): <strong>n</strong> <strong> (  </strong> <strong> 添加一个分区，注意：如果  </strong> <strong> /dev/sdc  </strong> <strong><br>是一个没有分区的磁盘的话，必须先创建一个  </strong> <strong> primary partition  </strong> <strong> 分区  </strong> <strong> )  </strong></p>
+<p>Command action</p>
+<p>e  extended</p>
+<p>p  primary partition (1-4)</p>
+<p><strong> p  </strong> <strong> (  </strong> <strong> 创建主分区  </strong> <strong> )  </strong></p>
+<p>Partition number (1-4):  <strong> (  </strong> <strong> 这里没有输入合法的值  </strong> <strong> )  </strong></p>
+<p>Value out of range.</p>
+<p>Partition number (1-4): <strong>1</strong> <strong> (  </strong> <strong> 分区的编号是  </strong> <strong> 1)  </strong></p>
+<p>First cylinder (1-36472, default 1):  <strong> (  </strong> <strong> 分区的起始位置，默认值是  </strong> <strong> 1)  </strong></p>
+<p>Using default value 1</p>
+<p>Last cylinder or +size or +sizeM or +sizeK (1-36472, default 36472):<br><strong>+51200M</strong> <strong> (  </strong> <strong> 分区的大小是  </strong> <strong> 50G)  </strong></p>
+<p>Command (m for help): <strong>p</strong> <strong> </strong> (  打印分区表，检查刚才创建的分区是否正确  )</p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdc1  1  6226  50010313+  83  Linux</p>
+<p>Command (m for help): <strong>w</strong> <strong> (  </strong> <strong> 将刚才创建的信息写入磁盘，使之生效  </strong> <strong> )  </strong></p>
+<p>The partition table has been altered!</p>
+<p>Calling ioctl() to re-read partition table.</p>
+<p>Syncing disks.</p>
+<p>[root@test]# <strong>fdisk -l</strong></p>
+<p>Disk /dev/sda: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sda1  1  7  56196  12  Compaq diagnostics</p>
+<p>/dev/sda2  *  8  20  104422+  83  Linux</p>
+<p>Disk /dev/sdb: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdb1  *  1  13054  104856223+  83  Linux</p>
+<p>Disk /dev/sdc: 300.0 GB, 300000000000 bytes</p>
+<p>255 heads, 63 sectors/track, 36472 cylinders</p>
+<p>Units = cylinders of 16065 * 512 = 8225280 bytes</p>
+<p>Device Boot  Start  End  Blocks  Id  System</p>
+<p>/dev/sdc1  1  6226  50010313+  83  Linux</p>
+<p>[root@test]# <strong>mkfs.ext3 -b 4096 /dev/sdc1</strong> <strong> (  </strong> <strong> 在刚才创建好的  </strong> <strong><br>/dev/sdc1  </strong> <strong> 分区上，建立  </strong> <strong> ext3  </strong> <strong> 文件系统  </strong> <strong> )  </strong></p>
+<p>mke2fs 1.39 (29-May-2006)</p>
+<p>Filesystem label=</p>
+<p>OS type: Linux</p>
+<p>Block size=4096 (log=2)</p>
+<p>Fragment size=4096 (log=2)</p>
+<p>6258688 inodes, 12502578 blocks</p>
+<p>625128 blocks (5.00%) reserved for the super user</p>
+<p>First data block=0</p>
+<p>Maximum filesystem blocks=4294967296</p>
+<p>382 block groups</p>
+<p>32768 blocks per group, 32768 fragments per group</p>
+<p>16384 inodes per group</p>
+<p>Superblock backups stored on blocks:</p>
+<p>10.43.118.16532768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632,<br>2654208,</p>
+<p>10.43.118.1654096000, 7962624, 11239424</p>
+<p>Writing inode tables: done</p>
+<p>Creating journal (32768 blocks): done</p>
+<p>Writing superblocks and filesystem accounting information: done</p>
+<p>This filesystem will be automatically checked every 23 mounts or</p>
+<p>180 days, whichever comes first.  Use tune2fs -c or -i to override.</p>
+<p>[root@test]# <strong>df</strong> <strong> (  </strong> <strong> 查看当前文件系统的磁盘使用量  </strong> <strong> )  </strong></p>
+<p>Filesystem  1K-blocks  Used Available Use% Mounted on</p>
+<p>/dev/sdb1  101572540  3943032  92386700  5% /</p>
+<p>/dev/sda2  101105  10452  85432  11% /boot</p>
+<p>tmpfs  8219868  0  8219868  0% /dev/shm</p>
+<p>[root@test]# <strong>mkdir /base</strong></p>
+<p>[root@test]# <strong>mount /dev/sdc1 /base</strong> <strong> (  </strong> <strong> 将  </strong> <strong> /dev/sdc1  </strong> <strong><br>挂到  </strong> <strong> /base  </strong> <strong> 下  </strong> <strong> )  </strong></p>
+<p>[root@test]# <strong>df</strong></p>
+<p>Filesystem  1K-blocks  Used Available Use% Mounted on</p>
+<p>/dev/sdb1  101572540  3943032  92386700  5% /</p>
+<p>/dev/sda2  101105  10452  85432  11% /boot</p>
+<p>tmpfs  8219868  0  8219868  0% /dev/shm</p>
+<p>/dev/sdc1  49224712  184332  46539868  1% /base</p>
+<p>完成以上工作后，就可以使用文件系统了，但是如果想要在系统启动之后，自动  mount  自己的分区，需要修改  /etc/fstab  ，在最后追加一行：</p>
+<p><strong> /dev/sdc1  /base  ext3  defaults  1 2  </strong></p>
+<p>每列的具体含义可参见：</p>
+<p><a href="http://www.ghacks.net/2009/01/03/understanding-linux-etcfstab/" target="_blank" rel="noopener">http://www.ghacks.net/2009/01/03/understanding-linux-etcfstab/</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Fstab" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Fstab</a></p>
+<p>以下方法参见：</p>
+<p><a href="http://www.cyberciti.biz/faq/linux-disk-format/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/linux-disk-format/</a></p>
+<p><a href="http://www.idevelopment.info/data/Unix/Linux/LINUX_PartitioningandFormattingSecondHardDrive_ext3.shtml" target="_blank" rel="noopener">http://www.idevelopment.info/data/Unix/Linux/LINUX_PartitioningandFormattingSecondHardDrive_ext3.shtml</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/12/09/6065382/" data-id="cjfawkqbd00kapk9fg9qhmbfo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-6034148" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/11/25/6034148/" class="article-date">
+  <time datetime="2010-11-25T02:50:00.000Z" itemprop="datePublished">2010-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/11/25/6034148/">fedora 9下ftp,telnet的安装和设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为ftp和telnet没有默认安装,所以需要自己安装和配置:<br>1.先行条件<br>设置代理(如果不是通过代理上网的，可以跳过这一步)：<br>进入代理面板，System–&gt;Preferences–&gt;Internet and Network–&gt;Network Proxy<br>设置自己的代理和Ignore Host List；  </p>
+<p>禁用auto update：<br>进入Update面板，System–&gt;Preferences–&gt;System–&gt;Software Updates<br>在Check for updates：中选择Never；  </p>
+<p>导入Fedora Project的公钥(yum用它来验证下载的rpm包的完整性和正确性)：<br>rpm -import /etc/pki/rpm-gpg/RPM-GPG-KEY  </p>
+<p>2.使用yum(The Yellowdog Updater, Modified)安装vsftpd：<br>[root@localhost ~]# yum list | grep vsftpd<br>system-config-vsftpd.noarch 0.4.5-3.fc9 fedora<br>vsftpd.i386 2.0.6-3.fc9 fedora<br>(最后一列fedora，表示安装包在远端的fedora服务器上，可以安装)<br>[root@localhost ~]# yum install vsftpd<br>[root@localhost ~]# yum list | grep vsftpd<br>vsftpd.i386 2.0.6-3.fc9 installed<br>(最后一列installed，表示已经安装)<br>[root@localhost ~]# service vsftpd start  </p>
+<p>3.使用yum安装telnet-server：<br>[root@localhost ~]# yum list | grep telnet-server<br>telnet-server.i386 1:0.17-42.fc9 fedora<br>[root@localhost ~]# yum install telnet-server<br>[root@localhost ~]# chkconfig telnet on<br>[root@localhost ~]# service xinetd start<br>Starting xinetd: [ OK ]<br>(因为telnet是xinetd服务的一部分,只要启动它就可以)  </p>
+<p>注1:如果在运行yum时提示以下错误，使用kill -9 pid，将对应的进程杀掉；<br>Existing lock /var/run/yum.pid: another copy is running as pid 9352.<br>Another app is currently holding the yum lock; waiting for it to exit…  </p>
+<p>注2:想让ftp,telnet等程序正常通信的话，最简单的方式是将linux的firewal关掉,<br>它位于System–&gt;Administration–&gt;Firewall;  </p>
+<p>注3:默认情况下,fedora中的ftp,telnet因为安全问题是不允许root用户登录的,<br>如果想让root使用telnet的话:<br>给文件/etc/securetty追加以下内容<br>pts/0<br>pts/1<br>pts/2<br>pts/3<br>pts/4<br>pts/5<br>pts/6<br>pts/7<br>pts/8<br>pts/9<br>然后重新启动xinetd服务,它会允许10个root用户的session存在,注意,你自己在本地打开的<br>terminal也会占用pts的编号,想要查看那些pts被使用,可以使用who命令;<br>如果想让root使用ftp的话:<br>将下列两个文件中的root删除掉,重新启动vsftpd服务,就可以了.<br>/etc/vsftpd/ftpusers<br>/etc/vsftpd/user_list</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/11/25/6034148/" data-id="cjfawkqbb00k8pk9f3eijiuum" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-5890836" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/09/17/5890836/" class="article-date">
+  <time datetime="2010-09-17T06:33:00.000Z" itemprop="datePublished">2010-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/09/17/5890836/">opensolaris如何让网络设置持久化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>IP的设置：</p>
+<p>修改/etc/hostname.pcn0文件，注意这里.之后的名字是网卡的名字，不同的机器可能不一样；</p>
+<p>例子：</p>
+<h1 id="cat-etc-hostname-pcn0"><a href="#cat-etc-hostname-pcn0" class="headerlink" title="cat /etc/hostname.pcn0"></a>cat /etc/hostname.pcn0</h1><p>192.168.131.10/21  </p>
+<p>修改</p>
+<p>route的设置：</p>
+<p>修改/etc/defaultrouter文件，追加默认网关；</p>
+<p>通过命令route -p add default X.X.X.X 来修改文件/etc/inet/static_routes；</p>
+<p>例子：</p>
+<h1 id="cat-etc-inet-static-routes"><a href="#cat-etc-inet-static-routes" class="headerlink" title="cat /etc/inet/static_routes"></a>cat /etc/inet/static_routes</h1><h1 id="File-generated-by-route-1M-do-not-edit"><a href="#File-generated-by-route-1M-do-not-edit" class="headerlink" title="File generated by route(1M) - do not edit."></a>File generated by route(1M) - do not edit.</h1><p>default 192.168.128.1  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/09/17/5890836/" data-id="cjfawkqbe00kcpk9f0wdf1dsa" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-5890821" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/09/17/5890821/" class="article-date">
+  <time datetime="2010-09-17T06:29:00.000Z" itemprop="datePublished">2010-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/09/17/5890821/">opensolaris下让root用户可以通过ssh登陆</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.将文件/etc/ssh/sshd_config中的PermitRootLogin yes用#注释掉；<br>2.将文件/etc/default/login中的CONSOLE=/dev/console用#注释掉；<br>3.将root的角色改成normal：<br>rolemod -K type=normal root<br>4.重启ssh：<br>svcadm disable ssh<br>svcadm enable ssh</p>
+<p>OK</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/09/17/5890821/" data-id="cjfawkqba00k6pk9fx55vwkdd" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-5885361" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/09/15/5885361/" class="article-date">
+  <time datetime="2010-09-15T02:39:00.000Z" itemprop="datePublished">2010-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/09/15/5885361/">关于网吧svod播放器的几个猜想</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为最近没事干，想到网吧copy一些电影看看，但是现在的很多网吧都进行了改造，使用svod播放器，</p>
+<p>将自己的本来是存放在本地的电影进行了包装，使得我不能下载。于是找了一些工具发现以下东西，分享之。</p>
+<p>(顺便说一句，多找几家网吧，不是每家都升级了，有些还是可以通过羊羊(//)来下载的)</p>
+<p>这时他们的网站：<a href="http://www.omov8.com/" target="_blank" rel="noopener">http://www.omov8.com/</a></p>
+<p>1.我去的两家网吧都是在svod的客户端进行了设置，使得打开网吧影院的网页指向一个**.cn的域名，其实不是的，</p>
+<p>网页时连到本地的一个http server上的，具体的ip地址在svod的安装目录下，有一个open.html的文件，使用记事本</p>
+<p>打开就可以看见；</p>
+<p>2.使用port scanner，扫描这个ip，方式该机器开放了80和其他一些端口(网络共享)；使用别的方法发现该机器大部分都是 win 2003；</p>
+<p>3.svod播放器没有缓存；再者它根本就没有通过ie，所以你在ie的缓存目录是什么都看不到的；</p>
+<p>4.svod的播放文件格式是rm的；</p>
+<p>5.所以，如果想破解svod的话，有两个：</p>
+<p>5.1破解win 2003的密码(好像不可行吧)</p>
+<p>5.2自己编写一个程序，模拟svod，通过http请求将影片下载下来，然后将之重命名为*.rm文件即可；</p>
+<p>当然前提是请求的数据流没有被加密；</p>
+<p>6.他们把视频是通过卫星传到网吧，然后再通过网吧的视频服务器转到各各用户；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/09/15/5885361/" data-id="cjfawkqb900k3pk9fizl0howz" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-5834504" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/08/24/5834504/" class="article-date">
+  <time datetime="2010-08-24T05:39:00.000Z" itemprop="datePublished">2010-08-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/08/24/5834504/">js相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>·  JavaScript  网站</p>
+<p>o  <a href="http://www.javascript.com/" target="_blank" rel="noopener"> http://www.javascript.com/  </a> <strong> 号称最可靠的  </strong><br><strong> javascript  </strong> <strong> 资  </strong> <strong> 源  </strong></p>
+<p>o  <a href="http://scriptsearch.internet.com/JavaScript/" target="_blank" rel="noopener"> http://scriptsearch.internet.com/JavaScript/
+</a> <strong> 有很多  </strong> <strong> freesource  </strong><br><strong> 可以参考、使用  </strong></p>
+<p>·  JavaScript  的  Coding Style</p>
+<p>o  <a href="http://javascript.crockford.com/code.html" target="_blank" rel="noopener"> http://javascript.crockford.com/code.html
+</a></p>
+<p>o  <a href="https://blueprints.dev.java.net/bpcatalog/conventions/javascript-
+recommendations.html" target="_blank" rel="noopener"> https://blueprints.dev.java.net/bpcatalog/conventions/javascript-<br>recommendations.html
+</a></p>
+<p>o  <a href="http://dojotoolkit.org/js_style_guide.html" target="_blank" rel="noopener"> http://dojotoolkit.org/js_style_guide.html
+</a></p>
+<p>o  <a href="https://developer.mozilla.org/ja/JavaScript_style_guide" target="_blank" rel="noopener"> https://developer.mozilla.org/ja/JavaScript_style_guide
+</a></p>
+<p>·  JavaScript Libraries</p>
+<p>o  推荐（使用比  较  广泛，功能  强  大，有很多人  维护  ，文档比  较齐  全）</p>
+<p>§  <a href="http://dojotoolkit.org/" target="_blank" rel="noopener"> Dojo  </a></p>
+<p>§  <a href="http://jquery.com/" target="_blank" rel="noopener"> Jquery  </a></p>
+<p>§  <a href="http://extjs.com/" target="_blank" rel="noopener"> EXTJS  </a> (  收  费  )</p>
+<p>§  <a href="http://developer.yahoo.com/yui/" target="_blank" rel="noopener"> YUI  </a></p>
+<p>§  <a href="http://www.prototypejs.org/" target="_blank" rel="noopener"> Prototype  </a></p>
+<p>o  其他（功能有限，可以参考学  习  ，如果引入的  话  ，  还  是要  谨  慎点）</p>
+<p>§  <a href="http://www.dhtmlgoodies.com/index.html" target="_blank" rel="noopener"> dhtmlgoodies  </a></p>
+<p>§  <a href="http://www.smashingmagazine.com/2009/03/02/40-stand-alone-javascript-
+libraries-for-specific-purposes/" target="_blank" rel="noopener"> 40 Useful JavaScript Libraries
+</a> (  中文版：  <a href="http://www.cnbeta.com/articles/78594.htm" target="_blank" rel="noopener"> 上
+</a> 和  <a href="http://www.cnbeta.com/articles/78673.htm" target="_blank" rel="noopener"> 下
+</a> )</p>
+<p>§  <a href="http://raphaeljs.com/" target="_blank" rel="noopener"> gRaphaël  </a> web vector graphics (MIT License)</p>
+<p>§  <a href="http://code.google.com/intl/zh-
+CN/closure/library/" target="_blank" rel="noopener"> Google Closure Library  </a></p>
+<p>·  JavaScript  参考</p>
+<p>o  <a href="http://www.w3school.com.cn/" target="_blank" rel="noopener"> http://www.w3school.com.cn/  </a></p>
+<p>·  JavaScript  工具</p>
+<p>o  JavaScript  调试  工具</p>
+<p>§  Companion.JS  &lt; <a href="http://www.cnitblog.com/yemoo/archive/2007/10/22/35190.html" target="_blank" rel="noopener"><br>http://www.cnitblog.com/yemoo/archive/2007/10/22/35190.html
+</a> &gt;</p>
+<p>§  Mozilla Venkman</p>
+<p>§  javascript_debugger</p>
+<p>§  <a href="http://www.netgrow.com.au/files/javascript_dump.cfm" target="_blank" rel="noopener"> javascript dump  </a></p>
+<p>o  JavaScript  的  辅  助工具</p>
+<p>§  Greasemonkey</p>
+<p>§  IE Developer <a href="http://172.28.93.120/tracsscall/wiki/ToolBar" target="_blank" rel="noopener"> ToolBar?  </a></p>
+<p>o  JavaScript  语  法  检查  工具</p>
+<p>§  JSLint <a href="http://www.jslint.com/" target="_blank" rel="noopener"> http://www.jslint.com/  </a></p>
+<p>§  <a href="http://172.28.93.120/tracsscall/wiki/JavaScript" target="_blank" rel="noopener"> JavaScript?  </a> Lint <a href="http://www.javascriptlint.com/" target="_blank" rel="noopener"><br>http://www.javascriptlint.com/  </a></p>
+<p>o  JavaScript UT  工具</p>
+<p>§  JSUnit <a href="http://www.jsunit.net/" target="_blank" rel="noopener"> http://www.jsunit.net/  </a></p>
+<p>o  JavaScript + HTML  内存泄露  检查  工具</p>
+<p>§  Drip <a href="http://www.outofhanwell.com/ieleak/index.php?title=Main_Page" target="_blank" rel="noopener"> http://www.outofhanwell.com/ieleak/index.php?title=Main_Page
+</a></p>
+<p>§  JavaScript Memory Leak Detector (V1) <a href="http://blogs.msdn.com/gpde/pages/javascript-memory-leak-detector.aspx" target="_blank" rel="noopener"><br>http://blogs.msdn.com/gpde/pages/javascript-memory-leak-detector.aspx
+</a></p>
+<p>§  JavaScript Memory Leak Detector (V2) <a href="http://blogs.msdn.com/gpde/pages/javascript-memory-leak-detector-v2.aspx" target="_blank" rel="noopener"><br>http://blogs.msdn.com/gpde/pages/javascript-memory-leak-detector-v2.aspx
+</a></p>
+<p>§  sIEve <a href="http://home.wanadoo.nl/jsrosman/" target="_blank" rel="noopener"> http://home.wanadoo.nl/jsrosman/
+</a></p>
+<p>§  Leak Monitor (Firefox plugin) <a href="https://addons.mozilla.org/en-US/firefox/addon/2490" target="_blank" rel="noopener"> https://addons.mozilla.org/en-<br>US/firefox/addon/2490  </a></p>
+<p>o  JavaScript Firefox  下  调试  工具</p>
+<p>§  Firebug <a href="http://getfirebug.com/" target="_blank" rel="noopener"> http://getfirebug.com/  </a></p>
+<p>o  JavaScript Firefox  下  Cookie  监视  工具</p>
+<p>§  Firecookie <a href="http://www.softwareishard.com/blog/firecookie/" target="_blank" rel="noopener"> http://www.softwareishard.com/blog/firecookie/
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/08/24/5834504/" data-id="cjfawkqb800k1pk9fofz2v8qc" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-5799248" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/08/09/5799248/" class="article-date">
+  <time datetime="2010-08-09T08:38:00.000Z" itemprop="datePublished">2010-08-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/08/09/5799248/">DBMS各种SQL的分类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A <strong>Data Definition Language</strong> or <strong>Data Description Language</strong> ( <strong>DDL</strong> ) is<br>a  computer language  for defining data structures.</p>
+<p>Examples of DCL commands include: <strong>create/drop/alter</strong></p>
+<p><strong>Data Manipulation Language</strong> ( <strong>DML</strong> ) is a family of  computer languages<br>used by computer programs and/or database users to insert, delete and update<br>data in a database.</p>
+<p>Examples of DCL commands include: <strong>insert/delete/select/update</strong></p>
+<p>Data Control Language (DCL) is a computer language and a subset of SQL, used<br>to control access to data in a database.</p>
+<p>Examples of DCL commands include: <strong>grant/revoke</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2010/08/09/5799248/" data-id="cjfawkqb700jzpk9fqz57agb3" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/49/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="page-number" href="/page/49/">49</a><span class="page-number current">50</span><a class="page-number" href="/page/51/">51</a><a class="page-number" href="/page/52/">52</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/51/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

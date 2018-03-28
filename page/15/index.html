@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/15/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-41890903" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/12/41890903/" class="article-date">
+  <time datetime="2014-12-12T02:54:32.000Z" itemprop="datePublished">2014-12-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/12/41890903/">Java8的lambda(3)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>lambda和匿名类</p>
+<p>对普通的开发者来说，可以理解为lambda是匿名类的语法糖；</p>
+<p>但是实际上不是的，lambda是通过invokedynamic来实现的，而匿名类是通过正常的产生一个类来执行的。</p>
+<p>两者是完全不一样的。</p>
+<p>例如：</p>
+<pre><code>package functional;
+
+/*
+ * Implementing the interface by creating an
+ * anonymous inner class versus using 
+ * lambda expression.
+ */
+public class SimpleFunInterfaceTest {
+    public static void main(String[] args) {
+
+        // anonymous inner class
+        carryOutWork(new SimpleFuncInterface() {
+            @Override
+            public void doWork() {
+                System.out.println(&quot;Do work in SimpleFun impl...&quot;);
+            }
+        });
+
+        // lambda
+        carryOutWork(() -&gt; sleep());
+    }
+
+    private static Object sleep() {
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static void carryOutWork(SimpleFuncInterface sfi) {
+        sfi.doWork();
+    }
+}
+</code></pre><p>上面这段代码一个是通过匿名类来实现，一个是通过lambda来实现，可以明显的看出lambda更加简洁；</p>
+<p>但是两个的实现方法不一样；</p>
+<p>匿名类会在class文件中生成一个名为SimpleFunInterfaceTest$1.class的匿名类；</p>
+<p>而lambda会生成Bootstrap方法和lambda$0方法，然后通过invokedynamic将两者关联起来，在实际的运行过程中会生成临时的实例来调用lambda函数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/12/41890903/" data-id="cjfawkq6500b3pk9fw6h5tvto" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-41890237" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/12/41890237/" class="article-date">
+  <time datetime="2014-12-12T02:37:41.000Z" itemprop="datePublished">2014-12-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/12/41890237/">Java8的lambda(2)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开始之前，我先普及一下什么是Single Abstract Method interfaces (SAM<br>Interfaces).简单的说就是只用一个函数的interface。</p>
+<p>例如Runnable，Comparable等；</p>
+<p>例如下面一个：</p>
+<pre><code>package functional;
+
+@FunctionalInterface
+public interface SimpleFuncInterface {
+  public void doWork();
+
+  public String toString();
+}
+</code></pre><p>lambda就是通过MethodHandle来实现的。</p>
+<p>那么在运行的过程中，它是什么样子的呢？</p>
+<p>看看下面的例子：</p>
+<pre><code>package functional;
+
+public class SimpleFunInterfaceTest2 {
+    public static void main(String[] args) {
+        // lambda
+        carryOutWork(() -&gt; sleep());
+        carryOutWork(() -&gt; sleep());
+    }
+
+    private static Object sleep() {
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+         return null;
+    }
+
+    public static void carryOutWork(SimpleFuncInterface sfi) {
+        sfi.doWork();
+    }
+}
+</code></pre><p>在Thread.sleep那一行打个断点，这时的堆栈是：</p>
+<p>“main” #1 prio=5 os_prio=0 tid=0x00e9cc00 nid=0x5e8 at breakpoint[0x001cf000]<br>java.lang.Thread.State: RUNNABLE<br>at functional.SimpleFunInterfaceTest.sleep(SimpleFunInterfaceTest.java:24)<br>at functional.SimpleFunInterfaceTest.lambda$0(SimpleFunInterfaceTest.java:20)<br>at functional.SimpleFunInterfaceTest$$Lambda$1/7599890.doWork(Unknown Source)<br>at<br>functional.SimpleFunInterfaceTest.carryOutWork(SimpleFunInterfaceTest.java:34)<br>at functional.SimpleFunInterfaceTest.main(SimpleFunInterfaceTest.java:20)  </p>
+<p>JVM会生成一个7599890实例来实行对应的lambda，如果你再起一个同样的程序，这时的堆栈和第一次是一样的；</p>
+<p>如果在第二次嗲用carryOutWork的Thread.sleep上停住的话，这是的堆栈就不一样了，如下图：</p>
+<p><img src="https://img-
+blog.csdn.net/20141212102805546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>这是为什么呢？这是因为两次调用carryOutWork方法，都会在class文件中生成两个lambda方法，所以这里的实例对象不一样；</p>
+<p>一个是25332239，一个是7599890.这里的数字应该是根据什么lambda的位置和实现的interface名字生成的，同一个lambda在不同的JVM实例中生成的数字是一样的，</p>
+<p>这里应该就是CallSite了。  </p>
+<p>但是你如果想只生成一个lambda的话，应该怎么办呢？</p>
+<pre><code>SimpleFuncInterface sfi = () -&gt; sleep();
+carryOutWork(sfi);
+carryOutWork(sfi);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/12/41890237/" data-id="cjfawkq6400b1pk9fl5aajnoi" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-41889567" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/12/41889567/" class="article-date">
+  <time datetime="2014-12-12T01:48:50.000Z" itemprop="datePublished">2014-12-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/12/41889567/">Java8的lambda(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java为什么要引入lambda，一句话就是为了在多核时代提高并发，因为lambda是一个闭包，和外界是独立的，多个lambda可以同时在多核上运行。</p>
+<p>lambda的两种简单的使用方法  </p>
+<pre><code>package defaults;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Clazz2 {
+
+    private void test(String a) {
+        //
+    } 
+
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;one&quot;);
+        list.add(&quot;two&quot;);
+        list.add(&quot;three&quot;);
+
+        //method reference
+        list.forEach(System.out::println);
+        Clazz2 tmp = new Clazz2();
+        list.forEach(tmp::test);
+
+        //lambda
+        list.forEach((s) -&gt; System.out.println(&quot;lambda0 &quot; + s));
+        list.forEach((s) -&gt; System.out.println(&quot;lambda1 &quot; + s));
+    }
+}
+</code></pre><p>第一种方法是用method reference。使用这种方法生成的class文件中没有lambda$0这样的函数，但是会有Bootstrap方法；</p>
+<p>这里使用了两种类型的method reference，一种是静态方法的，一种是实例方法的，区别只是前者会生成getstatic<br>字节码，后者会生成如下的一段代码来获得reference：</p>
+<pre><code>49  new defaults.Clazz2 [1]
+52  dup
+53  invokespecial defaults.Clazz2() [49]
+56  astore_2 [tmp]
+57  aload_1 [list]
+58  aload_2 [tmp]
+</code></pre><p>第二种方法是使用lambda的标准定义方法，这样会在生成的class文件中生成lambda$0，和lambda$1的函数，然后通过Bootstrap方法将调用的地方和lambda函数关联起来。</p>
+<p>其实lambda的实现就是依靠invokedynamic命令来实现的，简单的说就是在遇到lambda的时候，生成一个invokedynamic字节码，JVM在执行到这条语句的时候，就会查找对应的Bootstrapmethod表，从中找到对应的Bootstrapmethod，其实这里叫做CallSite，然后在CallSite中找到对应的MethodHandle，通过MethodHandle来包装lambda方法，并传入想要的参数，这是就结束了；下次如果执行到同一个CallSite的时候，直接返回对应的MethodHandle就可以了，不需要再次查表。</p>
+<p>至于为什么使用invokedynamic来实现lambda，这是一个很长的话题，感兴趣的人可以google一下。</p>
+<p><a href="http://blog.sanaulla.info/2013/03/21/introduction-to-functional-interfaces-
+a-concept-recreated-in-java-8/" target="_blank" rel="noopener"> http://blog.sanaulla.info/2013/03/21/introduction-to-functional-interfaces-<br>a-concept-recreated-in-java-8/
+</a></p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html" target="_blank" rel="noopener"> https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html
+</a></p>
+<p><a href="http://java.dzone.com/articles/dark-side-lambda-expressions" target="_blank" rel="noopener"> http://java.dzone.com/articles/dark-side-lambda-expressions
+</a></p>
+<p><a href="http://blog.csdn.net/zxhoo/article/details/38387141" target="_blank" rel="noopener"> http://blog.csdn.net/zxhoo/article/details/38387141
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/12/41889567/" data-id="cjfawkq6300azpk9f1pmg12qo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-41889355" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/12/41889355/" class="article-date">
+  <time datetime="2014-12-12T00:52:24.000Z" itemprop="datePublished">2014-12-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/12/41889355/">Java8中的default方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网上有很多的介绍，我就不详细的介绍了。</p>
+<p>比如：</p>
+<p><a href="http://blog.csdn.net/wwwsssaaaddd/article/details/24213525" target="_blank" rel="noopener"> http://blog.csdn.net/wwwsssaaaddd/article/details/24213525
+</a></p>
+<p>它的本意就是为了不破坏现在interface的结构，但是又能给interface中追加新的方法。</p>
+<p>这里只说一下一个interface可以有多个default方法，default方法可以重载.</p>
+<p>例如：</p>
+<pre><code>package defaults;
+
+public interface A {
+    default void foo(){ 
+       System.out.println(&quot;Calling A.foo()&quot;);
+    }
+
+    default void foo(String a){
+        System.out.println(&quot;Calling A.foo(Strings)&quot;);
+     }
+
+    default void foo2(){
+        System.out.println(&quot;Calling A.foo2()&quot;);
+     }
+}
+</code></pre><p>如果default方法有冲突，可以使用A.super.foo();来解决，其实就是invokespecial  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/12/41889355/" data-id="cjfawkq6200axpk9f3qx1qxqr" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-40857989" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/06/40857989/" class="article-date">
+  <time datetime="2014-11-06T03:28:22.000Z" itemprop="datePublished">2014-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/06/40857989/">Android的launchMode</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android的activity的launchMode有四种；</p>
+<p>1. standard</p>
+<p>这样的activity在task中是标准的先进后出；例如task中的情况是：A–&gt;B–&gt;C 用户按了back， task就变成了A–&gt;B  </p>
+<p>2. singleTop</p>
+<p>如何activity在task的顶部，那么不需要重新创建新的activity，直接使用它就可以了；</p>
+<p>例如task中的情况是：A–&gt;B–&gt;C，这时系统来了一个Intent，要求启动C（是singleTop），<br>这时C已经在栈顶了，不需要创建新的C，直接使用就可以了。</p>
+<p>但是如果系统需要的是B(是singleTop)，这时就要创建新的B，因为B没有在栈顶；  </p>
+<p>3. singleTask</p>
+<p>在一个task中保证某个activity的唯一性；</p>
+<p>例如task中的情况是：A–&gt;B–&gt;C 这时系统来了一个Intent，要求启动C(是singleTask)， 不需要创建新的C，直接使用就可以了。</p>
+<p>再例如task中的情况是：A–&gt;B–&gt;C<br>这时系统来了一个Intent，要求启动B(是singleTask)，系统会将B之上的所以activity出栈，直接使用B，这时栈变成了：A–&gt;B</p>
+<p>再例如task1中的情况是：A–&gt;B–&gt;C；task2中的情况是D–&gt;E；这时系统来了一个Intent，要求启动B(是singleTask)，系统会将task1的栈和task2合并变成：</p>
+<p>D–&gt;E–&gt;A–&gt;B</p>
+<p>4. singleInstance</p>
+<p>和singleTask一样，只是在包含singleInstance的task中只能由singleInstance的activity；  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/06/40857989/" data-id="cjfawkq5w00anpk9fgaqk5klu" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-40857821" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/06/40857821/" class="article-date">
+  <time datetime="2014-11-06T03:09:42.000Z" itemprop="datePublished">2014-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/06/40857821/">Linux下的real UID和effective UID</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>real UID是标记谁调用了该可执行文件；effective UID表示该可执行程序所具有的权限的用户；  </p>
+<p>默认情况下real UID和effective UID一样，但是当使用了setUID之后，两者有可能不一样。</p>
+<p>例如passwd程序，当你执行这个程序的时候，它的real UID就是调用passwd的用户，这个用户可能是root，也可能是任何普通用户；</p>
+<p>但是它的effective UID是root，只有这样passwd程序才能修改/etc/passwd文件。</p>
+<p><a href="http://www.lst.de/~okir/blackhats/node23.html" target="_blank" rel="noopener"> http://www.lst.de/~okir/blackhats/node23.html
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/06/40857821/" data-id="cjfawkq5v00alpk9fhfmmuiiw" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-40822711" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/05/40822711/" class="article-date">
+  <time datetime="2014-11-05T06:28:46.000Z" itemprop="datePublished">2014-11-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/05/40822711/">在Linux下，如何将程序crash的堆栈对应到对应的行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>假设你的堆栈其中的一条输出如下：  </p>
+<p>libYourLibName.so(_ZN28YourMethodNameEv+0x2c)[0x2aac22cda14c]</p>
+<p>lib名字（出错的方法名+偏移量）[运行时的具体地址]； 这里的方法名系统给追加了一些自己的前缀和后缀。</p>
+<p>1。使用make debug，产生带有debug符号的lib文件；  </p>
+<p>2。使用nm找出_ZN28YourMethodNameEv对应的虚拟内存的地址；假设是0x800</p>
+<p>3。计算出错的位置：0x800+0x2c = 0x82c；</p>
+<p>4。使用addr2line -e libYourLibName.so运行，然后再输入0x82c，addr2line会输出对于得文件和行号  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/05/40822711/" data-id="cjfawkq5u00ajpk9foblvo8d4" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-40822131" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/05/40822131/" class="article-date">
+  <time datetime="2014-11-05T05:51:45.000Z" itemprop="datePublished">2014-11-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/05/40822131/">Ubuntu下面的一些操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装JDK：<br>sudo apt-get update  </p>
+<p>sudo apt-get install default-jdk</p>
+<p>在Ubuntu 12.04之前会安装OpenJDK 6，在12.10之后会安装OpenJDK 7。  </p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-
+install-java-on-ubuntu-with-apt-get" target="_blank" rel="noopener"> https://www.digitalocean.com/community/tutorials/how-to-install-java-on-<br>ubuntu-with-apt-get </a><br>在文件管理器中复制文件的全路径：<br>ctrl+L; ctrl+c  </p>
+<p>安装unzip工具：  </p>
+<p>apt-get install unzip</p>
+<p>修改root密码：</p>
+<p>sudo password root</p>
+<p>在安装VMware tools到虚拟机中时，会弹出对话框，让你的输入root的密码，注意这里的root密码是你运行Player的系统的root密码。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/05/40822131/" data-id="cjfawkq5t00ahpk9fnpsfh3fo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-40822079" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/05/40822079/" class="article-date">
+  <time datetime="2014-11-05T05:43:34.000Z" itemprop="datePublished">2014-11-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/05/40822079/">Linux下如何察看某个可执行文件缺失的lib</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>objdump -x adb | grep NEEDED</strong> to find needed libs</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/05/40822079/" data-id="cjfawkq5s00afpk9f2qr1bmo5" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-40821801" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/05/40821801/" class="article-date">
+  <time datetime="2014-11-05T05:40:55.000Z" itemprop="datePublished">2014-11-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/05/40821801/">在Ubuntu上安装ADT的遭遇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在使用的Linux机器不能直接运行ADT中自带的adb，原因是因为platform-tools是20之后的adb需要glibc的版本必须大于2.7，但是在</p>
+<p>使用的系统里面使用的是2.6。所以只能安装虚拟机来试试运行 adb了。</p>
+<p>可以通过下面的命令来获得glibc的版本：</p>
+<pre><code>* On systems with rpm packet-manager like RedHat, Dedora, Mandriva, SuSe, ...
+      o rpm -q glibc
+* On systems with dpkg packet-manager like Debian, ubuntu, ...
+      o dpkg -l libc6
+* Or you can run on any system
+      o /lib/libc&lt;TAB&gt;&lt;ENTER&gt;
+</code></pre><p><a href="http://freeadhocudf.org/documentation_english/dok_eng_howto_glibc.html" target="_blank" rel="noopener"> http://freeadhocudf.org/documentation_english/dok_eng_howto_glibc.html
+</a></p>
+<p>所以下使用ADT的话，有两种方式，升级系统的glibc，或者使用虚拟机。</p>
+<p>我尝试了安装新版本的glibc，但是提示我的bash和其他的工具太老，我就没有载尝试，直接放弃–&gt; <strong>fail</strong> 。</p>
+<p>然后就是使用虚拟机了；  </p>
+<p>下载VMware Player和VirtualBox；  </p>
+<p>再下载了64位的Ubuntu，谁知道adb不支持64位的系统，你必须将architecture设置成i386，然后下载需要的lib，这样很是麻烦 – &gt;<br><strong>fail</strong> ；</p>
+<p>再下载32位的Ubuntu，但是应为下载的ADT是64位的，所以eclipse不能在32位下运行，只能再下载32位的ADT，然后安装。</p>
+<p>一切都处理好后，ADT可以正常启动，adb也可以运行，但是android的模拟器在VMware中根本启动不起来，直接说少openGL-es lib –〉<br><strong>fail</strong> ，</p>
+<p>换成Windows 7的虚拟机，也是运行不起来模拟器，直接导致Windows hang up –〉 <strong>fail</strong> 。</p>
+<p>所以最终的结果在Linux的虚拟机中跑不起来android的模拟器。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/05/40821801/" data-id="cjfawkq5r00adpk9fxv1y5nqs" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/14/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/16/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

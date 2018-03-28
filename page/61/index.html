@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/61/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-3131797" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/23/3131797/" class="article-date">
+  <time datetime="2008-10-23T09:02:00.000Z" itemprop="datePublished">2008-10-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/23/3131797/">关于Eclipse的一些想法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Eclipse的使用确实可将提高我们的效率，但是不要将所有要做的工作都想集成到eclipse上去，一方面是会使得eclipse很臃肿，启动很慢；另一方面会出现一些莫名其妙的问。<br>所以只要有独立的运行程序，尽量不要找相应的插件来。<br>以ant为例，我在eclipse3.4下使用ant1.7运行编写好的build文件，但是一个target死活运行不了，同时eclipse占用CPU 50%；<br>但是我在命令行下，运行同样的脚本，完全可以正常运行。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/23/3131797/" data-id="cjfawkq48007spk9fmx4ykba8" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3127984" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/23/3127984/" class="article-date">
+  <time datetime="2008-10-23T01:09:00.000Z" itemprop="datePublished">2008-10-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/23/3127984/">﻿内存管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下内容摘自高质量C++/C编程指南(作者  林锐  )，之所以放在这里，只是为了以后查找方便。  </p>
+<p>内存分配方式有三种：</p>
+<p>（1）  从静态存储区域分配。内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。例如全局变量，  static  变量。</p>
+<p>（2）<br>在栈上创建。在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放。栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。</p>
+<p>（3）  从堆上分配，亦称动态内存分配。程序在运行的时候用  malloc  或  new  申请任意多少的内存，程序员自己负责在何时用  free  或<br>delete  释放内存。动态内存的生存期由我们决定，使用非常灵活，但问题也最多。  </p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="常见的内存错误及其对策"><a href="#常见的内存错误及其对策" class="headerlink" title="常见的内存错误及其对策"></a>常见的内存错误及其对策</h2><p>发生内存错误是件非常麻烦的事情。编译器不能自动发现这些错误，通常是在程序运行时才能捕捉到。而这些错误大多没有明显的症状，时隐时现，增加了改错的难度。有时用户怒气冲冲地把你找来，程序却没有发生任何问题，你一走，错误又发作了。</p>
+<p>常见的内存错误及其对策如下：</p>
+<p>@  内存分配未成功，却使用了它。</p>
+<p>编程新手常犯这种错误，因为他们没有意识到内存分配会不成功。常用解决办法是，在使用内存之前检查指针是否为  NULL  。如果指针  p<br>是函数的参数，那么在函数的入口处用  assert(p!=NULL)  进行检查。如果是用  malloc  或  new  来申请内存，应该用<br>if(p==NULL)  或  if(p!=NULL)  进行防错处理。</p>
+<p>@  内存分配虽然成功，但是尚未初始化就引用它。</p>
+<p>犯这种错误主要有两个起因：一是没有初始化的观念；二是误以为内存的缺省初值全为零，导致引用初值错误（例如数组）。</p>
+<p>内存的缺省初值究竟是什么并没有统一的标准，尽管有些时候为零值，我们宁可信其无不可信其有。所以无论用何种方式创建数组，都别忘了赋初值，即便是赋零值也不可省略，不要嫌麻烦。</p>
+<p>@  内存分配成功并且已经初始化，但操作越过了内存的边界。</p>
+<p>例如在使用数组时经常发生下标“多  1  ”或者“少  1  ”的操作。特别是在  for  循环语句中，循环次数很容易搞错，导致数组操作越界。</p>
+<p>@  忘记了释放内存，造成内存泄露。</p>
+<p>含有这种错误的函数每被调用一次就丢失一块内存。刚开始时系统的内存充足，你看不到错误。终有一次程序突然死掉，系统出现提示：内存耗尽。</p>
+<p>动态内存的申请与释放必须配对，程序中  malloc  与  free  的使用次数一定要相同，否则肯定有错误（  new/delete  同理）。</p>
+<p>@  释放了内存却继续使用它。</p>
+<p>有三种情况：</p>
+<p>（  1  ）程序中的对象调用关系过于复杂，实在难以搞清楚某个对象究竟是否已经释放了内存，此时应该重新设计数据结构，从根本上解决对象管理的混乱局面。</p>
+<p>（  2  ）函数的  return  语句写错了，注意不要返回指向“栈内存”的“指针”或者“引用”，因为该内存在函数体结束时被自动销毁。</p>
+<p>（  3  ）使用  free  或  delete  释放了内存后，没有将指针设置为  NULL  。导致产生“野指针”。</p>
+<p>我们发现指针有一些“似是而非”的特征：</p>
+<p><strong> （  1  </strong> <strong> ）指针消亡了，并不表示它所指的内存会被自动释放。  </strong></p>
+<hr>
+<hr>
+<p><strong> （  </strong> <strong> 2  </strong> <strong> ）内存被释放了，  </strong> <strong> 并不表示指针会消亡或者成了  NULL  </strong> <strong> 指针。  </strong> <strong> </strong></p>
+<hr>
+<hr>
+<p>这表明释放内存并不是一件可以草率对待的事。也许有人不服气，一定要找出可以草率行事的理由：</p>
+<p>如果程序终止了运行，一切指针都会消亡，动态内存会被操作系统回收。既然如此，在程序临终前，就可以不必释放内存、不必将指针设置为  NULL<br>了。终于可以偷懒而不会发生错误了吧？</p>
+<p>想得美。如果别人把那段程序取出来用到其它地方怎么办？</p>
+<h2 id="指针与数组的对比"><a href="#指针与数组的对比" class="headerlink" title="指针与数组的对比"></a>指针与数组的对比</h2><p>C++/C  程序中，指针和数组在不少地方可以相互替换着用，让人产生一种错觉，以为两者是等价的。</p>
+<p>数组要么在静态存储区被创建（如全局数组），要么在栈上被创建。数组名对应着（而不是指向）一块内存，其地址与容量在生命期内保持不变，只有数组的内容可以改变。</p>
+<p>指针可以随时指向任意类型的内存块，它的特征是“可变”，所以我们常用指针来操作动态内存。指针远比数组灵活，但也更危险。</p>
+<p>下面以字符串为例比较指针与数组的特性。</p>
+<p><strong> 7.3.1  </strong> <strong> 修改内容  </strong></p>
+<hr>
+<hr>
+<p>示例  7-3-1  中，字符数组  a  的容量是  6  个字符，其内容为  hello/0  。  a  的内容可以改变，如  a[0]= ‘X’<br>。指针  p  指向常量字符串“  world  ”（位于静态存储区，内容为  world/0<br>），常量字符串的内容是不可以被修改的。从语法上看，编译器并不觉得语句  p[0]= ‘X’  有什么不妥，但是该语句企图修改常量字符串的内容而导致运行错误。</p>
+<p>char a[] =  “  hello  ”  ;</p>
+<p>a[0] =  ‘  X  ’  ;</p>
+<p>cout  &lt;&lt; a &lt;&lt; endl;</p>
+<p>char *p =  “  world  ”  ;  //  注意  p  指向常量字符串</p>
+<p>p[0] =  ‘  X  ’  ;  //  编译器不能发现该错误</p>
+<p>cout &lt;&lt; p &lt;&lt; endl;  </p>
+<hr>
+<p>示例  7-3-1  修改数组和指针的内容</p>
+<p><strong> 7.3.2  </strong> <strong> 内容  </strong> <strong> 复制与比较  </strong></p>
+<hr>
+<hr>
+<p>不能对数组名进行直接复制与比较。示例  7-3-2  中，若想把数组  a  的内容复制给数组  b  ，不能用语句  b = a<br>，否则将产生编译错误。应该用标准库函数  strcpy  进行复制。同理，比较  b  和  a  的内容是否相同，不能用  if(b==a)<br>来判断，应该用标准库函数  strcmp  进行比较。</p>
+<p>语句  p = a  并不能把  a  的内容复制指针  p  ，而是把  a  的地址赋给了  p  。要想复制  a  的内容，可以先用库函数<br>malloc  为  p  申请一块容量为  strlen(a)+1  个字符的内存，再用  strcpy  进行字符串复制。同理，语句  if(p==a)<br>比较的不是内容而是地址，应该用库函数  strcmp  来比较。</p>
+<p>//  数组  …</p>
+<p>char a[] = “hello”;</p>
+<p>char b[10];</p>
+<p>strcpy(b, a);  //  不能用  b = a;</p>
+<p>if(strcmp(b, a) == 0)  //  不能用  if (b == a)</p>
+<p>…  </p>
+<hr>
+<p>//  指针  …</p>
+<p>int len = strlen(a);</p>
+<p>char <em>p = (char </em>)malloc(sizeof(char)*(len+1));</p>
+<p>strcpy(p,a);  //  不要用  p = a;</p>
+<p>if(strcmp(p, a) == 0)  //  不要用  if (p == a)</p>
+<p>…  </p>
+<p>示例  7-3-2  数组和指针的内容复制与比较</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p><strong> 7.3.3  </strong> <strong> 计算内存容量  </strong></p>
+<hr>
+<hr>
+<p>用运算符  sizeof  可以计算出数组的容量（字节数）。示例  7-3-3  （  a  ）中，  sizeof(a)  的值是  12  （注意别忘了<br>’  /0  ’  ）。指针  p  指向  a  ，但是  sizeof(p)  的值却是  4  。这是因为  sizeof(p)<br>得到的是一个指针变量的字节数，相当于  sizeof(char*)  ，而不是  p  所指的内存容量。  C++/C<br>语言没有办法知道指针所指的内存容量，除非在申请内存时记住它。</p>
+<p><strong> 注意当数组作为函数的参数进行传递时，该数组自动退化为同类型的指针。  </strong> 示例  7-3-3  （  b  ）中，不论数组  a  的容量是多少，<br>sizeof(a)  始终等于  sizeof(char *)  。</p>
+<p>char a[] = “hello world”;</p>
+<p>char *p  = a;</p>
+<p>cout &lt;&lt; sizeof(a) &lt;&lt; endl;  // 12  字节</p>
+<p>cout&lt;&lt; sizeof(p) &lt;&lt; endl;  // 4  字节  </p>
+<hr>
+<p>示例  7-3-3  （  a  ）  计算数组和指针的内存容量</p>
+<p>void Func(char a[100])</p>
+<p>{</p>
+<p>cout&lt;&lt; sizeof(a) &lt;&lt; endl;  // 4  字节而不是  100  字节</p>
+<p>}  </p>
+<hr>
+<p>示例  7-3-3  （  b  ）  数组退化为指针</p>
+<h2 id="杜绝“野指针”"><a href="#杜绝“野指针”" class="headerlink" title="杜绝“野指针”"></a>杜绝“野指针”</h2><p>“野指针”不是  NULL  指针，是指向“垃圾”内存的指针。人们一般不会错用  NULL  指针，因为用  if<br>语句很容易判断。但是“野指针”是很危险的，  if  语句对它不起作用。</p>
+<p>“野指针”的成因主要有两种：</p>
+<p>（  1  ）指针变量没有被初始化。任何指针变量刚被创建时不会自动成为  NULL<br>指针，它的缺省值是随机的，它会乱指一气。所以，指针变量在创建的同时应当被初始化，要么将指针设置为  NULL  ，要么让它指向合法的内存。例如</p>
+<p>char *p = NULL;</p>
+<p>char <em>str = (char </em>) malloc(100);</p>
+<p>（  2  ）指针  p  被  free  或者  delete  之后，没有置为  NULL  ，让人误以为  p  是个合法的指针。参见  7.5<br>节。</p>
+<p>（  3  ）指针操作超越了变量的作用范围。这种情况让人防不胜防，示例程序如下：</p>
+<p>class A</p>
+<p>{</p>
+<p>public:</p>
+<p>void Func(void){ cout &lt;&lt; “  Func of class A  ”  &lt;&lt; endl; }</p>
+<p>};</p>
+<p>void Test(void)</p>
+<p>{</p>
+<p>A  *p;</p>
+<p>{</p>
+<p>A  a;</p>
+<p>p = &a;  //  注意  a  的生命期</p>
+<p>}</p>
+<p>p-&gt;Func();  // p  是“野指针”</p>
+<p>}</p>
+<p>函数  Test  在执行语句  p-&gt;Func()  时  ，对象  a  已经消失，而  p  是指向  a  的，所以  p  就成了<br>“野指针”。但奇怪的是我运行这个程序时居然没有出错，这可能与编译器有关。</p>
+<h2 id="引用与指针的比较"><a href="#引用与指针的比较" class="headerlink" title="引用与指针的比较"></a>引用与指针的比较</h2><p>引用是  C++  中的概念，初学者容易把引用和指针混淆一起。一下程序中，  n  是  m  的一个引用（  reference  ），  m<br>是被引用物（  referent  ）。</p>
+<p>int m;</p>
+<p>int &amp;n = m;</p>
+<p>n  相当于  m  的别名（绰号），对  n  的任何操作就是对  m<br>的操作。例如有人名叫王小毛，他的绰号是“三毛”。说“三毛”怎么怎么的，其实就是对王小毛说三道四。所以  n  既不是  m  的拷贝，也不是指向  m<br>的指针，其实  n  就是  m  它自己。</p>
+<p>引用的一些规则如下：</p>
+<p>（  1  ）引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。</p>
+<p>（  2  ）不能有  NULL  引用，引用必须与合法的存储单元关联（指针则可以是  NULL  ）。</p>
+<p>（  3  ）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。</p>
+<p>以下示例程序中，  k  被初始化为  i  的引用。语句  k = j  并不能将  k  修改成为  j  的引用，只是把  k  的值改变成为  6<br>。由于  k  是  i  的引用，所以  i  的值也变成了  6  。</p>
+<p>int i = 5;</p>
+<p>int j = 6;</p>
+<p>int &amp;k = i;</p>
+<p>k = j;  // k  和  i  的值都变成了  6;</p>
+<p>上面的程序看起来象在玩文字游戏，没有体现出引用的价值。引用的主要功能是传递函数的参数和返回值。  C++<br>语言中，函数的参数和返回值的传递方式有三种：值传递、指针传递和引用传递。</p>
+<p>以下是“值传递”的示例程序。由于  Func1  函数体内的  x  是外部变量  n  的一份拷贝，改变  x  的值不会影响  n,  所以  n<br>的值仍然是  0  。</p>
+<p>void Func1(int x)</p>
+<p>{</p>
+<p>x = x + 10;</p>
+<p>}</p>
+<p>…</p>
+<p>int n = 0;</p>
+<p>Func1(n);</p>
+<p>cout &lt;&lt; “n = ” &lt;&lt; n &lt;&lt; endl;  // n = 0</p>
+<p>以下是“指针传递”的示例程序。由于  Func2  函数体内的  x  是指向外部变量  n  的指针，改变该指针的内容将导致  n  的值改变，所以  n<br>的值成为  10  。</p>
+<p>void Func2(int *x)</p>
+<p>{</p>
+<p>(<em> x) = (</em> x) + 10;</p>
+<p>}</p>
+<p>…</p>
+<p>int n = 0;</p>
+<p>Func2(&amp;n);</p>
+<p>cout &lt;&lt; “n = ” &lt;&lt; n &lt;&lt; endl;  // n = 10</p>
+<p>以下是“引用传递”的示例程序。由于  Func3  函数体内的  x  是外部变量  n  的引用，  x  和  n  是同一个东西，改变  x<br>等于改变  n  ，所以  n  的值成为  10  。</p>
+<p>void Func3(int &amp;x)</p>
+<p>{</p>
+<p>x = x + 10;</p>
+<p>}</p>
+<p>…</p>
+<p>int n = 0;</p>
+<p>Func3(n);</p>
+<p>cout &lt;&lt; “n = ” &lt;&lt; n &lt;&lt; endl;  // n = 10</p>
+<p>对比上述三个示例程序，会发现“引用传递”的性质象“指针传递”，而书写方式象“值传递”。实际上“引用”可以做的任何事情“指针”也都能够做，为什么还要“引用”这东西？</p>
+<p>答案是“用适当的工具做恰如其分的工作”。</p>
+<p>指针能够毫无约束地操作内存中的如何东西，尽管指针功能强大，但是非常危险。就象一把刀，它可以用来砍树、裁纸、修指甲、理发等等，谁敢这样用？</p>
+<p>如果的确只需要借用一下某个对象的“别名”，那么就用“引用”，而不要用“指针”，以免发生意外。比如说，某人需要一份证明，本来在文件上盖上公章的印子就行了，如果把取公章的钥匙交给他，那么他就获得了不该有的权利。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/23/3127984/" data-id="cjfawkq49007upk9fje6v2rvq" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3126225" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3126225/" class="article-date">
+  <time datetime="2008-10-22T11:20:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3126225/">C++ 拷贝构造函数的调用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>拷贝构造函数主要在以下三种情况下起初始化作用：</p>
+<p><strong>1. 在声明语句中用一个对象初始化另一个对象；</strong></p>
+<p><strong>2. 将一个对象作为参数按值调用方式传递给另一个对象时生成对象副本；</strong></p>
+<p>3. 生成一个临时对象作为函数的返回结果。(这种情况只有在windwos下是真的，我只是在windos xp + VC 6.0)</p>
+<p>以下面的代码为例：</p>
+<ol>
+<li>// Tt.cpp : Defines the entry point for the console application. </li>
+<li>// </li>
+<li></li>
+<li><p>#include  &lt;iostream.h&gt;</p>
+</li>
+<li></li>
+<li><p>class  CopyClassTest{ </p>
+</li>
+<li>public  : </li>
+<li>CopyClassTest(){ </li>
+<li>cout &lt;&lt; “Constructor”  &lt;&lt; endl; </li>
+<li>} </li>
+<li></li>
+<li><p>CopyClassTest(CopyClassTest const &amp;a){ </p>
+</li>
+<li>cout &lt;&lt; “Copy Constructor”  &lt;&lt; endl; </li>
+<li>} </li>
+<li>}; </li>
+<li></li>
+<li><p>void  processCall(CopyClassTest a){ </p>
+</li>
+<li>cout &lt;&lt; “process call 1”  &lt;&lt; endl; </li>
+<li>} </li>
+<li></li>
+<li><p>CopyClassTest processCall2(){ </p>
+</li>
+<li>cout &lt;&lt; “process call 2”  &lt;&lt; endl; </li>
+<li>CopyClassTest temp; </li>
+<li>return  temp; </li>
+<li>} </li>
+<li></li>
+<li></li>
+<li><p>int  main(){ </p>
+</li>
+<li>CopyClassTest one; </li>
+<li>CopyClassTest two = one; </li>
+<li></li>
+<li><p>processCall(one); </p>
+</li>
+<li>processCall2(); </li>
+<li>return  0; </li>
+<li>} </li>
+</ol>
+<p>在windows xp + VC 6.0的环境下，结果是：<br>Constructor //对应的是main函数中的  CopyClassTest one;<br>Copy Constructor//对应的是main函数中的  CopyClassTest two = one;<br>Copy Constructor//对应的是main函数中的  processCall(one); 函数调用要生成一个临时变量，所以调用了copy<br>constructor<br>process call 1<br>process call 2<br>Constructor//对应的是  processCall2中的  CopyClassTest temp;<br>Copy Constructor//对应的是  processCall2中的  return  temp;  </p>
+<p>在Linux localhost.localdomain 2.6.9-78.ELsmp #1 SMP Wed Jul 9 15:39:47 EDT 2008<br>i686 i686 i386 GNU/Linux + gcc version 3.4.6 20060404 (Red Hat<br>3.4.6-10)环境下，结果是：<br>Constructor<br>Copy Constructor<br>Copy Constructor<br>process call 1<br>process call 2<br>Constructor  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3126225/" data-id="cjfawkq47007qpk9fczbuuk3g" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3126090" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3126090/" class="article-date">
+  <time datetime="2008-10-22T10:14:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3126090/">Test/Test2/Test3/Test4（内存问题）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>#include &lt;stdio.h&gt;</li>
+<li>#include &lt;malloc.h&gt;</li>
+<li>#include &lt;string.h&gt;</li>
+<li>#include &lt;iostream.h&gt;</li>
+<li>/* </li>
+<li><ul>
+<li>Test.cpp </li>
+</ul>
+</li>
+<li>* </li>
+<li><ul>
+<li>Created on: Oct 22, 2008 </li>
+</ul>
+</li>
+<li><ul>
+<li>Author: root </li>
+</ul>
+</li>
+<li>*/ </li>
+<li><ol start="12">
+<li>char  *GetMemory(  void  ) { </li>
+</ol>
+</li>
+<li>char  p[] =  “hello world”  ; </li>
+<li>return  p; </li>
+<li>} </li>
+<li><ol start="17">
+<li>void  Test(  void  ) { </li>
+</ol>
+</li>
+<li>char  *str = NULL; </li>
+<li>str = GetMemory(); </li>
+<li>printf(str); </li>
+<li>} </li>
+<li><ol start="23">
+<li>void  GetMemory2(  char  *p) { </li>
+</ol>
+</li>
+<li>p = (  char  *) malloc(100); </li>
+<li>} </li>
+<li><ol start="27">
+<li>void  Test2(  void  ) { </li>
+</ol>
+</li>
+<li>char  *str = NULL; </li>
+<li>GetMemory2(str); </li>
+<li>strcpy(str,  “hello world”  ); </li>
+<li>printf(str); </li>
+<li>} </li>
+<li><ol start="34">
+<li>void  Test3(  void  ) { </li>
+</ol>
+</li>
+<li>char  <em>str = (  char  </em>) malloc(100); </li>
+<li>strcpy(str,  “hello”  ); </li>
+<li>free(str); </li>
+<li>if  (str != NULL){ </li>
+<li>strcpy(str,  “world”  ); </li>
+<li>printf(str); </li>
+<li>} </li>
+<li>} </li>
+<li><ol start="44">
+<li>void  GetMemory4(  char  **p,  int  num) { </li>
+</ol>
+</li>
+<li><em>p = (  char  </em>) malloc(num); </li>
+<li>} </li>
+<li><ol start="48">
+<li>void  Test4(  void  ) { </li>
+</ol>
+</li>
+<li>char  *str = NULL; </li>
+<li>GetMemory4(&amp;str, 100); </li>
+<li>strcpy(str,  “hello”  ); </li>
+<li>printf(str); </li>
+<li>} </li>
+<li>void  testSizeOf(){ </li>
+<li>cout &lt;&lt; endl &lt;&lt; “ sizeof(char) “  &lt;&lt; sizeof  (  char  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ ssizeof(int) “  &lt;&lt; sizeof  (  int  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ sizeof(unsigned int) “  &lt;&lt; sizeof  (unsigned  int  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ sizeof(long) “  &lt;&lt; sizeof  (  long  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ sizeof(unsigned long) “  &lt;&lt; sizeof  (unsigned  long  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ sizeof(float) “  &lt;&lt; sizeof  (  float  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ sizeof(double) “  &lt;&lt; sizeof  (  double  ) &lt;&lt; endl; </li>
+<li>cout &lt;&lt; “ sizeof(void <em>) “  &lt;&lt; sizeof  (  void  </em>) &lt;&lt; endl; </li>
+<li>} </li>
+<li>int  main() { </li>
+<li>//Test(); </li>
+<li>//Test2(); </li>
+<li><p>//Test3();   </p>
+</li>
+<li><p>Test4(); </p>
+</li>
+<li>testSizeOf(); </li>
+<li>return  0; </li>
+<li>} </li>
+<li></li>
+</ol>
+<p>上面的代码来自高质量C++/C编程指南。  </p>
+<p>Test（）的运行结果是未知，因为GetMemory返回的是指向“栈内存”的指针，该指针的地址不是<br>NULL，但其原现的内容已经在函数退出后被清除，新内容不可知。  </p>
+<p>Test2（）的运行结果是程序崩溃。因为GetMemory2并不能传递动态内存(编译器总是要为函数的每个参数制作临时副本，指针参数p的副本是 _p，编译器使<br>_p = p。传入的是一个指针，在本例中，_p申请了新的内存，只是把_p所指的内存地址改变了，但是p丝毫未变)，Test函数中的 str一直都是<br>NULL。strcpy(str, “hello world”);将使程序崩溃。  </p>
+<p>Test4  ()的运行结果是hello。因为传入的是指针的指针，所以_p的改变，也就是改变传入的参数，故str被正确的复制。  </p>
+<p>Test3()的运行结果是输出world。篡改动态内存区的内容，后果难以预料，非常危险。因为free(str);之后，str成为野指针，但是str并没有置成空，所以if(str<br>!= NULL)语句不起作用。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3126090/" data-id="cjfawkq46007opk9fo6bwtt5k" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3125381" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3125381/" class="article-date">
+  <time datetime="2008-10-22T08:47:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3125381/">如何在Linux使用Eclipse + CDT开发C/C++程序? </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>见： <a href="http://www.cppblog.com/oomusou/" target="_blank" rel="noopener">http://www.cppblog.com/oomusou/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3125381/" data-id="cjfawkq45007mpk9f91x6bban" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3124294" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3124294/" class="article-date">
+  <time datetime="2008-10-22T06:41:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3124294/">Linux&#39;s boot process explained</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Short history of the UNIX operating system  </p>
+<p>Linux is an implementation of the UNIX operating system concept. UNIX was<br>derived from AT&amp;T’s ”Sys V” (System 5). The initialization process is meant to<br>control the starting and ending of services and/or daemons in a system, and<br>permits different start-up configurations on different execution levels (”run<br>levels”).  </p>
+<p>Some Linux distribution, like SlackWare, use the BSD init system, developed at<br>the University of California, Berkeley.  </p>
+<p>Sys V uses a much more complex set of command files and directives to<br>determine which services are available at different levels of execution, than<br>the BSD’s do.  </p>
+<p>Booting the Linux operating system  </p>
+<p>The first thing a computer does on start-up is a primer test (POST - Power On<br>Self Test). This way several devices are tested, including the processor,<br>memory, graphics card and the keyboard. Here is tested the boot medium (hard<br>disk, floppy unit, CD-ROMs). After POST, the loader from a ROM loads the boot<br>sector, which in turn loads the operating system from the active partition.  </p>
+<p>The boot blocks is always at the same place: track 0, cylinder 0, head 0 of<br>the device from which we’re booting. This block contains a program called<br>loader, which in Linux’s case is LiLo (Linux Loader), or Grub (GNU Grub<br>Unified Boot Loader), which actually boots the operating system. These loaders<br>in Linux , in case of a multi-boot configuration (more operating systems on a<br>computer), permit the selection of the operating system to be booted. Lilo and<br>Grub are installed or at the MBR (Master Boot Record), or at the first sector<br>of the active partition.  </p>
+<p>In the following we will refer to LiLO as boot loader. This is usually<br>installed in the boot sector, also known as MBR. If the user decides to boot<br>Linux, LiLo will try to load the kernel. Now I will present step-by-step<br>LiLo’s attempt to load the operating system.  </p>
+<p>1. In case of a multi-boot config, LiLo permits the user two choose an<br>operating system from the menu. The LiLo settings are stored at<br>/etc/lilo.conf. System administrators use this file for a very detailed<br>finement of the loader. Here can be manually set what operating systems are<br>installed, as well as the method for loading any of them. If on the computer<br>there is only Linux, LiLo can be set to load directly the kernel, and skip the<br>selection menu.  </p>
+<p>2. The Linux kernel is compressed, and contains a small bit, which will<br>decompress it. Immediately after the first step begins the decompression and<br>the loading of the kernel.  </p>
+<p>3. If the kernel detects that your graphics card supports more complex text<br>modes, Linux allows the usage of them - this can be specified or during the<br>recompilation of the kernel, or right inside Lilo, or other program, like<br>rdev.  </p>
+<p>4. The kernel verifies hardware configuration (floppy drive, hard disk,<br>network adapters, etc) and configures the drivers for the system. During this<br>operation, several informative messages are shown to the user.  </p>
+<p>5. The kernel tries to mount the file system and the system files. The<br>location of system files is configurable during recompilation, or with other<br>programs - LiLo and rdev. The file system type is automatically detected. The<br>most used file systems on Linux are ext2 and ext3. If the mount fails, a so-<br>called kernel panic will occur, and the system will ”freeze”.  </p>
+<p>System files are usually mounted in read-only mode, to permit a verification<br>of them during the mount. This verification isn’t indicated if the files were<br>mounted in read-write mode.  </p>
+<p>6. After these steps, the kernel will start init, which will become process<br>number 1, and will start the rest of the system.  </p>
+<p>The init process  </p>
+<p>It’s Linux’s first process, and parent of all the other processes. This<br>process is the first running process on any Linux/UNIX system, and is started<br>directly by the kernel. It is what loads the rest of the system, and always<br>has a PID of 1.  </p>
+<p>The initialization files in /etc/inittab  </p>
+<p>First time the initialization process (init) examines the file /etc/inittab to<br>determine what processes have to be launched after. This file provides init<br>information on runlevels, and on what process should be launched on each<br>runlevel.  </p>
+<p>After that, init looks up the first line with a sysinit (system<br>initialization) action and executes the specified command file, in this case<br>/etc/rc.d/rc.sysinit. After the execution of the scripts in<br>/etc/rc.d/rc.sysinit, init starts to launch the processes associated with the<br>initial runlevel.  </p>
+<p>The next few lines in /etc/inittab are specific to the different execution<br>(run-) levels. Every line runs as a single script (/etc/rc.d/rc), which has a<br>number from 1 to 6 as argument to specify the runlevel.  </p>
+<p>The most used action in /etc/inittab is wait, which means init executes the<br>command file for a specified runlevel, and then waits until that level is<br>terminated.  </p>
+<p>The files in /etc/rc.d/rc.sysinit  </p>
+<p>The commands defined in /etc/inittab are executed only once, by the init<br>process, every time when the operating system boots. Usually these scripts are<br>running as a succession of commands, and usually realise the following:  </p>
+<p>1. Determine whether the system takes part of a network, depending on the<br>content of /etc/sysconfig/network  </p>
+<p>2. Mount /proc, the file system used in Linux to determine the state of the<br>diverse processes.  </p>
+<p>3. Set the system time in fuction to the BIOS settings, as well as realises<br>other settings (setting of time zone, etc), stabilized and configured during<br>the installation of the system.  </p>
+<p>4. Enables virtual memory, activating and mounting the swap partition,<br>specified in /etc/fstab (File System Table)  </p>
+<p>5. Sets the host name for the network and system wide authentication, like<br>NIS (Network Information Service), NIS+ (an improved version of NIS), and so<br>on.  </p>
+<p>6. Verifies the root fily system, and if no problems, mounts it.  </p>
+<p>7. Verifies the other file systems specified in /etc/fstab.  </p>
+<p>8. Identifies, if case of, special routines used by the operating system to<br>recognize installed hardware to configure Plug’n’Play devices, and to activate<br>other prime devices, like the sound card, for example.  </p>
+<p>9. Verifies the state of special disk devices, like RAID (Redundant Array of<br>Inexpensive Disks)  </p>
+<p>10. Mounts all the specified file systems in /etc/fstab.  </p>
+<p>11. Executes other system-specific tasks.  </p>
+<p>The /etc/rc.d/init.d directory  </p>
+<p>The directory /etc/rc.d/init.d contains all the commands which start or stop<br>services which are associated with all the execution levels.  </p>
+<p>All the files in /etc/rc.d/init.d have a short name which describes the<br>services to which they’re associated. For example, /etc/rc.d/init.d/amd starts<br>and stops the auto mount daemon, which mounts the NFS host and devices anytime<br>when needed.  </p>
+<p>The login process  </p>
+<p>After the init process executes all the commands, files and scripts, the last<br>few processes are the /sbin/mingetty ones, which shows the banner and log-in<br>message of the distribution you have installed. The system is loaded and<br>prepared so the user could log in.  </p>
+<p>Linux’s execution levels  </p>
+<p>The execution levels represent the mode in which the computer operates. They<br>are defined by a set of available services at any time they are started. The<br>execution levels represent different ways Linux uses to be available to you,<br>the user, or eventually the administrator.  </p>
+<p>As daily user you don’t have to bother with the execution levels, although the<br>multi-user level makes the services which you need while using Linux in a<br>network (though in a transparent mode) available.  </p>
+<p>In the next few sentences I’ll present the execution levels, one by one:  </p>
+<p>0: Halt (stops all running processes and executes shutdown)  </p>
+<p>1: Known under the name ”Single-user mode”. In this case the system runs with<br>a reduced set of services and daemons. The root file system is mounted read-<br>only. This runlevel is used when the others fail while booting.  </p>
+<p>2: On this level run the most of the services, with the exception of network<br>services (httpd, named, nfs, etc). This execution level is ideal for the debug<br>of network services, keeping the file system shared.  </p>
+<p>3: Complete multi-user mode, with network support enabled.  </p>
+<p>4: Unused, in most of the distributions. In Slackware this level is equivalent<br>with 3, the only difference is that this has graphic login enabled.  </p>
+<p>5: Complete multi-user mode, with network and graphic subsystem support<br>enabled.  </p>
+<p>6: Reboot. Stops all running processes and reboots the system to the initial<br>execution level.  </p>
+<p>Modification of execution levels  </p>
+<p>The most used facility of init, and maybe the most confusing one, is the<br>ability to move from an execution level to an other.  </p>
+<p>The system boots into a runlevel specified in /etc/inittab, or to a level<br>specified at the LiLo prompt. To change the execution level, use the command<br>init. For example, to change the execution level to 3, type  </p>
+<p>init 3  </p>
+<p>This stops most of the processes and takes the system into a multi-user mode<br>with networking enabled. Attention, changing the init level might force<br>several daemons used at the moment to stop!  </p>
+<p>The directories of execution levels  </p>
+<p>Every execution level has a directory with a symbolic links (symlinks)<br>pointing to the corresponding scripts in /etc/rc.d/init.d. These directories<br>are:  </p>
+<p>/etc/rc.d/rc0.d  </p>
+<p>/etc/rc.d/rc1.d  </p>
+<p>/etc/rc.d/rc2.d  </p>
+<p>/etc/rc.d/rc3.d  </p>
+<p>/etc/rc.d/rc4.d  </p>
+<p>/etc/rc.d/rc5.d  </p>
+<p>/etc/rc.d/rc6.d  </p>
+<p>The name of the symlinks are semnificative. It specifies which service has to<br>be stopped, started and when. The links starting with an ”S” are programmed to<br>start in various execution levels. The links also have a number in their name<br>(01-99). Now some examples of symlinks in the directory /etc/rc.d/rc2.d:  </p>
+<p>K20nfs -&gt; ../init.d/nfs  </p>
+<p>K50inet -&gt; ../init.d/inet  </p>
+<p>S60lpd -&gt; ../init.d/lpd  </p>
+<p>S80sendmail -&gt; ../init.d/sendmail  </p>
+<p>When operating systems change the execution level, init compares the list of<br>the terminated processes (links which start with ”K”) from the directory of<br>the current execution level with the list of processes which have to be<br>started (starting with ”S”), found in the destination directory.  </p>
+<p>Example:  </p>
+<p>When the system boots into runlevel 3, will execute all the corresponding<br>links starting with ”S”, in an order accorind to their number:  </p>
+<p>/etc/rc.d/rc3.d/S60lpd start  </p>
+<p>/etc/rc.d/rc3.d/S80sendmail start  </p>
+<p>(and so on)  </p>
+<p>If the system now changes to runlevel 1, will execute:  </p>
+<p>/etc/rc.d/rc3.d/K20nfs stop  </p>
+<p>/etc/rc.d/rc3.d/K50inet stop  </p>
+<p>(presuming that nfs and inet are NOT in /etc/rc.d/rc1.d)  </p>
+<p>After that it will start all the processes mentioned in /etc/rc.d/rc1.d except<br>which are already running. In this example there’s a single one only:  </p>
+<p>/etc/rc.d/rc1.d/S00single  </p>
+<p>Changing the current execution level  </p>
+<p>To change the current execution level for example to level 3, edit<br>/etc/inittab in a text editor, and edit the following line:  </p>
+<p>id:3:initdefault:  </p>
+<p>(do not change the initial runlevel to 0 or 6!)  </p>
+<p>Booting into an alternative execution level  </p>
+<p>At the LiLo prompt you have to write the number of the wanted execution level,<br>before booting the operating system. This way to boot into the third level,<br>type for example:  </p>
+<p>linux 3  </p>
+<p>Eliminating a service from an execution level  </p>
+<p>To disable a service from a runlevel, you might simply delete or modify the<br>corresponding symlink.  </p>
+<p>For example, to disable pcmcia, and don’t start in the future, type:  </p>
+<p>rm /etc/rc.d/rc3.d/S45pcmcia  </p>
+<p>Adding a service to an execution level  </p>
+<p>To add a service, it is needed to create a symlink pointing to the<br>corresponding scripts in /etc/rc.d/init.d. After the symlink is created, be<br>sure to assign it a number, so it would be started in the right time:  </p>
+<p>To add ”lpd” to runlevel 3, type:  </p>
+<p>ln -s /etc/rc.d/init.d/lpd /etc/rc.d/rc3.d/S64lpd  </p>
+<p>P.S.: This article has been originally written by Ovidiu T. He gave me the<br>permission to translate and publish it, and since I found the article<br>interesting, I did that way as well, although I don’t treat myself responsible<br>about the content of it.  </p>
+<p>可以参考：<br><a href="http://www.ibm.com/developerworks/cn/linux/kernel/startup/index.html" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/linux/kernel/startup/index.html</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3124294/" data-id="cjfawkq43007ipk9ftqsrzfww" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3124236" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3124236/" class="article-date">
+  <time datetime="2008-10-22T06:34:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3124236/">linux 软连接和硬链接的区别 </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>（1）软连接可以 跨文件系统 ，硬连接不可以 。实践的方法就是用共享文件把windows下的 aa.txt文本文档连接到linux下/root目录 下<br>bb. ln -s aa.txt /root/bb 连接成功 。ln aa.txt /root/bb 失败 。<br>（2）关于 I节点的问题 。硬连接不管有多少个，都指向的是同一个I节点，会把 结点连接数增加 ，只要结点的连接数不是 0，文件就一直存在<br>，不管你删除的是源文件还是 连接的文件 。只要有一个存在 ，文件就 存在 （其实也不分什么 源文件连接文件的 ，因为他们指向都是同一个 I节点）。<br>当你修改源文件或者连接文件任何一个的时候 ，其他的 文件都会做同步的修改 。软链接不直接使用i节点号作为文件指针,而是使用文件路径名作为指针。所以<br>删除连接文件 对源文件无影响，但是 删除 源文件，连接文件就会找不到要指向的文件 。软链接有自己的inode,并在磁盘上有一小片空间存放路径名.<br>（3）软连接可以对一个不存在的文件名进行连接 。<br>（4）软连接可以对目录进行连接</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3124236/" data-id="cjfawkq44007kpk9fy9kkxyjv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3122780" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3122780/" class="article-date">
+  <time datetime="2008-10-22T02:30:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3122780/">编码规范（自己的要求啦）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1  .  为什么要有编码规范</p>
+<p>编码规范对于程序员而言尤为重要，有以下几个原因：</p>
+<p>-  一个软件的生命周期中，  80%  的花费在于维护；</p>
+<p>-  几乎没有任何一个软件，在其整个生命周期中，均由最初的开发人员来维护；</p>
+<p>-  编码规范可以改善软件的可读性，可以让程序员尽快并彻底地理解新的代码；</p>
+<p>-  如果你将源码作为产品发布，就需要确任它是否被很好的打包并且清晰无误；</p>
+<p>2.  编码规范</p>
+<p>package java.test;</p>
+<p>import java.test.test1.TestClass;</p>
+<p>/**</p>
+<ul>
+<li><p>Class description goes here. </p>
+</li>
+<li></li>
+<li><p>@version  1.82 18 Mar 1999 </p>
+</li>
+<li><p>@author  Firstname Lastname </p>
+</li>
+</ul>
+<p>*/ </p>
+<p>public class Son extends TestClass {</p>
+<p>/*<em> classVar1 documentation comment </em>/</p>
+<p>public static int classVar1;</p>
+<p>/**</p>
+<ul>
+<li><p>classVar2 documentation comment that happens to be </p>
+</li>
+<li><p>more than one line long </p>
+</li>
+</ul>
+<p>*/ </p>
+<p>private static Object classVar2;</p>
+<p>/*<em> instanceVar1 documentation comment </em>/</p>
+<p>public Object instanceVar1;</p>
+<p>/*<em> instanceVar2 documentation comment </em>/</p>
+<p>protected int instanceVar2;</p>
+<p>/*<em> instanceVar3 documentation comment </em>/</p>
+<p>private Object[] instanceVar3;</p>
+<p>/**</p>
+<ul>
+<li>…constructor Son documentation comment… </li>
+</ul>
+<p>*/ </p>
+<p>public Son () {</p>
+<p>// …implementation goes here…</p>
+<p>}</p>
+<p>/**</p>
+<ul>
+<li>…method doSomething documentation comment… </li>
+</ul>
+<p>*/ </p>
+<p>public void doSomething() {</p>
+<p>// …implementation goes here…</p>
+<p>}</p>
+<p>/**</p>
+<ul>
+<li><p>…method doSomethingElse documentation comment… </p>
+</li>
+<li><p>@param someParam description </p>
+</li>
+</ul>
+<p>*/ </p>
+<p>public void doSomethingElse(Object someParam) {</p>
+<p>// …implementation goes here…</p>
+<p>}</p>
+<p>}</p>
+<p>3.  编程实践</p>
+<p>-  若没有足够理由，不要把实例变量或类变量声明为公有；</p>
+<p>-  类变量  名  不要以下划线开头；</p>
+<p>-  最小化变量的作用域；</p>
+<p>-  尽量不要使用静态变量；</p>
+<p>-  所有的变量名  /  方法名都应该是见明知意的，不要使用  temp  ，  l  ，  x  等变量名；</p>
+<p>-  变量定义的时候一定要初始化；</p>
+<p>-  不要硬编码，即使它只使用了一次；</p>
+<p>-  在含有多种运算符的表达式中使用圆括号来避免运算符优先级问题；</p>
+<p>-  完成代码的时候，一定要和式样一致；</p>
+<p>-  更改的画面一定要在至少在中、日和英文系统（各一个）的真实环境下进行测试；</p>
+<p>-  容器类（  map  或  list  ）在使用之前一定要保证它的正确初始化（里面没有垃圾数据）；</p>
+<p>-  提交代码之前要充分的  CDI  ，尽量进行交叉  review  ，而且  review  者最好是不懂改造点的人；</p>
+<p>-  提交代码之前要比较差分，确保提交的  source  是正确的；</p>
+<p>-  不要将测试数据提交到数据库中；</p>
+<p>-  在做  GUI  的时候，只要有按钮点击，并出现别的画面的时候，必须考虑多重启动的问题；</p>
+<p>-  如果编写的是数据类的话，要完成它的  toString  方法和  clone  方法；</p>
+<p>-  代码在  20  行左右或者关键的地方必须出现注释；</p>
+<p>-  不要出现  3  重或者  3  重以上的循环；</p>
+<p>-  方法尽量控制在  20  到  100  行之内；</p>
+<p>-  一行的字符个数不要超过  80  个；</p>
+<p>-  使用空行来分割或组织代码，推荐在方法中使用  1  行，方法见  2  行，不同部分  3  到  4  行；</p>
+<p>-  不要使用  tab  键，如果使用的话，在  eclipse  中将  tab  映射成  4  个  space  ；</p>
+<p>-  尽量不要  copy/paste  ，尽量使用继承或重构的方式共享相同的代码；</p>
+<p>-  要是  copy/paste  ，注意更新注释；</p>
+<p>-  在类中，  public  方法必须写  javadoc  ，还要注意方法改变后同时更新注释或  javadoc  ；</p>
+<p>-  方法的制限和约定一定要在  javadoc  中写清楚；</p>
+<p>-  注释一定要简明扼要，不要只是代码的重复；</p>
+<p>-  不要编写只有自己能看懂的代码，简单就是最好的；</p>
+<p>-  不要使用代码生成工具生成的代码并改造它；</p>
+<p>-  程序的关键部分和异常都要出好  trace  ；</p>
+<p>-  一个函数只使用一个  return  ，  if else  中的各个分支不要遗漏，  case  不要忘记  break  ；</p>
+<p>-  一定不要将重要的东西保存在桌面上；</p>
+<p>-  不要出现  e.printStackTrace()/System.out.println()  ，可将其输出到  log  中；</p>
+<p>-  无用的代码一定要删除；</p>
+<p>-  一定要处理异常；</p>
+<p>-  一定要在资源使用完后将其释放，不如  file  ，  socket  ，数据库连接等；</p>
+<p>- for  ，  while  等语句后面都要加上大括号；</p>
+<p>-  给自己的代码编写单元测试项，编写的时候不要改动被测试项的代码，如果要改，使用反射；</p>
+<p>-  方法开始的时候，一定要检查参数的有效性；</p>
+<p>-  返回零长度的数组比返回  null  好；</p>
+<p>-  注意按引用传递和按值传递的区别；</p>
+<p>参考资料：</p>
+<p>1.  <a href="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html" target="_blank" rel="noopener">http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html</a></p>
+<p>2. <a href="http://www.huihoo.org/code/java_code_conventions.html#b1" target="_blank" rel="noopener">http://www.huihoo.org/code/java_code_conventions.html#b1</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3122780/" data-id="cjfawkq42007gpk9f4atvd6md" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3122723" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3122723/" class="article-date">
+  <time datetime="2008-10-22T02:19:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3122723/">杂项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一定不要将东西保存在桌面上，如果重装系统的话，你的东西就没有了；  </p>
+<p>不懂的事情不要胡说或者是“我猜，我认为。。。”；  </p>
+<p>不会的事情不要zheng很长时间，停下来查查资料或者问问别人；  </p>
+<p>如果在linux下安装firefox时（就是下一个压缩包，解压，运行里面的firefox就好了），如果完成后还是启动不了，可能是因为firefox需要的系统需求不够，这时可以换一个旧版本的firefox试一下，应该没有问题了；  </p>
+<p>在linux下面如果没有firefox，不要使用konqueror，原因有两个，一个是就算设置了java的路径让它来运行applet，但是速度很慢;一个是代理的设置时，它的exclude的描述不太好，很容易使人误解；  </p>
+<p>在vmware（5.5）上安装windows 2008后，windows不能找到vmware的网卡，这时安装一下6.0版本的vmware<br>tool，windows就可以找到网卡；  </p>
+<p>代码中多处出现的常量，请务必将之放到constant文件中；  </p>
+<p>有代码了，不管代码是对还是少，就要进行review(包括很有效的交叉review，进行交叉的对象最好是没有看过要review 代码的人)；  </p>
+<p>List中的remove(Object o)<br>,使用的是传进来的类的equals方法来判断两个类是否相等的，如果只是重写了传进来的类的compare方法的话，调用List的remove方法会失效；  </p>
+<p>如果map中的value或者key放的某个类数组的话，然后通过map的方法取出value时，它们将会是Object[]数组；  </p>
+<p>在java中使用JFrame或者JDialog时，应该注意的地方：<br>手工调用dispose方法，不会调用注册的Closing方法，只会调用注册的Closed方法；<br>如果想人为的同时调用Closing和Closed方法，只要使用<br>WindowEvent ee = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);<br>Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(ee);<br>就好了；（在使用Closing或Closed方法时，最好将它们的DefaultCloseOperation设置成：<br>DO_NOTHING_ON_CLOSE，然后调用dispose方法）  </p>
+<p>在做程序的时候，只要有按钮点击，并出现别的画面的时候，必须考虑多重启动的问题。因为在cpu高负荷的情况下，如果不进行处理的话，会出现多个相同的画面；  </p>
+<p>能不使用静态变量的，就不要使用静态变量，应该使用的地方也要尽量回避；  </p>
+<p>提交代码之前要充分的CDI,不管是自己还是找别人CDI，因为每个人的思维都有局限；  </p>
+<p>ArrayList在使用之前一定要保证他的正确初始化，否则的话，里面的多余数据会影响程序的结果；  </p>
+<p>使用Map的时候，一定要注意取出来的是key 还是value，如果两者弄反了的话，程序出的问题更是莫名其妙。注意了啦；  </p>
+<p>测试英文message的时候，一定要在英文环境下调试，否则的话，调试出来的大小和位置是不对的。我就吃过这样的亏，通过将日文资源文件的内容清空，来测试英文message，最后拿到真正的英文环境下测试的时候，内容显示不下了。  </p>
+<p>。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3122723/" data-id="cjfawkq41007epk9fos7fa7j8" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3122705" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/10/22/3122705/" class="article-date">
+  <time datetime="2008-10-22T02:16:00.000Z" itemprop="datePublished">2008-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/22/3122705/">IA64/x64/IA32</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> IPF  </strong> (  Intel  ® Itanium® Processor Family  ) = IA64;<br><strong>EM64T</strong> (  Extended Memory 64 Technology  ) = x64;<br>{  </p>
+<p>AMD calls the resulting architecture “AMD64”,  </p>
+<p>Intel calls it “EM64T”,  </p>
+<p>Microsoft calls it “x64”,  </p>
+<p>and various others call it “x86-64”.</p>
+<p>}<br><strong>IA32</strong> (  32 bits Intel Architecture  )</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/10/22/3122705/" data-id="cjfawkq40007cpk9fvzfwyrpz" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/60/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="page-number" href="/page/60/">60</a><span class="page-number current">61</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/62/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

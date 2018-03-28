@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java BigDecimal中的RoundingMode | 贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="BigDecimal有八种RoundingMode，其中最基本的有两种，它们是： ROUND_UP：Always increments the digit prior to a nonzero discarded fraction.总是将要丢掉的数字前一位的数字加1. 例如： Rounding mode UP Examples Input Number  |  Input rounded to o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java BigDecimal中的RoundingMode">
+<meta property="og:url" content="http://yoursite.com/2015/02/28/43986703/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:description" content="BigDecimal有八种RoundingMode，其中最基本的有两种，它们是： ROUND_UP：Always increments the digit prior to a nonzero discarded fraction.总是将要丢掉的数字前一位的数字加1. 例如： Rounding mode UP Examples Input Number  |  Input rounded to o">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2018-03-28T08:57:28.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java BigDecimal中的RoundingMode">
+<meta name="twitter:description" content="BigDecimal有八种RoundingMode，其中最基本的有两种，它们是： ROUND_UP：Always increments the digit prior to a nonzero discarded fraction.总是将要丢掉的数字前一位的数字加1. 例如： Rounding mode UP Examples Input Number  |  Input rounded to o">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-43986703" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/43986703/" class="article-date">
+  <time datetime="2015-02-28T08:29:55.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java BigDecimal中的RoundingMode
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BigDecimal有八种RoundingMode，其中最基本的有两种，它们是：</p>
+<p>ROUND_UP：Always increments the digit prior to a nonzero discarded fraction.<br>总是将要丢掉的数字前一位的数字加1.</p>
+<p>例如：</p>
+<p><strong>Rounding mode UP Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>UP</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  3<br>1.6  |  2<br>1.1  |  2<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -2<br>-1.6  |  -2<br>-2.5  |  -3<br>-5.5  |  -6   </p>
+<p>比方说5.5的scale是1，那么需要丢掉的数字的0.5, 将0.5丢掉，然后给5加1，就变成6了；</p>
+<p>需要注意的是-5.5，这里的负号是不参加运算的，将它当成5.5，先进行Round up，然后将负号加上；  </p>
+<p>ROUND_DOWN：Never increments the digit prior to a discarded fraction (i.e.,<br>truncates).将要丢掉的数字直接丢掉。</p>
+<p><strong>Rounding mode DOWN Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>DOWN</code> rounding<br>—|—<br>5.5  |  5<br>2.5  |  2<br>1.6  |  1<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -1<br>-2.5  |  -2<br>-5.5  |  -5   </p>
+<p>比方说5.5的scale是1，那么需要丢掉的数字的0.5, 直接将0.5丢掉就可以了；</p>
+<p>需要注意的是-5.5，这里的负号是不参加运算的，将它当成5.5，先进行Round Down，然后将负号加上；</p>
+<p>然后其它五中都是根据Round Down/Up来推出来的；</p>
+<p>例如：</p>
+<p>ROUND_CEILING：If the result is positive, behaves as for <code>RoundingMode.UP</code> ;<br>if negative, behaves as for <code>RoundingMode.DOWN</code><br>.如果参数是正数，使用UP规则，如果参数是负数，使用DOWN规则；</p>
+<p><strong>Rounding mode CEILING Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>CEILING</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  3<br>1.6  |  2<br>1.1  |  2<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -1<br>-2.5  |  -2<br>-5.5  |  -5   </p>
+<p>ROUND_FLOOR：If the result is positive, behave as for <code>RoundingMode.DOWN</code> ;<br>if negative, behave as for <code>RoundingMode.UP</code><br>.如果参数是正数，使用DOWN规则，如果参数是负数，使用UP规则；</p>
+<p><strong>Rounding mode FLOOR Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>FLOOR</code> rounding<br>—|—<br>5.5  |  5<br>2.5  |  2<br>1.6  |  1<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -2<br>-1.6  |  -2<br>-2.5  |  -3<br>-5.5  |  -6   </p>
+<p>ROUND_HALF_UP: Behaves as for RoundingMode.UP if the discarded fraction is ≥<br>0.5; otherwise, behaves as for RoundingMode.DOWN.<br>如果要丢掉的数字大于等于0.5，使用UP规则；否则使用DOWN规则；</p>
+<p><strong>Rounding mode HALF_UP Examples</strong> Input Number  |  Input rounded to one digit<br>with <code>HALF_UP</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  3<br>1.6  |  2<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -2<br>-2.5  |  -3<br>-5.5  |  -6   </p>
+<p>ROUND_HALF_DOWN: Behaves as for RoundingMode.UP if the discarded fraction is</p>
+<blockquote>
+<p>0.5; otherwise, behaves as for RoundingMode.DOWN.<br>如果要丢掉的数字大于0.5，使用UP规则；否则使用DOWN规则；</p>
+</blockquote>
+<p><strong>Rounding mode HALF_DOWN Examples</strong> Input Number  |  Input rounded to one<br>digit<br>with <code>HALF_DOWN</code> rounding<br>—|—<br>5.5  |  5<br>2.5  |  2<br>1.6  |  2<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -2<br>-2.5  |  -2<br>-5.5  |  -5   </p>
+<p>ROUND_HALF_EVEN：Rounding mode to round towards the “nearest neighbor” unless<br>both neighbors are equidistant, in which case, round towards the even<br>neighbor. Behaves as for <code>RoundingMode.HALF_UP</code> if the digit to the left of<br>the discarded fraction is odd; behaves as for <code>RoundingMode.HALF_DOWN</code> if<br>it’s even.<br>如果要丢掉的数字不是5的话，需要看这个数字前面的数字的奇偶性，如果是奇数，使用HALF_UP规则；如果是偶数使用HALF_DOWN规则；如果要丢掉的数字是5的话，round到它的偶数邻居上；</p>
+<p><strong>Rounding mode HALF_EVEN Examples</strong> Input Number  |  Input rounded to one<br>digit<br>with <code>HALF_EVEN</code> rounding<br>—|—<br>5.5  |  6<br>2.5  |  2<br>1.6  |  2<br>1.1  |  1<br>1.0  |  1<br>-1.0  |  -1<br>-1.1  |  -1<br>-1.6  |  -2<br>-2.5  |  -2<br>-5.5  |  -6   </p>
+<p>ROUND_UNNECESSARY：不需要ROUND  </p>
+<p>最后来一张总表，</p>
+<p><strong>Summary of Rounding Operations Under Different Rounding Modes</strong> |  Result of<br>rounding input to one digit with the given rounding mode<br>—|—<br>Input Number  |  <code>UP</code> |  <code>DOWN</code> |  <code>CEILING</code> |  <code>FLOOR</code> |  <code>HALF_UP</code><br>|  <code>HALF_DOWN</code> |  <code>HALF_EVEN</code> |  <code>UNNECESSARY</code><br>5.5  |  6  |  5  |  6  |  5  |  6  |  5  |  6  |  throw <code>ArithmeticException</code><br>2.5  |  3  |  2  |  3  |  2  |  3  |  2  |  2  |  throw <code>ArithmeticException</code><br>1.6  |  2  |  1  |  2  |  1  |  2  |  2  |  2  |  throw <code>ArithmeticException</code><br>1.1  |  2  |  1  |  2  |  1  |  1  |  1  |  1  |  throw <code>ArithmeticException</code><br>1.0  |  1  |  1  |  1  |  1  |  1  |  1  |  1  |  1<br>-1.0  |  -1  |  -1  |  -1  |  -1  |  -1  |  -1  |  -1  |  -1<br>-1.1  |  -2  |  -1  |  -1  |  -2  |  -1  |  -1  |  -1  |  throw <code>ArithmeticException</code><br>-1.6  |  -2  |  -1  |  -1  |  -2  |  -2  |  -2  |  -2  |  throw <code>ArithmeticException</code><br>-2.5  |  -3  |  -2  |  -2  |  -3  |  -3  |  -2  |  -2  |  throw <code>ArithmeticException</code><br>-5.5  |  -6  |  -5  |  -5  |  -6  |  -6  |  -5  |  -6  |  throw <code>ArithmeticException</code>  </p>
+<p>refs：</p>
+<p><a href="http://stackoverflow.com/questions/792237/why-and-how-does-round-half-even-
+minimize-cumulative-error-when-applied-repeated" target="_blank" rel="noopener"> http://stackoverflow.com/questions/792237/why-and-how-does-round-half-even-<br>minimize-cumulative-error-when-applied-repeated
+</a></p>
+<p>jdk document</p>
+<p><a href="http://en.wikipedia.org/wiki/Floor_and_ceiling_functions" target="_blank" rel="noopener"> http://en.wikipedia.org/wiki/Floor_and_ceiling_functions
+</a></p>
+<p><a href="http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial" target="_blank" rel="noopener"><br>http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial
+</a>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/28/43986703/" data-id="cjfawkq7d00ddpk9ft161h999" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/28/43987703/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Java中的BigDecimal使用注意事项
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/28/43986129/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">如何实现上舍入到0.05</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

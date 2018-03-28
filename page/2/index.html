@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-78604087" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/22/78604087/" class="article-date">
+  <time datetime="2017-11-22T07:26:05.000Z" itemprop="datePublished">2017-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/78604087/">mongo::client::initialize()  cause crash</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用monod的C++ driver时，使用<strong>mongo::client::initialize()</strong> 方法会导致应用程序crash。  </p>
+<p>首先要明确一下：  </p>
+<ol>
+<li>mongo::client::initialize()方法是legacy driver的方法，不推荐和3.X的driver一起使用。 </li>
+<li>C++ driver是依赖于boost的 </li>
+</ol>
+<p>mongo::client::initialize()方法中会使用到Option类，但是这个类在头文件中没有定义析构函数，所以就会依赖于编译器来自动推导会这是自动生成的析构函数。crash的原因是，C++的编译器在不同的情况下的推导类型不一样。</p>
+<p>case 1</p>
+<p>不同的g++版本推导出来的析构函数不一样。所以，如果你的应用程序是用C++11编译的，但是你的driver不是用C++11编译的，肯定会crash。<br>- For non-C++ 11 builds you typedef stdx::function<t> to be<br>boost::function<t>.<br>- For C++ 11 builds you typedef it to be std::function<t>.<br><a href="https://jira.mongodb.org/browse/CXX-558" target="_blank" rel="noopener"> https://jira.mongodb.org/browse/CXX-558
+</a>  </t></t></t></p>
+<p>case 2.</p>
+<p>应用程序的debug版本和release版本生成的析构函数也不一样。这里没有具体的去验证，只是猜想：debug的时候是-g，不会进行优化，这样会编译器会生成Option的析构函数，所以程序不会crash；<br>但是release版本时，编译器会将要隐式的析构函数drop掉，在link的时候，又发现需要这个函数，于是又生成了一个错误的，然后程序一运行就crash。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/22/78604087/" data-id="cjfawkqgx00supk9frvy2utnn" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-78603911" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/22/78603911/" class="article-date">
+  <time datetime="2017-11-22T07:07:56.000Z" itemprop="datePublished">2017-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/78603911/">ABI vs API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>application programming interfaces (APIs), which similarly define interfaces<br>between program components, but at the source code level.<br>是源代码级别的，每次都要编译</p>
+<p>ABIs (which may or may not be officially standardized) is usually the job of<br>the compiler, OS or library writer, but application programmers may have to<br>deal with ABIs directly when writing programs in a mix of programming<br>languages, using foreign function call interfaces between them.<br>是binary级别的，如果两个componnet是ABI兼容的话，是可以直接调用的，不需要编译；但是如是不兼容的话，就需要从新编译两者了</p>
+<p>ABIs cover details such as:</p>
+<ul>
+<li>a processor instruction set (with details like register file structure, stack organization, memory access types, …) </li>
+<li>the sizes, layout, and alignment of basic data types the processor can directly access </li>
+<li>the calling convention, which controls how functions’ arguments are passed and return values retrieved; for example, whether all parameters are passed on the stack or some are passed in registers, which registers are used for which function parameters, and whether the first function parameter passed on the stack is pushed first or last onto the stack </li>
+<li>how an application should make system calls to the operating system and, if the ABI specifies direct system calls rather than procedure calls to system call stubs, the system call numbers </li>
+<li>and in the case of a complete operating system ABI, the binary format of object files, program libraries and so on. </li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Application_binary_interface" target="_blank" rel="noopener"> https://en.wikipedia.org/wiki/Application_binary_interface
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/22/78603911/" data-id="cjfawkqgv00sspk9f1h7g08uj" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-78527295" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/14/78527295/" class="article-date">
+  <time datetime="2017-11-14T01:53:37.000Z" itemprop="datePublished">2017-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/14/78527295/">新版的Linux中的free命令的输出解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>free是用来查看当前系统的内存使用情况的。<br>在解释之前，先要熟悉几个概念。<br>共享链接库：它的意思是一些共享的库文件，不需要每个进程都加载到内存中，每个进程可以共享它们。从而达到节省内存的目的。比如libc.</p>
+<p>然后是Cache Pages和Buffer，以下是从Redhat的网站上抓出来的。<br>这里需要注意一点的是：它们的系统来使用的，在新版本的free中是used列中，是没有计算出来的，原因就是在系统的可用内存没有的时候，OS会释放一些Cached或Buffered的内存，给应用程序。</p>
+<blockquote>
+<p>Linux always tries to use RAM to speed up disk operations by using<br> available memory for buffers (file system metadata) and cache (pages<br> with actual contents of files or block devices). This helps the system<br> to run faster because disk information is already in memory which<br> saves I/O operations. If space is needed by programs or applications<br> like Oracle, then Linux will free up the buffers and cache to yield<br> memory for the applications. If your system runs for a while you will<br> usually see a small number under the field “free” on the first line.</p>
+</blockquote>
+<p>–</p>
+<blockquote>
+<p>Cache Pages:</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>A cache is the part of the memory which transparently stores data so<br> that future requests for that data can be served faster. This memory<br> is utilized by the kernel to cache disk data and improve i/o<br> performance.</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>The Linux kernel is built in such a way that it will use as much RAM<br> as it can to cache information from your local and remote filesystems<br> and disks. As the time passes over various reads and writes are<br> performed on the system, kernel tries to keep data stored in the<br> memory for the various processes which are running on the system or<br> the data that of relevant processes which would be used in the near<br> future. The cache is not reclaimed at the time when process get<br> stop/exit, however when the other processes requires more memory then<br> the free available memory, kernel will run heuristics to reclaim the<br> memory by storing the cache data and allocating that memory to new<br> process.</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>When any kind of file/data is requested then the kernel will look for<br> a copy of the part of the file the user is acting on, and, if no such<br> copy exists, it will allocate one new page of cache memory and fill it<br> with the appropriate contents read out from the disk.</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>The data that is stored within a cache might be values that have been<br> computed earlier or duplicates of original values that are stored<br> elsewhere in the disk. When some data is requested, the cache is first<br> checked to see whether it contains that data. The data can be<br> retrieved more quickly from the cache than from its source origin.</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>SysV shared memory segments are also accounted as a cache, though they<br> do not represent any data on the disks. One can check the size of the<br> shared memory segments using ipcs -m command and checking the bytes<br> column.</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>Buffers :</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>Buffers are the disk block representation of the data that is stored<br> under the page caches. Buffers contains the metadata of the files/data<br> which resides under the page cache. Example: When there is a request<br> of any data which is present in the page cache, first the kernel<br> checks the data in the buffers which contain the metadata which points<br> to the actual files/data contained in the page caches. Once from the<br> metadata the actual block address of the file is known, it is picked<br> up by the kernel for processing.</p>
+</blockquote>
+<p>我们来看看free的输出：</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>total</th>
+<th>used</th>
+<th>free</th>
+<th>shared</th>
+<th>buff/cache</th>
+<th>available  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mem:</td>
+<td>65697148</td>
+<td>28995804</td>
+<td>15909532</td>
+<td>1587368</td>
+<td>20791812</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>32578364  </p>
+<p>total ： 表示系统的总内存<br>used ： 表示应用程序已经使用的内存<br>free ： 表示当前还没有被使用的内存<br>shared ：表示共享链接库使用的内存<br>buff/cache ： 表示系统的page cache和buffer使用到的内存<br>available ： 表示应用程序还可以申请到的内存</p>
+<p><strong>系统当前使用到的内存是：used + buff/cache，used中包含了shared。</strong></p>
+<p><strong>所以total = used + buff/cache + free = 28995804 +20791812 + 15909532 =<br>65697148。</strong></p>
+<p><strong>available（32578364） &lt;= free + buff/cache（15909532 + 20791812 =<br>36701344），为什么是小于呢？因为系统的一些page或cache是不能回收的。 </strong></p>
+<blockquote>
+<p>As of the new available field, for Linux kernels older than 2.6.27,<br> its value is the same as the free value, but for the later versions of<br> the Kernel, its a bit different:</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>Estimation of how much memory is available for starting new<br> applications, without swapping. Unlike the data provided by the cache<br> or free fields, this field takes into account page cache and also<br> that not all reclaimable memory slabs will be reclaimed due to items<br> being in use (MemAvailable in /proc/meminfo, available on<br> kernels 3.14, emulated on kernels 2.6.27+, otherwise the same as<br> free)</p>
+</blockquote>
+<p>refs：<br><a href="https://askubuntu.com/questions/770108/what-do-the-
+changes-in-free-output-from-14-04-to-16-04-mean" target="_blank" rel="noopener"> https://askubuntu.com/questions/770108/what-do-the-changes-in-free-output-<br>from-14-04-to-16-04-mean </a></p>
+<p><a href="http://www.cnblogs.com/chenpingzhao/p/5161844.html" target="_blank" rel="noopener"> http://www.cnblogs.com/chenpingzhao/p/5161844.html
+</a></p>
+<p><a href="https://access.redhat.com/documentation/en-
+US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-
+Oracle_9i_and_10g_Tuning_Guide-Memory_Usage_and_Page_Cache.html" target="_blank" rel="noopener"> https://access.redhat.com/documentation/en-<br>US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-<br>Oracle_9i_and_10g_Tuning_Guide-Memory_Usage_and_Page_Cache.html
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/14/78527295/" data-id="cjfawkqgt00sppk9fx2psg6ae" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-78275152" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/18/78275152/" class="article-date">
+  <time datetime="2017-10-18T09:12:49.000Z" itemprop="datePublished">2017-10-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日语/">日语</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/18/78275152/">うわさ的一些惯用搭配</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="うわさ"><a href="#うわさ" class="headerlink" title="うわさ"></a>うわさ</h1><p>- うわさが立つ、うわさを立てる 流言四起<br>- うわさが流れる、うわさを流す 流言四起<br>- うわさがある 有流言<br>- 噂を（うわさ）すれば影（かげ） 说曹操曹操到</p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/18/78275152/" data-id="cjfawkqgo00sipk9fyvt3nuce" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-78054708" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/21/78054708/" class="article-date">
+  <time datetime="2017-09-21T09:29:19.000Z" itemprop="datePublished">2017-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日语/">日语</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/21/78054708/">ご馳走になる vs ご馳走する vs ご馳走様でした</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单的说：<br>ご馳走になる是 别人请我<br>ご馳走する 是我请别人<br>ご馳走様でした 是谢谢请客的人款待</p>
+<hr>
+<p>复杂的说：</p>
+<p>食卓で食事を終えて箸を置き、「ご馳走様でした」という。<br><strong>在饭桌上吃完饭，放下筷子后，说「ご馳走様でした」</strong><br>これは無事食事を終え、命をつなぐことができたことへの感謝を口に出したものです。<br><strong>来表达我能安全无事的吃完饭，并和我的命连起来的感谢。</strong><br>だから、一人で食事をした場合でも、「ご馳走様でした」ということはあります。<br><strong>但是一个人吃法的时候，也可以说「ご馳走様でした」。</strong><br>自宅で、家族で食事をしていた場合は、その食事を用意（調理など）した人と、その食事を用意するために必要だったお<br>金を稼いできた人に対する感謝も含みます。<br><strong>在自己家里或者和家族的人一起吃法的时候，也包含对做饭人(这里的人可以是自己家里做饭的人，也可以是外面餐馆为了挣钱而做饭的人)的感谢。</strong></p>
+<p>飲食店で、食事を終えて店を出るときに、「緒馳走様（でした）」と、料理人（姿が見えていれば）や店員に声をかけることもあります。<br><strong>在饭店吃完饭离开时，可以对做饭的人(如果能看到的话)和店员说一句「緒馳走様（でした）」。</strong><br>合理的に考えると、自分はお金を払っている客だからそんなことを言う必要はない、ということになりますが、料理を作り、もてなしをしてくれたことに対して、自分は満足しましたよ、ありがとう、という気持ちを言葉に出します。<br><strong>从常理来讲，自己花钱去吃法，不必要说这样的话。然而，给我们做饭，客气的招待我们，自己会不会觉得很满足。这个时候说出一句这样的话，来表示感谢。</strong><br>もちろん、料理がおいしくなかったり、店員の態度が悪かったりしたら、そんなことは言いません。<br><strong>当然，如果饭菜很难吃，店员的态度很差，你也可以不说。</strong></p>
+<p>職場で上司が、「今日は私がご馳走する（＝支払いをする）から、一緒に食事に行こう。」と誘ってきたら、「ご馳走になります。」と答えます。これは、「一緒に行きます。支払いはお任せします。」という意味です。<br><strong>在公司里，如果老板说“今天我来请客，一起去吃法吧”这样的意见的话，你可以回答「ご馳走になります。」。这就是一起去，我会付款的意思。</strong><br>食事を終えて、会計を済ませた（その上司が支払った）後で、「ご馳走になりました。」とお礼をいいます。<br><strong>吃完饭后，当老板结完账后，你可以再说一遍「ご馳走になります。」，来表示感谢</strong></p>
+<p>上司や伯父など、目上の人の家に招かれて食事をしたとき、食卓では「ご馳走様でした。」といいます。<br><strong>如果你被请到上司或者长辈的家里吃饭的话，在饭桌上你要说「ご馳走様でした。」</strong><br>ホスト・ホステスに対して、感謝の意もありますが、自分は食事を終えました、と伝える意味合いが強いと思います。<br><strong>在自己吃完饭后，对服务员也可以说。来表示感谢。</strong><br>食卓上を片付けて、デザートを出すとか、お茶を出すとかしてもいいですよ、ということになります。<br><strong>当饭桌被收拾好后，上来甜点或茶水的时候，也可以说。</strong><br>その家を辞するときに「今日は、ご馳走になりました。」といいます。ここで改めてもてなしに対して感謝の意を示すのです。<br><strong>在离开家的时候，可以说「今日は、ご馳走になりました。」。来再次表示对你款待的谢意。</strong><br>食事を終えて食卓で、「ご馳走になりました。」ということもありますが、「それでは（＝食事は終えたので）、これで帰ります。」というようなニュアンスが漂ってしまうような気がします。<br><strong>在吃完饭后，说一句「ご馳走になりました。」。在我看来就像是说，”吃完饭了，我该回家了”，的废话一样。</strong></p>
+<p>食事をした場所（食堂）から他の部屋に移動するならそれでもいいでしょう。<br><strong>让我们从吃饭的地方挪到别的地方去吧。</strong></p>
+<p>帰宅後に、家人に「食事（夕食）はどうしますか？（＝食べますか？）」あるいは「食事はどうしましたか？」と尋ねたれたら、「○○さんに、ご馳走になりました。」と答えます。<br><strong>回到家里后，家人问“你吃饭了吗”或者“放吃了吗”，你可以说谁谁请我吃饭了</strong><br>これは、家人が○○さんを知っており、そのことを知っておいてもらう必要がある場合です。<br><strong>这是在家人知道这个人的时候，并且有必要让家人知道请客这件事的时候</strong><br>そうではない、自分で支払った食事や、家人に内緒の相手との食事だったら、ただ「（外で）済ませてきました。」と答えます。<br><strong>如果不是这样，而是自己花钱或者是和一个不需要家人知道的人吃饭，你只需要说“在外面吃了”</strong></p>
+<p>翌日、その上司にあったら、「昨日（昨夜）は、ご馳走様でした。」と再度、礼をいいます。<br><strong>第二天，加到上司后，说「昨日（昨夜）は、ご馳走様でした。」，表示再次感谢</strong><br>ここで「昨日は、ご馳走になりました。」というのも間違いではありませんが、私は違和感があります。<br><strong>在这里说「昨日（昨夜）は、ご馳走様でした。」没有什么问题，但是我觉得有点不协调。</strong><br>明確にどのように誤りなのかは指摘できないのですが、「ご馳走様でした。」のほうが自然だと感じます。<br><strong>但是没有什么名气的理由。说「ご馳走様でした。」反而更自然</strong></p>
+<p>自分と相手との関係によってではなく、場面や時によって使い分けられていると思います。<br><strong>不是由于对方的关系，而是有地点和时间来决定使用什么</strong><br>ほとんどの場合は、「ご馳走様でした。」でよいと思います。<br>「ご馳走になりました。」でなければならないのは、上記の例のように、相手にではなく相手以外の第三者に答える場合だけであると思います。<br><strong>在大部分场合，使用「ご馳走様でした。」就可以了。只有在像上例中一样，当你想第三方说明，被谁谁请客的时候，才必须使用「ご馳走になりました。」</strong><br>他の例では、「ご馳走になりました」を「ご馳走様でした」に置き換えても違和感はありません。<br><strong>其他的场合两个可以相互替换</strong></p>
+<p>強いて言えば、「ご馳走様でした」は食事の終了、「ご馳走になりました」は食事を含めたもてなし全体の完了を意味するように思います。<br><strong>换句话说，「ご馳走様でした」是吃完饭了。「ご馳走になりました」表示包括吃饭在内的所有招待都结束了。</strong><br>訪問先を辞去するときに、「ご馳走になりました」といえば、「私は帰ります。」の意を含むし、食事会を終えて店を出て、上司に「ご馳走になりました」といえば、「ここで一旦解散。」の意を含んで、帰宅する人あり、別の店に行く人あり、ということになります。<br><strong>当离开拜访者家里的时候，如果说「ご馳走になりました」，就是说我要回家了。在吃饭的时候，如果给老板说「ご馳走になりました」，意思是这里的事情一旦结束，我就要回家或者去别的地方的意思。</strong></p>
+<p>「ご馳走様でした」はそれだけで充分に丁寧な表現だと思います。<br><strong>一句话，只要说「ご馳走様でした」就可以表现尊敬的意思的。</strong><br>refs:<br><a href="https://www.hjenglish.com/q/p371167/" target="_blank" rel="noopener"> https://www.hjenglish.com/q/p371167/ </a><br><a href="https://oshiete.goo.ne.jp/qa/8872358.html" target="_blank" rel="noopener"> https://oshiete.goo.ne.jp/qa/8872358.html
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/21/78054708/" data-id="cjfawkqgn00sgpk9fu03rieef" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-78050787" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/21/78050787/" class="article-date">
+  <time datetime="2017-09-21T05:08:50.000Z" itemprop="datePublished">2017-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日语/">日语</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/21/78050787/">日语的年份怎么读</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>日语中的「年」读做「ねん」(nen)。<br>剩下的年份数字就是按日语数字的读法读就行了。<br>比如说<br>2011年读作：にせん じゅういち ねん<br>1999年读作：せん きゅうひゃく きゅうじゅう きゅう ねん<br>1948年读作：せん きゅうひゃく よんじゅう はち ねん</p>
+<p>注：</p>
+<ol>
+<li>2005年读作にせん ご ねん 二千五年(但是2005年在中文读作“二千零五年”,日语里只读“二千”和“五”就可以了,这是日语数字的一种读法） </li>
+<li>1988年せん きゅうひゃく はちじゅう はちねん，在读 一千,一百,一十的时候不要读”一”,但是一万,一亿,一兆的时候要读”一”<br>例：200年にひゃくねん； 如果 201年にひゃく いちねん 中间的”0”不需要读。</li>
+</ol>
+<p>refs：<br><a href="https://zhidao.baidu.com/question/518743542.html?fr=iks&amp;word=%C8%D5%D3%EF%B5%C4%C4%EA%B7%DD%D4%F5%C3%B4%B6%C1&amp;ie=gbk" target="_blank" rel="noopener"><br>https://zhidao.baidu.com/question/518743542.html?fr=iks&amp;word=%C8%D5%D3%EF%B5%C4%C4%EA%B7%DD%D4%F5%C3%B4%B6%C1&amp;ie=gbk
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/21/78050787/" data-id="cjfawkqgl00sdpk9f74zb1rhr" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-78050724" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/21/78050724/" class="article-date">
+  <time datetime="2017-09-21T04:59:48.000Z" itemprop="datePublished">2017-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日语/">日语</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/21/78050724/">遅くまで起きる vs 遅くまで寝る</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>父は毎晩遅くまで寝るようだ</strong><br>这句话的意思很明显，就是说 <strong>爸爸每天晚上都到很晚才睡</strong></p>
+<p>父は毎晩遅くまで起きているようだ<br>这里的 <strong>起きる</strong> 翻译成不睡觉<br>所以这句话的意思是： <strong>爸爸每天晚上到很晚都不睡觉</strong> 。言外之意就是很晚才睡。和上面是一个意思。<br>而不能翻译成每天晚上很晚才起来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/21/78050724/" data-id="cjfawkqgk00sbpk9fn9r43zos" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-77531693" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/24/77531693/" class="article-date">
+  <time datetime="2017-08-24T08:20:36.000Z" itemprop="datePublished">2017-08-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/24/77531693/">mongodb&#39;s mapreduce</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mapReduce可是实现增量的计算，但是它有以下问题：<br>1. 使用javascript写成，不便于debug<br>2. 帮助很少<br>3. 性能不如aggregate<br>4. 你可以在mongo shell中使用<br>- interpreterVersion() ordb.serverBuildInfo()<br>- 来获得mongo的 javascriptEngine<br>5. 在3.2中，javascript的执行引擎是 MozJS-38（mozjs）</p>
+<p>以下测试数据时在3.4的Java driver测试的，测试数据的格式如下：</p>
+<pre><code>&gt; db.test_1.findOne()
+{
+        &quot;_id&quot; : ObjectId(&quot;599d2107faa2eca315046852&quot;),
+        &quot;test_name&quot; : &quot;test_name0&quot;,
+        &quot;value&quot; : 79.39512182533956,
+        &quot;site&quot; : 1
+}
+</code></pre><p>collection row count  |  mapreduce with jsMode = true  |  mapreduce with<br>jsMode = false  |  aggregate<br>—|—|—|—<br>5000000  |  650425  |  646297  |  4226<br>10000  |  2260  |  2628  |  50  </p>
+<p>time unit is milliseconds<br><a href="https://docs.mongodb.com/manual/tutorial/perform-incremental-map-reduce/" target="_blank" rel="noopener"> https://docs.mongodb.com/manual/tutorial/perform-incremental-map-reduce/
+</a><br><a href="https://docs.mongodb.com/ecosystem/use-cases/hierarchical-aggregation/" target="_blank" rel="noopener"> https://docs.mongodb.com/ecosystem/use-cases/hierarchical-aggregation/
+</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/24/77531693/" data-id="cjfawkqgc00rzpk9ff23cgve7" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615896" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/04/76615896/" class="article-date">
+  <time datetime="2017-08-04T06:17:00.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/76615896/">TensorFlow basic</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>TensorFlow basic<br>1. install Python 3.5+<br>2. install it with pip3<br>2.1 config aliyun mirror for pip3, because direct url is very slow<br>create %APPDATA%\pip\pip.ini file, and add below line to this file:</p>
+<pre><code>[global]
+index-url = http://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com  
+</code></pre><p>2.2 install<br>pip3 install –upgrade tensorflow<br>3. test it<br>import tensorflow as tf<br>hello = tf.constant(‘Hello, TensorFlow!’)<br>sess = tf.Session()<br>print(sess.run(hello))</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/04/76615896/" data-id="cjfawkqfp00r3pk9f8gbusymx" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-76615885" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/76615885/" class="article-date">
+  <time datetime="2017-08-03T04:29:16.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机相关/">计算机相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/76615885/">Lexical Scoping 和 Dynamic Scoping</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Lexical Scoping 和 Dynamic Scoping<br>A name that is lexically bound is looked up only in bindings in the lexical<br>environment of the name – that is, in bindings that enclose the name in the<br>source code. When there are multiple bindings in the lexical environment, the<br>innermost one is used.<br>只是在距离被调用代码最近的环境中去找，如果有多个环境的话，从最里面的环境先找</p>
+<p>A name that is dynamically bound is looked up only in bindings in the dynamic<br>environment of the name – that is, in all bindings which have been created<br>since the program began and which have not yet been destroyed. When there are<br>multiple bindings in the dynamic environment, the most recently created one is<br>used.<br>在从程序启动到现在创建的还没有销毁的环境中去找，找的顺序是按时间序去找(从最新被创建的环境开始)</p>
+<p><a href="https://www.emacswiki.org/emacs/DynamicBindingVsLexicalBinding" target="_blank" rel="noopener"> https://www.emacswiki.org/emacs/DynamicBindingVsLexicalBinding
+</a></p>
+<pre><code>(let ((x 2))                        ; bind 1
+  (let ((f (lambda (y) (* x y))))   ; define a closure with (bind 1) 
+    (let ((x 4))                    ; bind 2
+      (f 3))))
+</code></pre><p>现在的问题是f函数中的自由变量x从bind 1中获得还是从bind 2中获得？<br>如果是Lexical scoping的语言的话，在声明lambda的时候，会将当前的环境也就是bind 1保存一份新的环境，假设叫做env-<br>save,当你调用函数f的时候，自由变量会从env-save中查找，又因为这个保存起来的环境和当前执行的环境不相互影响，所以被称之为闭包。所以输出是：2*3<br>= 6</p>
+<p>如果是Dynamic scoping的语言的话，对函数f中的自由变量，程序会从离自己最近的环境中去找它的值，最近的是bind 2，所以输出是：4*3 =<br>12</p>
+<p>实在不懂的话，可以看看yinwang的 <a href="http://www.yinwang.org/blog-
+cn/2012/08/01/interpreter" target="_blank" rel="noopener"> 这篇文章 </a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/76615885/" data-id="cjfawkqfo00r1pk9fa8kjqp7v" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

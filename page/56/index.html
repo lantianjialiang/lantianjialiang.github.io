@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>贾亮的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="贾亮的博客">
+<meta property="og:url" content="http://yoursite.com/page/56/index.html">
+<meta property="og:site_name" content="贾亮的博客">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贾亮的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">贾亮的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do Something</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-4646287" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/10/09/4646287/" class="article-date">
+  <time datetime="2009-10-09T08:09:00.000Z" itemprop="datePublished">2009-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/10/09/4646287/">html的frameset标签在不同浏览器中的不同表现！</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面一段代码在IE，firefox和Chrome下的表现不同，不知道为什么，请各位知道的留下信息！</p>
+<html> <head> test </head> <frameset cols="25%,*,25%"> <frame src="frame_a.htm" mce_src="frame_a.htm"> <frame src="frame_b.htm" mce_src="frame_b.htm"> <frame src="frame_c.htm" mce_src="frame_c.htm"><br></frameset> </html>
+
+<p>哎呀，本来想上个图片的，MLGB，但是上了半天上不了！真是CSDN啊！佩服！</p>
+<p>总之现象是在IE（6.0）和firefox（3.5）下只显示test，而在chrome（3.0）下显示了三个frame。</p>
+<p>这是为什么呢？</p>
+<p>难道只浏览器的差异。</p>
+<p><strong>1。frame还有一个重要的特性，那就是frame所对应的路径会传递给自己所包含的url。</strong></p>
+<p><strong>比如： <frame src="./jsp/test/go.html"> </strong></p>
+<p><strong>而在go.html中又有这样的url：./hello.html，那么它会被解释成./jsp/test/hello.html。</strong></p>
+<p><strong>所以请注意，尤其是go.html中包含js，而js中使用到了相对路径的图片，图片的路径会以./jsp/test</strong></p>
+<p><strong>开始的！</strong></p>
+<p><strong>2。还有在go.html中不要使用base标签，因为frame和base在一起时，不同的浏览器解释不同。在firefox下</strong></p>
+<p><strong>会将两者叠加起来，而在chrome下两者的url都会失效！</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/10/09/4646287/" data-id="cjfawkq7q00dypk9fq1ao2ysl" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4615394" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/29/4615394/" class="article-date">
+  <time datetime="2009-09-28T23:42:00.000Z" itemprop="datePublished">2009-09-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/29/4615394/">js中Function有用的属性和方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>方法：<br>apply() 在不同的上下文中调用Function<br>call() 在不同的上下文中调用Function</p>
+<p>参见：<a href="http://www.java-samples.com/showtutorial.php?tutorialid=829" target="_blank" rel="noopener">http://www.java-samples.com/showtutorial.php?tutorialid=829</a></p>
+<p>属性：</p>
+<p>length 形参的长度<br>caller 调用该方法的Function</p>
+<p>arguments 实际参数<br>arguments.length<br>arguments.callee</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/29/4615394/" data-id="cjfawkq7p00dwpk9fexav273b" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4601341" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/27/4601341/" class="article-date">
+  <time datetime="2009-09-27T07:58:00.000Z" itemprop="datePublished">2009-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/27/4601341/">js中的prototype chain</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>注意<strong>proto</strong>只有在firefox下有效。</p>
+<p>prototype chain就是说继承链。JavaScript用这种方式来实现继承。</p>
+<p>以下例子在firebugs下完成：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>function Hero(){this.name = “name”}<br>Hero.<strong>proto</strong><br>function()<br>Hero.<strong>proto</strong>.<strong>proto</strong><br>Object<br>Hero.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong><br>null<br>var t = new Hero()<br>t.<strong>proto</strong><br>Object<br>t.<strong>proto</strong>.<strong>proto</strong><br>Object<br>t.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong><br>null<br>function Hero2(){this.age = 23}<br>Hero.prototype = new Hero2<br>Object age=23<br>t.<strong>proto</strong><br>Object<br>t.<strong>proto</strong>.<strong>proto</strong><br>Object<br>t.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong><br>null<br>var tt = new Hero()<br>tt<br>Object name=name age=23<br>tt.<strong>proto</strong><br>Object age=23<br>tt.<strong>proto</strong>.<strong>proto</strong><br>Object<br>tt.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong><br>Object<br>tt.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong><br>null</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>可以参见<a href="http://mckoss.com/jscript/object.htm中的图进行理解！我也只是稍微理解了一点点，请多指教！" target="_blank" rel="noopener">http://mckoss.com/jscript/object.htm中的图进行理解！我也只是稍微理解了一点点，请多指教！</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/27/4601341/" data-id="cjfawkq7t00e2pk9foxkqppec" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4601231" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/27/4601231/" class="article-date">
+  <time datetime="2009-09-27T07:32:00.000Z" itemprop="datePublished">2009-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/27/4601231/">js中的prototype和constructor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这之前先说明几个问题：  </p>
+<p>prototype是JavaScript中所有对象都具有的属性，<br>constructor是用new创建函数的才有的属性。  </p>
+<p>当使用new来创建一个函数时，JavaScript会自动创建一个prototype属性，并且将prototype.constructor属性指向该函数本身。  </p>
+<p>见下面的例子（在firebugs下完成）：  </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Object.prototype. constructor === Object<br>true<br>function Hero() {this.name = “Hero”}<br>Hero.prototype.constructor == Hero<br>true<br>var h1 = new Hero()<br>h1.constructor //没有更改prototype的情况下，h1.constructor是正确的<br>Hero()<br>Hero.prototype = {} //将Hero.prototype制空<br>Object<br>var h2 = new Hero()<br>h2.constructor //h2.constructor是错误的<br>Object()<br>function Hero2() {this.name = “Hero2”}<br>Hero.prototype = new Hero2 //将Hero.prototype制为Hero2<br>Object<br>var h3 = new Hero()<br>h3.constructor //h3.constructor是错误的<br>Hero2()<br>Hero.prototype.constructor = Hero //将Hero.prototype.constructor设置回去<br>Hero()<br>var h4 = new Hero()<br>h4.constructor //恢复正常<br>Hero()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>所以在自己设置函数的prototype时，一定要同时更改函数的constructor属性，要不然会出现一些莫名其妙的问题！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/27/4601231/" data-id="cjfawkq7o00dupk9fq04t23zw" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4599780" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/27/4599780/" class="article-date">
+  <time datetime="2009-09-27T01:31:00.000Z" itemprop="datePublished">2009-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/27/4599780/">HTML CSS JavaScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The modern understanding of a web page is that it consists of three distinct<br>parts:  </p>
+<p>1. Content (HTML)<br>2. Presentation (CSS)<br>3. Behavior (JavaScript)  </p>
+<p>These should be kept separate, ideally each in its own file (or files). What<br>it means for JavaScript is that there should be no inline such as onclick,<br>onmouseover, etc. Ideally there should be little to no inline scripts.  </p>
+<p>The idea is that content (the text on the page) is independent of:  </p>
+<ul>
+<li>how it looks like, so the page should be usable even with CSS disabled, or not supported by the browser, and   </li>
+<li>how it behaves, meaning the page should be usable even with JavaScript disabled. The content should be accessible independent of any mouseovers, animations, and so on. </li>
+</ul>
+<p>也就是说：</p>
+<p>我们使用js框架将结构（HTML）和行为分离(JS)，用css将结构和表现分离</p>
+<p>其他：</p>
+<p>HTTP has two hurdles to address. It is <strong>stateless</strong> , and it is <strong>text<br>based</strong> .</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/27/4599780/" data-id="cjfawkq7l00dspk9f2afrnbct" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4575668" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/21/4575668/" class="article-date">
+  <time datetime="2009-09-21T04:47:00.000Z" itemprop="datePublished">2009-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂项/">杂项</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/21/4575668/">在西安办理护照之疼</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先说一下正常的流程：</p>
+<p>1.带上自己的 <strong>户口本(或者户籍卡)和身份证，300块钱，一只碳素笔</strong> 到西安市 <strong>西斜七路</strong> 出入境管理处(二楼)</p>
+<p>2.用自己的 <strong>户口本(或者户籍卡)和身份证</strong> 复印一张申请表(免费)</p>
+<p>3.花30块钱照相,可以立即取的</p>
+<p>4.然后填写刚才申请的表，贴上照片(最后下午去，上午人很多)</p>
+<p>5.抽号排队等待办理(办理如果出现麻烦，请一定想方设法要到给你办理的工作人员的电话，方便自己及时查询)</p>
+<p>6.办理完成后到15号窗口开票，到附近的农行缴费(200块)</p>
+<p>7.交完费后再回来到16号窗口确认</p>
+<p>8.按照回执单上的日期到12号窗口取护照</p>
+<p>注意：</p>
+<p>如果户籍卡上没有派出所的章子，必须先到自己户籍所在的派出所盖章，否则办理不了；</p>
+<p>复印申请表多复印几张（可以多排几次队复印），写错了，不用再去排队复印了；</p>
+<p>在填写申请表时，如果自己是出差，请选择“商务”而不是“劳务”；</p>
+<p>如果你的户口曾经签到外地又签回来不足十年的话，你先要办理户口协查(短的十天，长的一个月)，然后才能办理护照，我在办理时就用了10天，还是托我的朋友到原先户口所在地的出入境管理处去催的！</p>
+<p>西安出入境管理处的办公时间时：</p>
+<p>周一到周五 早9：30到下午4：30</p>
+<p>这里有一个办公人员的电话：02986755620</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/21/4575668/" data-id="cjfawkq7k00dqpk9fa9yc5j60" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4556962" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/16/4556962/" class="article-date">
+  <time datetime="2009-09-16T00:02:00.000Z" itemprop="datePublished">2009-09-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-C-Linux/">C/C++/Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/16/4556962/">在virtualbox上安装openlsolaris 09.06碰到的一个问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在选择完键盘布局和桌面语言后，出现file system full提示，然后安装过程停止。见下图：</p>
+<p>NOTICE: realloccg /: file system full</p>
+<p>NOTICE: alloc: /: file system full</p>
+<p>原因是这个虚拟机的虚拟硬盘所在的盘符没有足够的空间来完成安装系统所需的空间，所以安装停止，只要将虚拟硬盘换到一个有足够空间的盘符下就可以正常安装了。</p>
+<p>why file system full?</p>
+<p>Because the phisical disk which your virtual disk located capacity is lacking!</p>
+<p>THANKS!</p>
+<p>详细的安装步骤请看：</p>
+<p><a href="http://developers.sun.com.cn/opensolaris/getting_started.html#2_3" target="_blank" rel="noopener">http://developers.sun.com.cn/opensolaris/getting_started.html#2_3</a></p>
+<p>安装opensolaris：<br>桌面环境默认用户名：jack，密码：jack；默认root密码：opensolaris</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/16/4556962/" data-id="cjfawkq7h00dlpk9fxlhe2ob0" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4530844" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/09/08/4530844/" class="article-date">
+  <time datetime="2009-09-08T02:48:00.000Z" itemprop="datePublished">2009-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/09/08/4530844/">我开发一个jsp系统时碰到的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1.No getter method for property name problem(struts)</strong><br>有一种可能是Bean没有写相应的get方法，例如变量userName的get方法是getUserName；<br>还有就是这个Bean为空；</p>
+<p><strong>2.</strong> <strong>MyEclipse的自动添加struts和hibernate功能不能返回，请注意！</strong></p>
+<p>所以我先使用MyEclipse导入struts和hibernate，然后将它们的jar导入到另外一个新建的工程，这是我就不需要Myeclipse来给我管理依赖了。</p>
+<p><strong>3</strong> <strong>.在增加对struts taglib支持时，请将对应的tld文件追加到web.xml文件中去：</strong><br>例如：  </p>
+<p><jsp-config>  </jsp-config></p>
+<p><taglib>  </taglib></p>
+<p><taglib-uri><a href="http://struts.apache.org/tags-bean" target="_blank" rel="noopener">http://struts.apache.org/tags-bean</a> </taglib-uri>  </p>
+<p><taglib-location>/WEB-INF/struts-bean.tld </taglib-location><br><br></p>
+<p><strong>4.</strong> <strong>如果出错说某个tag在tld文件中没有，则说明自己在jsp文件中使用的tag和使用的struts taglib版本不一致</strong><br>例如：在struts1.1中的html:locale，在struts1.2中改为html:lang</p>
+<p><strong>5.</strong> <strong>struts tag中可以使用scriptlets，但是在scriptlets中不能使用struts tag。</strong><br>Any Struts tag will work only if you place it directly in the JSP, not if you<br>generate it through a scriptlet. To understand why it won’t work to generate<br>it in a scriptlet.<br>JSP life cycle:  </p>
+<ul>
+<li>The JSP interpreter reads the JSP file, including any custom tags such as Struts tags and converts everything to Java source code   </li>
+<li>It then compiles it into a class file   </li>
+<li>It executes the code, rendering a response in plain HTML and sending it back to the browser.   </li>
+<li>It is only at this point that the scriptlet code you inserted gets executed. It is now too late in the cycle to insert any custom tags, since they’ve already been interpreted by this point. </li>
+</ul>
+<p><strong>6. it is illegal according to JSP specification to nest one tag within<br>another as an attribute.</strong><br>There are two options:<br>1) You evaluate bean:write and then substitute it into html:text.<br>2) Use Struts-EL tags. They let you use expression language to get a bean<br>value and substitute it in another tag.<br>Unless you have a system wide requirement to do this, I suggest you stick to<br>the first option.</p>
+<p><strong>7.Explain the scope of JSP objects.</strong><br>Scope of JSP objects:<br>The availability of a JSP object for use from a particular place of the<br>application is defined as the scope of that JSP object.<br>Every object created in a JSP page will have a scope. Object scope in JSP is<br>segregated into four parts and they are page, request, session and<br>application.  </p>
+<ul>
+<li>page<br>‘page’ scope means, the JSP object can be accessed only from within the same<br>page where it was created. The default scope for JSP objects created using<br><a href="jsp:useBean" target="_blank" rel="noopener">jsp:useBean</a> tag is page. JSP implicit objects out, exception, response,<br>pageContext, config and page have ‘page’ scope.  </li>
+<li>request<br>A JSP object created using the ‘request’ scope can be accessed from any pages<br>that serves that request. More than one page can serve a single request. The<br>JSP object will be bound to the request object. Implicit object request has<br>the ‘request’ scope.  </li>
+<li>session<br>’session’ scope means, the JSP object is accessible from pages that belong to<br>the same session from where it was created. The JSP object that is created<br>using the session scope is bound to the session object. Implicit object<br>session has the ’session’ scope.  </li>
+<li>application<br>A JSP object created using the ‘application’ scope can be accessed from any<br>pages across the application. The JSP<br>object is bound to the application object. Implicit object application has the<br>‘application’ scope.</li>
+</ul>
+<p><strong>8. Cannot find bean under name org.apache.struts.taglib.html.BEAN[转]</strong><br>试图在Struts的form标记外使用form的子元素<br>不经意使用的无主体的标记，如web服务器解析时当作一个无主体的标记，随后使用的标记都被认为是在这个标记之外的<br>还有就是在使用taglib引入HTML标记库时，你使用的prefix的值不是html<br>property必须和所要提交的action对应的formbean中的某个属性相匹配（必须有一个formbean)<br>要使用标签，外层必须使用标签，不能使用html的</p>
+<p><strong>9.注意使用相对路径，比如说..或者.什么的。不要使用绝对路径。</strong><br>一般来说404，提示说找不到资源，大部分就是路径写的不对。</p>
+<p>10.今天使用jdbc连接数据库取得所有符合条件的数据库名字，然后根据数据库名动态生成各自对应的SessionFactory，<br>但是在画面上不同的叶子上进行转移切换不同数据库取得不同数据库的数据时，总是从业个特定的数据库中去数据。 最后的原因是在hibernate<br>的mapping文件中使用了catalog=”数据库名”，所以它总是连接到该数据库，将它删除回复正常。</p>
+<p><strong>11.Servlets are modules of Java code that run in a server application (hence<br>the name “Servlets”, similar to “Applets” on the client side) to answer client<br>requests. Servlets are not tied to a specific client-server protocol but they<br>are most commonly used with HTTP and the word “Servlet” is often used in the<br>meaning of “HTTP Servlet”.</strong>  </p>
+<p>ref:<br><a href="http://www.novocode.com/doc/servlet-essentials/chapter1.html" target="_blank" rel="noopener">http://www.novocode.com/doc/servlet-essentials/chapter1.html</a><br><a href="http://www.roseindia.net/servlets/what-is-servlets.shtml" target="_blank" rel="noopener">http://www.roseindia.net/servlets/what-is-servlets.shtml</a><br><a href="http://en.wikipedia.org/wiki/Servlet" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Servlet</a></p>
+<p><strong>JSP pages are high level extension of servlet and it enable the developers<br>to embed java code in html pages. JSP files are finally compiled into a<br>servlet by the JSP engine. Compiled servlet is used by the engine to serve the<br>requests.</strong></p>
+<hr>
+<p>javax.servlet.jsp package defines two interfaces:  </p>
+<ul>
+<li>JSPPage   </li>
+<li>HttpJspPage   </li>
+</ul>
+<p>These interfaces defines the three methods for the compiled JSP page. These<br>methods are:  </p>
+<ul>
+<li>jspInit()   </li>
+<li>jspDestroy()   </li>
+<li>_jspService(HttpServletRequest request,HttpServletResponse response)   </li>
+</ul>
+<p><strong>In the compiled JSP file these methods are present. Programmer can define<br>jspInit() and jspDestroy() methods, but the _jspService(HttpServletRequest<br>request,HttpServletResponse response) method is generated by the JSP engine.</strong>  </p>
+<p>ref:<br><a href="http://www.roseindia.net/jsp/jsparchitecture.shtml" target="_blank" rel="noopener">http://www.roseindia.net/jsp/jsparchitecture.shtml</a><br><a href="http://en.wikipedia.org/wiki/JavaServer_Pages" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/JavaServer_Pages</a><br><a href="http://java.sun.com/developer/onlineTraining/JSPIntro/contents.html" target="_blank" rel="noopener">http://java.sun.com/developer/onlineTraining/JSPIntro/contents.html</a>  </p>
+<p><strong>Tomcat implements the Servlet X.X and JSP X.X specifications<br>please visite this website: <a href="http://en.wikipedia.org/wiki/Apache_Tomcat" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Apache_Tomcat</a> </strong>  </p>
+<p>JSTL:<br><a href="http://www.ibm.com/developerworks/views/java/libraryview.jsp?search_by=JSTL+primer" target="_blank" rel="noopener">http://www.ibm.com/developerworks/views/java/libraryview.jsp?search_by=JSTL+primer</a></p>
+<p><strong>12.Adobe</strong></p>
+<p>Used Flash and the Flex framework to create applications<br>Flash Player 9 and AIR are the runtimes for browser-based and desktop-based<br>applications.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/09/08/4530844/" data-id="cjfawkq7j00dopk9fhuecc1dy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4301305" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/06/26/4301305/" class="article-date">
+  <time datetime="2009-06-26T08:38:00.000Z" itemprop="datePublished">2009-06-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/06/26/4301305/">JavaScript中的prototypes(JavaScript: The Definitive Guide学习摘要7)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Prototypes：</strong></p>
+<p>All functions have a prototype property that is automatically created and<br>initialized when the function is defined. The initial value of the prototype<br>property is an object with a single property. This property is named<br>constructor and refers back to the constructor function with which the<br>prototype is associated. Any properties you add to this prototype object will<br>appear to be properties of objects initialized by the constructor.  </p>
+<p>This is clearer with an example. Here again is the Rectangle( ) constructor:  </p>
+<p>// The constructor function initializes those properties that<br>// will be different for each instance.<br>function Rectangle(w, h) {<br>this.width = w;<br>this.height = h;<br>}  </p>
+<p>// The prototype object holds methods and other properties that<br>// should be shared by each instance.<br>Rectangle.prototype.area = function( ) { return this.width * this.height; }  </p>
+<p>A constructor provides a name for a “class” of objects and initializes<br>properties, such as width and height, that may be different for each instance<br>of the class. The prototype object is associated with the constructor, and<br>each object initialized by the constructor inherits exactly the same set of<br>properties from the prototype. This means that the prototype object is an<br>ideal place for methods and other constant properties.  </p>
+<p>Note that inheritance occurs automatically as part of the process of looking<br>up a property value. Properties are not copied from the prototype object into<br>new objects; they merely appear as if they were properties of those objects.<br>This has two important implications. First, the use of prototype objects can<br>dramatically decrease the amount of memory required by each object because the<br>object can inherit many of its properties. The second implication is that an<br>object inherits properties even if they are added to its prototype after the<br>object is created. This means that it is possible (though not necessarily a<br>good idea) to add new methods to existing classes.</p>
+<p>参见：</p>
+<p>1.<a href="http://mckoss.com/jscript/object.htm" target="_blank" rel="noopener">http://mckoss.com/jscript/object.htm</a></p>
+<p>2.<a href="http://www.cs.rit.edu/~atk/JavaScript/manuals/jsobj/" target="_blank" rel="noopener">http://www.cs.rit.edu/~atk/JavaScript/manuals/jsobj/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/06/26/4301305/" data-id="cjfawkq6y00cnpk9f10spo0c8" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4300772" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/06/26/4300772/" class="article-date">
+  <time datetime="2009-06-26T06:26:00.000Z" itemprop="datePublished">2009-06-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/06/26/4300772/">数组的长度(JavaScript: The Definitive Guide学习摘要6)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="7-6-3-Array-Length"><a href="#7-6-3-Array-Length" class="headerlink" title="7.6.3. Array Length"></a>7.6.3. Array Length</h4><p>All arrays,  whether created with the <code>Array()</code> constructor or defined with<br>an array literal, have a special <code>length</code> property that specifies how many<br>elements the array contains. More precisely, since arrays can have undefined<br>elements, the <code>length</code> property is  always  one larger than the largest<br>element number in the array. Unlike regular object properties, the <code>length</code><br>property of an array is automatically updated to maintain this invariant when<br>new elements are added to the array. The following code illustrates:</p>
+<pre><code>var a = new Array();   // a.length == 0  (no elements defined)
+a = new Array(10);     // a.length == 10 (empty elements 0-9 defined)
+a = new Array(1,2,3);  // a.length == 3  (elements 0-2 defined)
+a = [4, 5];            // a.length == 2  (elements 0 and 1 defined)
+a[5] = -1;             // a.length == 6  (elements 0, 1, and 5 defined)
+a[49] = 0;             // a.length == 50 (elements 0, 1, 5, and 49 defined)
+</code></pre><p>Remember that array indexes must be less than 2  32  -1, which means that the<br>largest possible value for the <code>length</code> property is 2  32  -1.  </p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2009/06/26/4300772/" data-id="cjfawkq6x00clpk9f81md1cpb" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/55/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="page-number" href="/page/55/">55</a><span class="page-number current">56</span><a class="page-number" href="/page/57/">57</a><a class="page-number" href="/page/58/">58</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/57/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-C-Linux/">C/C++/Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-integrated-circuit/">IC(integrated circuit)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LTspice/">LTspice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MongoDB/">MongoDB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/下载-BT-ed2k/">下载(BT/ed2k)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/奇思妙想-创意/">奇思妙想/创意</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文化/">文化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日语/">日语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机相关/">计算机相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">June 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">May 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">December 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/13/79539959/">Locking up men does nothing more than keep them off the streets.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/79300075/">how to export eclipse RCP for multiple platforms</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728268/">Mbit/s vs MB/s vs MiB/s</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78728077/">如何用命令测试Linux 硬盘的读写速度</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/06/78727935/">Linux下如何查看你的disk的信息</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lantianjialiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
