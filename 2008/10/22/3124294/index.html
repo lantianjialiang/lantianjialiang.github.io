@@ -5,15 +5,20 @@
   
 
   
-  <title>贾亮的博客</title>
+  <title>Linux&#39;s boot process explained | 贾亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="贾亮的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Short history of the UNIX operating system   Linux is an implementation of the UNIX operating system concept. UNIX wasderived from AT&amp;amp;T’s ”Sys V” (System 5). The initialization process is meant to">
+<meta name="keywords" content="linux,system,initialization,network,file,service">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux&#39;s boot process explained">
+<meta property="og:url" content="http://yoursite.com/2008/10/22/3124294/index.html">
 <meta property="og:site_name" content="贾亮的博客">
+<meta property="og:description" content="Short history of the UNIX operating system   Linux is an implementation of the UNIX operating system concept. UNIX wasderived from AT&amp;amp;T’s ”Sys V” (System 5). The initialization process is meant to">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2018-03-28T07:51:20.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贾亮的博客">
+<meta name="twitter:title" content="Linux&#39;s boot process explained">
+<meta name="twitter:description" content="Short history of the UNIX operating system   Linux is an implementation of the UNIX operating system concept. UNIX wasderived from AT&amp;amp;T’s ”Sys V” (System 5). The initialization process is meant to">
   
     <link rel="alternate" href="/atom.xml" title="贾亮的博客" type="application/atom+xml">
   
@@ -64,154 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-78604961" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/22/78604961/" class="article-date">
-  <time datetime="2017-11-22T08:14:35.000Z" itemprop="datePublished">2017-11-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/78604961/">怎样获得你的系统中使用的C++标准库的版本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。<br>例如我的系统的locate输出为:</p>
-<pre><code>$ locate libstdc++.so
-/xx/libstdc++.so.6
-/xx/libstdc++.so.6.0.13
-/sometool/linux-x86-64/shlib/libstdc++.so.5
-/usr/lib/libstdc++.so.6
-/usr/lib/libstdc++.so.6.0.19
-/usr/lib/coverity-analysis/bin/libstdc++.so
-/usr/lib/coverity-analysis/bin/libstdc++.so.6
-/usr/lib/coverity-analysis/bin/libstdc++.so.6.0.20
-/usr/lib/debug/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so.debug
-/usr/lib/debug/usr/lib64/libstdc++.so.6.0.19.debug
-/usr/lib/debug/usr/lib64/libstdc++.so.6.debug
-/usr/lib/debug/usr/lib64/libstdc++.so.debug
-/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so
-/usr/lib/gcc/x86_64-redhat-linux/4.8.2/32/libstdc++.so
-/usr/lib64/libstdc++.so.6
-/usr/lib64/libstdc++.so.6.0.19
-</code></pre><p>从上面可以看出，我的系统上安装了以下版本的g++：</p>
-<pre><code>libstdc++.so.5
-4.8.2
-6.0.13
-6.0.19
-6.0.20
-</code></pre><p>第一个需要使用strings命令来查找：</p>
-<pre><code>strings /xxx/libstdc++.so.5|grep LIB  
-GLIBCPP_3.2
-GLIBCPP_3.2.1
-GLIBCPP_3.2.2
-GLIBCPP_3.2.3
-</code></pre><p>所以它对应的C++版本时GCC 3.3.3；<br>第二个一看就是4.8.2</p>
-<p>后面三个，只要更具版本号就可以在下面的网址查询到，分别是：GCC 4.4.2， GCC 4.8.3， GCC 4.9.0</p>
-<p>Note：有时候你用命令找出来的版本可以在这个网址上找不到，原因可能是你的系统是发行商自己基于某个snapshot，自己编译的。<br><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning" target="_blank" rel="noopener"> https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning
-</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/22/78604961/" data-id="cjfas6h7700018k9f2q4a59vr" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-71082258" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/02/71082258/" class="article-date">
-  <time datetime="2017-05-02T07:59:34.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/https-blog-csdn-net-lantianjialiang-article-category-6875328/">https://blog.csdn.net/lantianjialiang/article/category/6875328</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/02/71082258/">LTspice introduction - 14 结型场效应晶体管的伏安特性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>Version 4
-SHEET 1 2612 1528
-WIRE 2128 1152 1984 1152
-WIRE 1984 1200 1984 1152
-WIRE 2128 1216 2128 1152
-WIRE 1920 1248 1840 1248
-WIRE 1840 1264 1840 1248
-WIRE 1920 1264 1920 1248
-WIRE 1936 1264 1920 1264
-WIRE 1840 1360 1840 1344
-WIRE 1984 1360 1984 1296
-WIRE 2128 1360 2128 1296
-FLAG 2128 1360 0
-FLAG 1984 1360 0
-FLAG 1840 1360 0
-SYMBOL voltage 2128 1200 R0
-SYMATTR InstName V1
-SYMATTR Value 0.
-SYMBOL njf 1936 1200 R0
-SYMATTR InstName J1
-SYMATTR Value 2N3819
-SYMBOL voltage 1840 1248 R0
-WINDOW 123 0 0 Left 2
-WINDOW 39 0 0 Left 2
-SYMATTR InstName V2
-SYMATTR Value 0
-TEXT 1824 1408 Left 2 !.dc V1 0 15 10m V2 -5 0 100mV
-TEXT 1992 1448 Top 1 ;This example schematic is supplied for informational/educational purposes only.
-</code></pre><p>将以上内容保存成2V-I-Curve_JFET_DC_sweep.asc文件，用LTspice打开，然后执行Run进行仿真，结果如下：</p>
-<p><img src="https://img-
-blog.csdn.net/20170502155923271?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">  </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/02/71082258/" data-id="cjfas6h7100008k9f8cwd8m7e" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-3124294" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-3124294" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2008/10/22/3124294/" class="article-date">
   <time datetime="2008-10-22T06:41:00.000Z" itemprop="datePublished">2008-10-22</time>
@@ -228,8 +86,8 @@ blog.csdn.net/20170502155923271?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGF
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/10/22/3124294/">Linux&#39;s boot process explained</a>
+    <h1 class="article-title" itemprop="name">
+      Linux&#39;s boot process explained
     </h1>
   
 
@@ -348,11 +206,23 @@ blog.csdn.net/20170502155923271?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGF
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/02/71082258/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          LTspice introduction - 14 结型场效应晶体管的伏安特性
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
-
+</article>
 
 </section>
         
