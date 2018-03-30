@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>贾亮的博客</title>
+  
+  <subtitle>Do Something</subtitle>
+  <link href="//atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-03-28T08:59:46.320Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>lantianjialiang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Locking up men does nothing more than keep them off the streets.</title>
+    <link href="http://yoursite.com/2018/03/13/79539959/"/>
+    <id>http://yoursite.com/2018/03/13/79539959/</id>
+    <published>2018-03-13T06:24:48.000Z</published>
+    <updated>2018-03-28T08:59:46.320Z</updated>
+    
+    <content type="html"><![CDATA[<p>Locking up men does nothing more than keep them off the streets.<br>要翻译这句话，首先要理解下面两个短语的意思：<br>nothing more than<br>可以翻译成就是，不过是</p><blockquote><p>If you say that someone or something is nothing more than a particular<br>thing, you are emphasizing that they are only that thing, and nothing more<br>interesting or important.</p></blockquote><p>keep sb off the streets.<br>直译就是使某人离开街道。<br>但是它的引申义是：使某人远离坏的事情</p><blockquote><p>This depends on the context of that particular family, but there are three<br>possibilities:</p></blockquote><blockquote></blockquote><blockquote><p>“…so that you won’t become destitute and sleep in the street?”<br> “…so that you won’t join a gang and engage in street crime?”<br> “…so that you won’t become a prostitute and find clients on the streets?”</p></blockquote><p>所以整体这句话的意思就是：<br><strong>把一个人锁在家里，就是让他远离麻烦。</strong></p><p><a href="https://www.collinsdictionary.com/dictionary/english/nothing-more-than" target="_blank" rel="noopener"> https://www.collinsdictionary.com/dictionary/english/nothing-more-than</a><br><a href="http://forum.wordreference.com/threads/the-meaning-of-to-keep-someone-off-the-streets.2559569/" target="_blank" rel="noopener"> http://forum.wordreference.com/threads/the-meaning-of-to-keep-someone-off-<br>the-streets.2559569/ </a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Locking up men does nothing more than keep them off the streets.&lt;br&gt;要翻译这句话，首先要理解下面两个短语的意思：&lt;br&gt;nothing more than&lt;br&gt;可以翻译成就是，不过是&lt;/p&gt;
+&lt;block
+      
+    
+    </summary>
+    
+      <category term="English" scheme="http://yoursite.com/categories/English/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>how to export eclipse RCP for multiple platforms</title>
+    <link href="http://yoursite.com/2018/02/09/79300075/"/>
+    <id>http://yoursite.com/2018/02/09/79300075/</id>
+    <published>2018-02-09T08:50:38.000Z</published>
+    <updated>2018-03-28T08:58:22.977Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-First-you-need-write-your-RCP-in-Eclipse-and-make-sure-it-can-run"><a href="#1-First-you-need-write-your-RCP-in-Eclipse-and-make-sure-it-can-run" class="headerlink" title="1. First, you need write your RCP in Eclipse and make sure it can run"></a>1. First, you need write your RCP in Eclipse and make sure it can run</h1><p>successful</p><h1 id="2-Using-below-step-to-install-the-dependency-of-other-platforms"><a href="#2-Using-below-step-to-install-the-dependency-of-other-platforms" class="headerlink" title="2. Using below step to install the dependency of other platforms"></a>2. Using below step to install the dependency of other platforms</h1><p>This is works not only with the Mars release, but also previous releases, as<br>well.</p><pre><code>Open Window/Preferences.Find PDE/Target PlatformSelect your (active) target platformClick EditClick AddSelect &quot;Software Site&quot;Click NextIn &quot;Work With&quot; type: http://download.eclipse.org/eclipse/updates/4.7 (replace 4.7 with your current version)Check &quot;Eclipse RCP Target Components&quot;Check &quot;Equinox Target Components&quot;Uncheck &quot;Include required software&quot;Check &quot;Include all environments&quot;Press FinishPress FinishPress OK</code></pre><p>Open your product file and select the “Export” option. You will see that the<br>“Export for multiple platforms” checkbox is available.<br><img src="https://img-blog.csdn.net/20180209164649512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="attention"><br><img src="https://img-blog.csdn.net/20180209165006664?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><img src="https://img-blog.csdn.net/20180209164739469?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFudGlhbmppYWxpYW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p><p><a href="https://wiki.eclipse.org/A_Brief_Overview_of_Building_at_Eclipse" target="_blank" rel="noopener"> https://wiki.eclipse.org/A_Brief_Overview_of_Building_at_Eclipse</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1-First-you-need-write-your-RCP-in-Eclipse-and-make-sure-it-can-run&quot;&gt;&lt;a href=&quot;#1-First-you-need-write-your-RCP-in-Eclipse-and-make-s
+      
+    
+    </summary>
+    
+      <category term="计算机相关" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mbit/s vs MB/s vs MiB/s</title>
+    <link href="http://yoursite.com/2017/12/06/78728268/"/>
+    <id>http://yoursite.com/2017/12/06/78728268/</id>
+    <published>2017-12-06T02:53:43.000Z</published>
+    <updated>2018-03-28T08:58:23.238Z</updated>
+    
+    <content type="html"><![CDATA[<p>Mbit/s的意思是每秒中传输10^6 bit的数据，也写成Mbps<br>MB/s的意思是每秒中传输10^6 byte的数据<br>MiB/s的意思是每秒中传输2^20 byte的数据，不太常用<br>所以如果一个运营商声称自己的传输带宽是1 Mbps的话，<br>按照MB/s来算的话，它只有0.125 MB/s (megabyte per second)；<br>按照MiB/s来算的话，它更是只有0.1192 MiB/s (mebibyte per second)</p><p>具体的换算公式是：<br>Mbit/s / 8 = MB/s</p><p>因为：<br>Mbit/s = 10^6 bit/s<br>MiB/s = 2^20 <em> 8 bit/s<br>所以：<br>Mbit/s = MiB/s </em> 0.1192</p><p>refs：<br><a href="https://en.wikipedia.org/wiki/Data_rate_units" target="_blank" rel="noopener"> https://en.wikipedia.org/wiki/Data_rate_units</a><br>单位转换：<br><a href="https://toolstud.io/data/bandwidth.php?compare=network&amp;speed=1&amp;speed_unit=Gbps" target="_blank" rel="noopener"><br>https://toolstud.io/data/bandwidth.php?compare=network&amp;speed=1&amp;speed_unit=Gbps</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Mbit/s的意思是每秒中传输10^6 bit的数据，也写成Mbps&lt;br&gt;MB/s的意思是每秒中传输10^6 byte的数据&lt;br&gt;MiB/s的意思是每秒中传输2^20 byte的数据，不太常用&lt;br&gt;所以如果一个运营商声称自己的传输带宽是1 Mbps的话，&lt;br&gt;按照M
+      
+    
+    </summary>
+    
+      <category term="计算机相关" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何用命令测试Linux 硬盘的读写速度</title>
+    <link href="http://yoursite.com/2017/12/06/78728077/"/>
+    <id>http://yoursite.com/2017/12/06/78728077/</id>
+    <published>2017-12-06T02:41:26.000Z</published>
+    <updated>2018-03-28T08:58:23.531Z</updated>
+    
+    <content type="html"><![CDATA[<p>Use dd command to monitor the reading and writing performance of a disk<br>device:</p><ol><li>Open a shell prompt. </li><li>Or login to a remote server via ssh. </li><li><p>Use the dd command to measure server throughput (write speed)<br><code>dd if=/dev/zero of=/tmp/test1.img bs=1G count=1 oflag=dsync</code></p></li><li><p>Use the dd command to measure server latency<br><code>dd if=/dev/zero of=/tmp/test2.img bs=512 count=1000 oflag=dsync</code></p></li></ol><p>ref：<br><a href="https://www.cyberciti.biz/faq/howto-linux-unix-test-disk-performance-with-dd-command/" target="_blank" rel="noopener"> https://www.cyberciti.biz/faq/howto-linux-unix-test-disk-performance-with-<br>dd-command/ </a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Use dd command to monitor the reading and writing performance of a disk&lt;br&gt;device:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open a shell prompt. &lt;/li&gt;
+&lt;li&gt;Or login t
+      
+    
+    </summary>
+    
+      <category term="计算机相关" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下如何查看你的disk的信息</title>
+    <link href="http://yoursite.com/2017/12/06/78727935/"/>
+    <id>http://yoursite.com/2017/12/06/78727935/</id>
+    <published>2017-12-06T02:33:27.000Z</published>
+    <updated>2018-03-28T08:58:23.801Z</updated>
+    
+    <content type="html"><![CDATA[<p>可以使用smartctl来查看你的disk的信息；<br>smartctl的disk路径和名字可以通过命令cat /proc/partitions 来得到。</p><pre><code>sudo smartctl -d ata -a /dev/sda           smartctl 6.2 2013-07-26 r3841 [x86_64-linux-3.10.0-327.36.3.el7.x86_64] (local build)Copyright (C) 2002-13, Bruce Allen, Christian Franke, www.smartmontools.org=== START OF INFORMATION SECTION ===Device Model:     MTFDDAK512MBF-xxSerial Number:    xxxLU WWN Device Id: xxxFirmware Version: xxxUser Capacity:    512,110,190,592 bytes [512 GB]Sector Size:      512 bytes logical/physicalRotation Rate:    Solid State DeviceDevice is:        Not in smartctl database [for details use: -P showall]ATA Version is:   ACS-3 (unknown minor revision code: 0x011b)SATA Version is:  SATA &gt;3.1, 6.0 Gb/s (current: 6.0 Gb/s)Local Time is:    Wed Dec  6 10:22:40 2017 CSTSMART support is: Available - device has SMART capability.SMART support is: Enabled...</code></pre><p>从Device<br>Model中，可以知道，我的硬盘是MTFDDAK512MBF，在网址google一下，就知道它是Micron产的，具体的内容为了安全考虑，我就不贴出来了。</p><p>smartctl中的type的解释：<br>ATA, SCSI command sets and SAT</p><p>In the past there has been a clear distinction between storage devices that<br>used the ATA and SCSI command sets. This distinction was often reflected in<br>their device naming and hardware. Now various SCSI transports (e.g. SAS, FC<br>and iSCSI) can interconnect to both SCSI disks (e.g. FC and SAS) and ATA disks<br>(especially SATA). USB and IEEE 1394 storage devices use the SCSI command set<br>externally but almost always contain ATA or SATA disks (or flash). The storage<br>subsystems in some operating systems have started to remove the distinction<br>between ATA and SCSI in their device naming policies.</p><p>99% of operations that an OS performs on a disk involve the SCSI INQUIRY, READ<br>CAPACITY, READ and WRITE commands, or their ATA equivalents. Since the SCSI<br>commands are slightly more general than their ATA equivalents, many OSes are<br>generating SCSI commands (mainly READ and WRITE) and letting a lower level<br>translate them to their ATA equivalents as the need arises. An important note<br>here is that “lower level” may be in external equipment and hence outside the<br>control of an OS.</p><p>SCSI to ATA Translation (SAT) is a standard (ANSI INCITS 431-2007) that<br>specifies how this translation is done. For the other 1% of operations that an<br>OS performs on a disk, SAT provides two options. First is an optional ATA<br>PASS-THROUGH SCSI command (there are two variants). The second is a<br>translation from the closest SCSI command. Most current interest is in the<br>“pass-through” option.</p><p>The relevance to smartmontools (and hence smartctl) is that its interactions<br>with disks fall solidly into the “1%” category. So even if the OS can happily<br>treat (and name) a disk as “SCSI”, smartmontools needs to detect the native<br>command set and act accordingly. As more storage manufacturers (including<br>external SATA drives) comply with SAT, smartmontools is able to automatically<br>distinguish the native command set of the device. In some cases the ‘-d sat’<br>option is needed on the command line.</p><p>There are also virtual disks which typically have no useful information to<br>convey to smartmontools, but could conceivably in the future. An example of a<br>virtual disk is the OS’s view of a RAID 1 box. There are most likely two SATA<br>disks inside a RAID 1 box. Addressing those SATA disks from a distant OS is a<br>challenge for smartmontools. Another approach is running a tool like<br>smartmontools inside the RAID 1 box (e.g. a Network Attached Storage (NAS)<br>box) and fetching the logs via a browser.</p><p>ref： <a href="https://linux.die.net/man/8/smartctl" target="_blank" rel="noopener"> https://linux.die.net/man/8/smartctl</a><br><a href="http://www.tutorialspoint.com/unix_commands/smartctl.htm" target="_blank" rel="noopener"> http://www.tutorialspoint.com/unix_commands/smartctl.htm</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;可以使用smartctl来查看你的disk的信息；&lt;br&gt;smartctl的disk路径和名字可以通过命令cat /proc/partitions 来得到。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo smartctl -d ata -a /dev/sda           
+      
+    
+    </summary>
+    
+      <category term="计算机相关" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>硬盘的分类</title>
+    <link href="http://yoursite.com/2017/12/06/78727761/"/>
+    <id>http://yoursite.com/2017/12/06/78727761/</id>
+    <published>2017-12-06T02:20:31.000Z</published>
+    <updated>2018-03-28T08:58:24.078Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>从介质来分类：</strong><br>可以分为HDD（hard disk driver），它有传统的磁盘+控制器组成；</p><p>SSD（solid-state driver），它有memory+控制器组成，相比前者，后者没有寻轨时间，比较快；但是也有缺点：使用寿命没有HDD时间长。</p><p><strong>从连接方式来分类：</strong><br>parallel ATA(PATA): 有时候ATA或者IDE（integrated drive electronics）也指的是PATA</p><p>Serial ATA（SATA）：就是我们通常说的SATA硬盘</p><p>SCSI（small computer system interface）：一般的个人电脑比较少见</p><p>Serial attached SCSI（SAS）</p><p>Fiber Channel</p><p>IEEE 1394 and USB</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;从介质来分类：&lt;/strong&gt;&lt;br&gt;可以分为HDD（hard disk driver），它有传统的磁盘+控制器组成；&lt;/p&gt;
+&lt;p&gt;SSD（solid-state driver），它有memory+控制器组成，相比前者，后者没有寻轨时间，比较快；但是也有
+      
+    
+    </summary>
+    
+      <category term="计算机相关" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 中的locate命令是怎样保持更新的</title>
+    <link href="http://yoursite.com/2017/11/30/78675613/"/>
+    <id>http://yoursite.com/2017/11/30/78675613/</id>
+    <published>2017-11-30T06:13:00.000Z</published>
+    <updated>2018-03-28T08:56:32.444Z</updated>
+    
+    <content type="html"><![CDATA[<p>一句话，就是通过cron每天来跑updatedb这个命令。<br>以下是我的系统中，anacron管理的更新locate所需要的索引的脚步：</p><pre><code>nodevs1=$(&lt; /proc/filesystems awk &apos;$1 == &quot;nodev&quot; &amp;&amp; $2 != &quot;rootfs&quot; { print $2 }&apos;)/usr/bin/updatedb -f &quot;$nodevs1&quot;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一句话，就是通过cron每天来跑updatedb这个命令。&lt;br&gt;以下是我的系统中，anacron管理的更新locate所需要的索引的脚步：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nodevs1=$(&amp;lt; /proc/filesystems awk &amp;apos;$1 == &amp;q
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Google Protocol Buffer的编解码原理</title>
+    <link href="http://yoursite.com/2017/11/28/78651175/"/>
+    <id>http://yoursite.com/2017/11/28/78651175/</id>
+    <published>2017-11-28T00:46:28.000Z</published>
+    <updated>2018-03-28T08:56:32.691Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单来说，pb就是讲结构化的数据可以序列号和反序列化，而且速度比xml快。</p><p>pb的序列化数据的编码格式是 Base 128 Varints，结构中的每一个field对应序列号之后的一对键值对。<br><img src="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/image007.jpg" alt="这里写图片描述"><br>具体的key是怎么编码，value是怎么编码的，请参见以下链接。</p><p>ref:<br><a href="https://developers.google.com/protocol-buffers/docs/encoding" target="_blank" rel="noopener"> https://developers.google.com/protocol-buffers/docs/encoding</a><br><a href="https://www.sigmainfy.com/blog/protocol-buffers-encoding-and-message-structure.html" target="_blank" rel="noopener"> https://www.sigmainfy.com/blog/protocol-buffers-encoding-and-message-<br>structure.html </a></p><p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/" target="_blank" rel="noopener"> https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/</a><br><a href="http://originlee.com/2015/03/18/encoding-and-decoding-of-google-protocol-buffer/" target="_blank" rel="noopener"> http://originlee.com/2015/03/18/encoding-and-decoding-of-google-protocol-<br>buffer/ </a><br><a href="http://blog.csdn.net/Shreck66/article/details/50926276" target="_blank" rel="noopener"> http://blog.csdn.net/Shreck66/article/details/50926276</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;简单来说，pb就是讲结构化的数据可以序列号和反序列化，而且速度比xml快。&lt;/p&gt;
+&lt;p&gt;pb的序列化数据的编码格式是 Base 128 Varints，结构中的每一个field对应序列号之后的一对键值对。&lt;br&gt;&lt;img src=&quot;https://www.ibm.com/
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>怎样获得你的系统中使用的C++标准库的版本</title>
+    <link href="http://yoursite.com/2017/11/22/78604961/"/>
+    <id>http://yoursite.com/2017/11/22/78604961/</id>
+    <published>2017-11-22T08:14:35.000Z</published>
+    <updated>2018-03-28T08:56:32.976Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。<br>例如我的系统的locate输出为:</p><pre><code>$ locate libstdc++.so/xx/libstdc++.so.6/xx/libstdc++.so.6.0.13/sometool/linux-x86-64/shlib/libstdc++.so.5/usr/lib/libstdc++.so.6/usr/lib/libstdc++.so.6.0.19/usr/lib/coverity-analysis/bin/libstdc++.so/usr/lib/coverity-analysis/bin/libstdc++.so.6/usr/lib/coverity-analysis/bin/libstdc++.so.6.0.20/usr/lib/debug/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so.debug/usr/lib/debug/usr/lib64/libstdc++.so.6.0.19.debug/usr/lib/debug/usr/lib64/libstdc++.so.6.debug/usr/lib/debug/usr/lib64/libstdc++.so.debug/usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so/usr/lib/gcc/x86_64-redhat-linux/4.8.2/32/libstdc++.so/usr/lib64/libstdc++.so.6/usr/lib64/libstdc++.so.6.0.19</code></pre><p>从上面可以看出，我的系统上安装了以下版本的g++：</p><pre><code>libstdc++.so.54.8.26.0.136.0.196.0.20</code></pre><p>第一个需要使用strings命令来查找：</p><pre><code>strings /xxx/libstdc++.so.5|grep LIB  GLIBCPP_3.2GLIBCPP_3.2.1GLIBCPP_3.2.2GLIBCPP_3.2.3</code></pre><p>所以它对应的C++版本时GCC 3.3.3；<br>第二个一看就是4.8.2</p><p>后面三个，只要更具版本号就可以在下面的网址查询到，分别是：GCC 4.4.2， GCC 4.8.3， GCC 4.9.0</p><p>Note：有时候你用命令找出来的版本可以在这个网址上找不到，原因可能是你的系统是发行商自己基于某个snapshot，自己编译的。<br><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning" target="_blank" rel="noopener"> https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.versioning</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用locate找到你系统中有的libstdc++.so文件，然后看最后两个数字，然后在下面的网址中去查找就可以了。&lt;br&gt;例如我的系统的locate输出为:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ locate libstdc++.so
+/xx/libstdc++.so.6
+/
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何检查你的应用程序的ABI兼容性</title>
+    <link href="http://yoursite.com/2017/11/22/78604311/"/>
+    <id>http://yoursite.com/2017/11/22/78604311/</id>
+    <published>2017-11-22T07:34:04.000Z</published>
+    <updated>2018-03-28T08:56:33.218Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先要获得你share出去的lib的符号表：</p><pre><code>$ find . -name &apos;*.a&apos;|xargs nm -f posix|cut -f1 -d&apos; &apos;|LANG=C sort -u &gt; all_symbols$ find . -name &apos;*.so&apos;|xargs nm -f posix -D|cut -f1 -d&apos; &apos;|LANG=C sort -u &gt;&gt; all_symbols$ grep &apos;^_Z&apos; all_symbols | c++filt|sort &gt; demangled_c++_symbols</code></pre><p>然后分一下三种情况：<br>如果你的文件是空的，恭喜你了，你的lib都是C写的，不需要重新编译，是ABI兼容的。</p><p>如果你的文件中没有包含 <strong>std::</strong> 这样的字符，并且你的函数中没有一个的参数或返回值用到了标准类库中的对象，你的库有90%的就会是ABI兼容的。</p><p>如果你的文件中有包含 <strong>std::</strong> 这样的字符，或者你的函数中有一个的参数或返回值用到了标准类库中的对象，你的库有90%的就会不是ABI兼容的。</p><p><a href="https://gcc.gnu.org/wiki/Cxx11AbiCompatibility" target="_blank" rel="noopener"> https://gcc.gnu.org/wiki/Cxx11AbiCompatibility</a><br><a href="https://developers.redhat.com/blog/2015/02/05/gcc5-and-the-c11-abi/" target="_blank" rel="noopener"> https://developers.redhat.com/blog/2015/02/05/gcc5-and-the-c11-abi/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先要获得你share出去的lib的符号表：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ find . -name &amp;apos;*.a&amp;apos;|xargs nm -f posix|cut -f1 -d&amp;apos; &amp;apos;|LANG=C sort -u &amp;gt; all_sy
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mongo::client::initialize()  cause crash</title>
+    <link href="http://yoursite.com/2017/11/22/78604087/"/>
+    <id>http://yoursite.com/2017/11/22/78604087/</id>
+    <published>2017-11-22T07:26:05.000Z</published>
+    <updated>2018-03-28T08:56:33.469Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用monod的C++ driver时，使用<strong>mongo::client::initialize()</strong> 方法会导致应用程序crash。  </p><p>首先要明确一下：  </p><ol><li>mongo::client::initialize()方法是legacy driver的方法，不推荐和3.X的driver一起使用。 </li><li>C++ driver是依赖于boost的 </li></ol><p>mongo::client::initialize()方法中会使用到Option类，但是这个类在头文件中没有定义析构函数，所以就会依赖于编译器来自动推导会这是自动生成的析构函数。crash的原因是，C++的编译器在不同的情况下的推导类型不一样。</p><p>case 1</p><p>不同的g++版本推导出来的析构函数不一样。所以，如果你的应用程序是用C++11编译的，但是你的driver不是用C++11编译的，肯定会crash。<br>- For non-C++ 11 builds you typedef stdx::function<t> to be<br>boost::function<t>.<br>- For C++ 11 builds you typedef it to be std::function<t>.<br><a href="https://jira.mongodb.org/browse/CXX-558" target="_blank" rel="noopener"> https://jira.mongodb.org/browse/CXX-558</a>  </t></t></t></p><p>case 2.</p><p>应用程序的debug版本和release版本生成的析构函数也不一样。这里没有具体的去验证，只是猜想：debug的时候是-g，不会进行优化，这样会编译器会生成Option的析构函数，所以程序不会crash；<br>但是release版本时，编译器会将要隐式的析构函数drop掉，在link的时候，又发现需要这个函数，于是又生成了一个错误的，然后程序一运行就crash。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在使用monod的C++ driver时，使用&lt;strong&gt;mongo::client::initialize()&lt;/strong&gt; 方法会导致应用程序crash。  &lt;/p&gt;
+&lt;p&gt;首先要明确一下：  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;mongo::client::initi
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ABI vs API</title>
+    <link href="http://yoursite.com/2017/11/22/78603911/"/>
+    <id>http://yoursite.com/2017/11/22/78603911/</id>
+    <published>2017-11-22T07:07:56.000Z</published>
+    <updated>2018-03-28T08:56:33.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>application programming interfaces (APIs), which similarly define interfaces<br>between program components, but at the source code level.<br>是源代码级别的，每次都要编译</p><p>ABIs (which may or may not be officially standardized) is usually the job of<br>the compiler, OS or library writer, but application programmers may have to<br>deal with ABIs directly when writing programs in a mix of programming<br>languages, using foreign function call interfaces between them.<br>是binary级别的，如果两个componnet是ABI兼容的话，是可以直接调用的，不需要编译；但是如是不兼容的话，就需要从新编译两者了</p><p>ABIs cover details such as:</p><ul><li>a processor instruction set (with details like register file structure, stack organization, memory access types, …) </li><li>the sizes, layout, and alignment of basic data types the processor can directly access </li><li>the calling convention, which controls how functions’ arguments are passed and return values retrieved; for example, whether all parameters are passed on the stack or some are passed in registers, which registers are used for which function parameters, and whether the first function parameter passed on the stack is pushed first or last onto the stack </li><li>how an application should make system calls to the operating system and, if the ABI specifies direct system calls rather than procedure calls to system call stubs, the system call numbers </li><li>and in the case of a complete operating system ABI, the binary format of object files, program libraries and so on. </li></ul><p><a href="https://en.wikipedia.org/wiki/Application_binary_interface" target="_blank" rel="noopener"> https://en.wikipedia.org/wiki/Application_binary_interface</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;application programming interfaces (APIs), which similarly define interfaces&lt;br&gt;between program components, but at the source code level.
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>新版的Linux中的free命令的输出解释</title>
+    <link href="http://yoursite.com/2017/11/14/78527295/"/>
+    <id>http://yoursite.com/2017/11/14/78527295/</id>
+    <published>2017-11-14T01:53:37.000Z</published>
+    <updated>2018-03-28T08:56:34.040Z</updated>
+    
+    <content type="html"><![CDATA[<p>free是用来查看当前系统的内存使用情况的。<br>在解释之前，先要熟悉几个概念。<br>共享链接库：它的意思是一些共享的库文件，不需要每个进程都加载到内存中，每个进程可以共享它们。从而达到节省内存的目的。比如libc.</p><p>然后是Cache Pages和Buffer，以下是从Redhat的网站上抓出来的。<br>这里需要注意一点的是：它们的系统来使用的，在新版本的free中是used列中，是没有计算出来的，原因就是在系统的可用内存没有的时候，OS会释放一些Cached或Buffered的内存，给应用程序。</p><blockquote><p>Linux always tries to use RAM to speed up disk operations by using<br> available memory for buffers (file system metadata) and cache (pages<br> with actual contents of files or block devices). This helps the system<br> to run faster because disk information is already in memory which<br> saves I/O operations. If space is needed by programs or applications<br> like Oracle, then Linux will free up the buffers and cache to yield<br> memory for the applications. If your system runs for a while you will<br> usually see a small number under the field “free” on the first line.</p></blockquote><p>–</p><blockquote><p>Cache Pages:</p></blockquote><blockquote></blockquote><blockquote><p>A cache is the part of the memory which transparently stores data so<br> that future requests for that data can be served faster. This memory<br> is utilized by the kernel to cache disk data and improve i/o<br> performance.</p></blockquote><blockquote></blockquote><blockquote><p>The Linux kernel is built in such a way that it will use as much RAM<br> as it can to cache information from your local and remote filesystems<br> and disks. As the time passes over various reads and writes are<br> performed on the system, kernel tries to keep data stored in the<br> memory for the various processes which are running on the system or<br> the data that of relevant processes which would be used in the near<br> future. The cache is not reclaimed at the time when process get<br> stop/exit, however when the other processes requires more memory then<br> the free available memory, kernel will run heuristics to reclaim the<br> memory by storing the cache data and allocating that memory to new<br> process.</p></blockquote><blockquote></blockquote><blockquote><p>When any kind of file/data is requested then the kernel will look for<br> a copy of the part of the file the user is acting on, and, if no such<br> copy exists, it will allocate one new page of cache memory and fill it<br> with the appropriate contents read out from the disk.</p></blockquote><blockquote></blockquote><blockquote><p>The data that is stored within a cache might be values that have been<br> computed earlier or duplicates of original values that are stored<br> elsewhere in the disk. When some data is requested, the cache is first<br> checked to see whether it contains that data. The data can be<br> retrieved more quickly from the cache than from its source origin.</p></blockquote><blockquote></blockquote><blockquote><p>SysV shared memory segments are also accounted as a cache, though they<br> do not represent any data on the disks. One can check the size of the<br> shared memory segments using ipcs -m command and checking the bytes<br> column.</p></blockquote><blockquote></blockquote><blockquote><p>Buffers :</p></blockquote><blockquote></blockquote><blockquote><p>Buffers are the disk block representation of the data that is stored<br> under the page caches. Buffers contains the metadata of the files/data<br> which resides under the page cache. Example: When there is a request<br> of any data which is present in the page cache, first the kernel<br> checks the data in the buffers which contain the metadata which points<br> to the actual files/data contained in the page caches. Once from the<br> metadata the actual block address of the file is known, it is picked<br> up by the kernel for processing.</p></blockquote><p>我们来看看free的输出：</p><table><thead><tr><th>-</th><th>total</th><th>used</th><th>free</th><th>shared</th><th>buff/cache</th><th>available  </th></tr></thead><tbody><tr><td>Mem:</td><td>65697148</td><td>28995804</td><td>15909532</td><td>1587368</td><td>20791812</td><td></td></tr></tbody></table><p>32578364  </p><p>total ： 表示系统的总内存<br>used ： 表示应用程序已经使用的内存<br>free ： 表示当前还没有被使用的内存<br>shared ：表示共享链接库使用的内存<br>buff/cache ： 表示系统的page cache和buffer使用到的内存<br>available ： 表示应用程序还可以申请到的内存</p><p><strong>系统当前使用到的内存是：used + buff/cache，used中包含了shared。</strong></p><p><strong>所以total = used + buff/cache + free = 28995804 +20791812 + 15909532 =<br>65697148。</strong></p><p><strong>available（32578364） &lt;= free + buff/cache（15909532 + 20791812 =<br>36701344），为什么是小于呢？因为系统的一些page或cache是不能回收的。 </strong></p><blockquote><p>As of the new available field, for Linux kernels older than 2.6.27,<br> its value is the same as the free value, but for the later versions of<br> the Kernel, its a bit different:</p></blockquote><blockquote></blockquote><blockquote><p>Estimation of how much memory is available for starting new<br> applications, without swapping. Unlike the data provided by the cache<br> or free fields, this field takes into account page cache and also<br> that not all reclaimable memory slabs will be reclaimed due to items<br> being in use (MemAvailable in /proc/meminfo, available on<br> kernels 3.14, emulated on kernels 2.6.27+, otherwise the same as<br> free)</p></blockquote><p>refs：<br><a href="https://askubuntu.com/questions/770108/what-do-the-changes-in-free-output-from-14-04-to-16-04-mean" target="_blank" rel="noopener"> https://askubuntu.com/questions/770108/what-do-the-changes-in-free-output-<br>from-14-04-to-16-04-mean </a></p><p><a href="http://www.cnblogs.com/chenpingzhao/p/5161844.html" target="_blank" rel="noopener"> http://www.cnblogs.com/chenpingzhao/p/5161844.html</a></p><p><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Memory_Usage_and_Page_Cache.html" target="_blank" rel="noopener"> https://access.redhat.com/documentation/en-<br>US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-<br>Oracle_9i_and_10g_Tuning_Guide-Memory_Usage_and_Page_Cache.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;free是用来查看当前系统的内存使用情况的。&lt;br&gt;在解释之前，先要熟悉几个概念。&lt;br&gt;共享链接库：它的意思是一些共享的库文件，不需要每个进程都加载到内存中，每个进程可以共享它们。从而达到节省内存的目的。比如libc.&lt;/p&gt;
+&lt;p&gt;然后是Cache Pages和Buff
+      
+    
+    </summary>
+    
+      <category term="C/C++/Linux" scheme="http://yoursite.com/categories/C-C-Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>うわさ的一些惯用搭配</title>
+    <link href="http://yoursite.com/2017/10/18/78275152/"/>
+    <id>http://yoursite.com/2017/10/18/78275152/</id>
+    <published>2017-10-18T09:12:49.000Z</published>
+    <updated>2018-03-28T08:59:45.228Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="うわさ"><a href="#うわさ" class="headerlink" title="うわさ"></a>うわさ</h1><p>- うわさが立つ、うわさを立てる 流言四起<br>- うわさが流れる、うわさを流す 流言四起<br>- うわさがある 有流言<br>- 噂を（うわさ）すれば影（かげ） 说曹操曹操到</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;うわさ&quot;&gt;&lt;a href=&quot;#うわさ&quot; class=&quot;headerlink&quot; title=&quot;うわさ&quot;&gt;&lt;/a&gt;うわさ&lt;/h1&gt;&lt;p&gt;- うわさが立つ、うわさを立てる 流言四起&lt;br&gt;- うわさが流れる、うわさを流す 流言四起&lt;br&gt;- うわさがある 有流言&lt;br&gt;
+      
+    
+    </summary>
+    
+      <category term="日语" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AF%AD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ご馳走になる vs ご馳走する vs ご馳走様でした</title>
+    <link href="http://yoursite.com/2017/09/21/78054708/"/>
+    <id>http://yoursite.com/2017/09/21/78054708/</id>
+    <published>2017-09-21T09:29:19.000Z</published>
+    <updated>2018-03-28T08:59:45.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单的说：<br>ご馳走になる是 别人请我<br>ご馳走する 是我请别人<br>ご馳走様でした 是谢谢请客的人款待</p><hr><p>复杂的说：</p><p>食卓で食事を終えて箸を置き、「ご馳走様でした」という。<br><strong>在饭桌上吃完饭，放下筷子后，说「ご馳走様でした」</strong><br>これは無事食事を終え、命をつなぐことができたことへの感謝を口に出したものです。<br><strong>来表达我能安全无事的吃完饭，并和我的命连起来的感谢。</strong><br>だから、一人で食事をした場合でも、「ご馳走様でした」ということはあります。<br><strong>但是一个人吃法的时候，也可以说「ご馳走様でした」。</strong><br>自宅で、家族で食事をしていた場合は、その食事を用意（調理など）した人と、その食事を用意するために必要だったお<br>金を稼いできた人に対する感謝も含みます。<br><strong>在自己家里或者和家族的人一起吃法的时候，也包含对做饭人(这里的人可以是自己家里做饭的人，也可以是外面餐馆为了挣钱而做饭的人)的感谢。</strong></p><p>飲食店で、食事を終えて店を出るときに、「緒馳走様（でした）」と、料理人（姿が見えていれば）や店員に声をかけることもあります。<br><strong>在饭店吃完饭离开时，可以对做饭的人(如果能看到的话)和店员说一句「緒馳走様（でした）」。</strong><br>合理的に考えると、自分はお金を払っている客だからそんなことを言う必要はない、ということになりますが、料理を作り、もてなしをしてくれたことに対して、自分は満足しましたよ、ありがとう、という気持ちを言葉に出します。<br><strong>从常理来讲，自己花钱去吃法，不必要说这样的话。然而，给我们做饭，客气的招待我们，自己会不会觉得很满足。这个时候说出一句这样的话，来表示感谢。</strong><br>もちろん、料理がおいしくなかったり、店員の態度が悪かったりしたら、そんなことは言いません。<br><strong>当然，如果饭菜很难吃，店员的态度很差，你也可以不说。</strong></p><p>職場で上司が、「今日は私がご馳走する（＝支払いをする）から、一緒に食事に行こう。」と誘ってきたら、「ご馳走になります。」と答えます。これは、「一緒に行きます。支払いはお任せします。」という意味です。<br><strong>在公司里，如果老板说“今天我来请客，一起去吃法吧”这样的意见的话，你可以回答「ご馳走になります。」。这就是一起去，我会付款的意思。</strong><br>食事を終えて、会計を済ませた（その上司が支払った）後で、「ご馳走になりました。」とお礼をいいます。<br><strong>吃完饭后，当老板结完账后，你可以再说一遍「ご馳走になります。」，来表示感谢</strong></p><p>上司や伯父など、目上の人の家に招かれて食事をしたとき、食卓では「ご馳走様でした。」といいます。<br><strong>如果你被请到上司或者长辈的家里吃饭的话，在饭桌上你要说「ご馳走様でした。」</strong><br>ホスト・ホステスに対して、感謝の意もありますが、自分は食事を終えました、と伝える意味合いが強いと思います。<br><strong>在自己吃完饭后，对服务员也可以说。来表示感谢。</strong><br>食卓上を片付けて、デザートを出すとか、お茶を出すとかしてもいいですよ、ということになります。<br><strong>当饭桌被收拾好后，上来甜点或茶水的时候，也可以说。</strong><br>その家を辞するときに「今日は、ご馳走になりました。」といいます。ここで改めてもてなしに対して感謝の意を示すのです。<br><strong>在离开家的时候，可以说「今日は、ご馳走になりました。」。来再次表示对你款待的谢意。</strong><br>食事を終えて食卓で、「ご馳走になりました。」ということもありますが、「それでは（＝食事は終えたので）、これで帰ります。」というようなニュアンスが漂ってしまうような気がします。<br><strong>在吃完饭后，说一句「ご馳走になりました。」。在我看来就像是说，”吃完饭了，我该回家了”，的废话一样。</strong></p><p>食事をした場所（食堂）から他の部屋に移動するならそれでもいいでしょう。<br><strong>让我们从吃饭的地方挪到别的地方去吧。</strong></p><p>帰宅後に、家人に「食事（夕食）はどうしますか？（＝食べますか？）」あるいは「食事はどうしましたか？」と尋ねたれたら、「○○さんに、ご馳走になりました。」と答えます。<br><strong>回到家里后，家人问“你吃饭了吗”或者“放吃了吗”，你可以说谁谁请我吃饭了</strong><br>これは、家人が○○さんを知っており、そのことを知っておいてもらう必要がある場合です。<br><strong>这是在家人知道这个人的时候，并且有必要让家人知道请客这件事的时候</strong><br>そうではない、自分で支払った食事や、家人に内緒の相手との食事だったら、ただ「（外で）済ませてきました。」と答えます。<br><strong>如果不是这样，而是自己花钱或者是和一个不需要家人知道的人吃饭，你只需要说“在外面吃了”</strong></p><p>翌日、その上司にあったら、「昨日（昨夜）は、ご馳走様でした。」と再度、礼をいいます。<br><strong>第二天，加到上司后，说「昨日（昨夜）は、ご馳走様でした。」，表示再次感谢</strong><br>ここで「昨日は、ご馳走になりました。」というのも間違いではありませんが、私は違和感があります。<br><strong>在这里说「昨日（昨夜）は、ご馳走様でした。」没有什么问题，但是我觉得有点不协调。</strong><br>明確にどのように誤りなのかは指摘できないのですが、「ご馳走様でした。」のほうが自然だと感じます。<br><strong>但是没有什么名气的理由。说「ご馳走様でした。」反而更自然</strong></p><p>自分と相手との関係によってではなく、場面や時によって使い分けられていると思います。<br><strong>不是由于对方的关系，而是有地点和时间来决定使用什么</strong><br>ほとんどの場合は、「ご馳走様でした。」でよいと思います。<br>「ご馳走になりました。」でなければならないのは、上記の例のように、相手にではなく相手以外の第三者に答える場合だけであると思います。<br><strong>在大部分场合，使用「ご馳走様でした。」就可以了。只有在像上例中一样，当你想第三方说明，被谁谁请客的时候，才必须使用「ご馳走になりました。」</strong><br>他の例では、「ご馳走になりました」を「ご馳走様でした」に置き換えても違和感はありません。<br><strong>其他的场合两个可以相互替换</strong></p><p>強いて言えば、「ご馳走様でした」は食事の終了、「ご馳走になりました」は食事を含めたもてなし全体の完了を意味するように思います。<br><strong>换句话说，「ご馳走様でした」是吃完饭了。「ご馳走になりました」表示包括吃饭在内的所有招待都结束了。</strong><br>訪問先を辞去するときに、「ご馳走になりました」といえば、「私は帰ります。」の意を含むし、食事会を終えて店を出て、上司に「ご馳走になりました」といえば、「ここで一旦解散。」の意を含んで、帰宅する人あり、別の店に行く人あり、ということになります。<br><strong>当离开拜访者家里的时候，如果说「ご馳走になりました」，就是说我要回家了。在吃饭的时候，如果给老板说「ご馳走になりました」，意思是这里的事情一旦结束，我就要回家或者去别的地方的意思。</strong></p><p>「ご馳走様でした」はそれだけで充分に丁寧な表現だと思います。<br><strong>一句话，只要说「ご馳走様でした」就可以表现尊敬的意思的。</strong><br>refs:<br><a href="https://www.hjenglish.com/q/p371167/" target="_blank" rel="noopener"> https://www.hjenglish.com/q/p371167/ </a><br><a href="https://oshiete.goo.ne.jp/qa/8872358.html" target="_blank" rel="noopener"> https://oshiete.goo.ne.jp/qa/8872358.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;简单的说：&lt;br&gt;ご馳走になる是 别人请我&lt;br&gt;ご馳走する 是我请别人&lt;br&gt;ご馳走様でした 是谢谢请客的人款待&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;复杂的说：&lt;/p&gt;
+&lt;p&gt;食卓で食事を終えて箸を置き、「ご馳走様でした」という。&lt;br&gt;&lt;strong&gt;在饭桌上吃完饭，放下筷子后，说
+      
+    
+    </summary>
+    
+      <category term="日语" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AF%AD/"/>
+    
+    
+  </entry>
+  
+</feed>
